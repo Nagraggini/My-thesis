@@ -1,0 +1,12 @@
+/* kar */
+
+div.imp_eltetatklogo {display:none}
+div.imp_elteiklogo {display:block}
+
+table.lecke td div.kep {border:0;}
+
+/* piros*/
+
+.piros {
+	color: red;
+}

@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://msdn.microsoft.com/en-us/library/ecs0x9w5(VS.80).aspx -->
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="WT.seg_1" content="en-us"><link rel="canonical" href="https://msdn.microsoft.com/en-us/library/ecs0x9w5.aspx">
+        <title>ASP.NET Menu Control Overview</title>
+
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/ecs0x9w5(d=default,l=en-us,v=vs.80).aspx">
+
+<meta name="NormalizedUrl" content="https://msdn.microsoft.com/en-us/library/ecs0x9w5(d=default,l=en-us,v=vs.80).aspx">
+
+<meta name="ms.normalizedurl" content="https://msdn.microsoft.com/en-us/library/ecs0x9w5(d=default,l=en-us,v=vs.80).aspx">
+
+<meta name="VotingContextUrl" content="https://msdn.microsoft.com/en-us/library/ecs0x9w5(d=default,l=en-us,v=vs.80).aspx">
+
+<meta name="MN" content="EE4293C3-4:51:14 AM">
+
+<meta name="Search.ShortId" content="ecs0x9w5">
+
+<meta name="ms.shortidmsdn" content="ecs0x9w5">
+
+<meta name="Ms.Locale" content="en-us">
+
+<meta name="ms.prodver" content="VS.80">
+
+<meta name="ms.contentlang" content="EN">
+
+<meta name="ms.lang" content="EN">
+
+<meta name="ms.loc" content="US">
+
+<meta name="ms.sitever" content="2015.07.28.2">
+
+<meta name="ms.assetid" content="12fdc2d2-4e97-49e5-8391-f66224b6a7a5">
+
+<meta name="ms.auth" content="0">
+
+
+
+
+
+
+
+
+        
+    <link rel="stylesheet" type="text/css" href="./ASP.NET Menu Control Overview_files/Combined.css"><script type="text/javascript" src="./ASP.NET Menu Control Overview_files/ai.0.js" async=""></script><script class="mtps-injected">try {
+/**/
+(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { 
+	"image": "https://i-msdn.sec.s-msft.com", 
+	"js": "https://i2-msdn.sec.s-msft.com", 
+	"css": "https://i-msdn.sec.s-msft.com", 
+	"xap": "https://msdn.microsoft.com"
+});
+/**/
+} finally { MTPS._injectNextScript_0 && MTPS._injectNextScript_0(); }</script><script class="mtps-injected" src="./ASP.NET Menu Control Overview_files/jquery-1.8.2.min.js"></script><script class="mtps-injected">try {
+//
+  var literalNormalizedUrl = '/en-us/library/ecs0x9w5(l=en-us,v=vs.80).aspx';
+  var wt_nvr_ru = 'WT_NVR_RU';
+  var wt_fpcdom = '.microsoft.com';
+  var wt_domlist = 'msdn.microsoft.com';
+  var wt_pathlist = '';
+  var wt_paramlist = 'DCSext.mtps_devcenter';
+  var wt_siteid = 'MSDN';
+  var gDomain = 'm.webtrends.com';
+  var gDcsId = 'dcsmgru7m99k7mqmgrhudo0k8_8c6m';
+  var gFpc = 'WT_FPC';
+
+
+
+  if (document.cookie.indexOf(gFpc + "=") == -1) {
+    var wtidJs = document.createElement("script");
+    wtidJs.src = "//" + gDomain + "/" + gDcsId + "/wtid.js";
+    document.getElementsByTagName("head")[0].appendChild(wtidJs);
+  }
+
+
+
+  var detectedLocale = 'en-us';
+  var wtsp = 'msdnlib_devtools_lang';
+  var gTrackEvents = '0';
+/**/
+} finally { MTPS._injectNextScript_2 && MTPS._injectNextScript_2(); }</script><script class="mtps-injected">try {
+//
+
+            window.appInsightsId = '60854590-027a-4ae4-98be-2741a40f355f';
+            //
+} finally { MTPS._injectNextScript_3 && MTPS._injectNextScript_3(); }</script><script class="mtps-injected" src="./ASP.NET Menu Control Overview_files/Combined.js"></script><script class="mtps-injected" src="./ASP.NET Menu Control Overview_files/SearchBox.jss"></script><script class="mtps-injected" src="./ASP.NET Menu Control Overview_files/Combined(1).js"></script><script class="mtps-injected" src="./ASP.NET Menu Control Overview_files/jquery.tmpl.min.js"></script><script class="mtps-injected" src="./ASP.NET Menu Control Overview_files/Combined(2).js"></script><script src="./ASP.NET Menu Control Overview_files/broker.js"></script><script class="mtps-injected">try {
+$(document).ready(function() {
+        try {
+            var token = $("#globalRequestVerification input[name='__RequestVerificationToken']").clone();
+            $("#siteFeedbackForm").append(token);
+        } catch(err) {
+            
+        }
+    });
+} finally { MTPS._injectNextScript_9 && MTPS._injectNextScript_9(); }</script><link href="./ASP.NET Menu Control Overview_files/PrintView.css" rel="stylesheet" type="text/css" media="print"><script type="text/javascript" src="./ASP.NET Menu Control Overview_files/ms.js"></script></head>
+    <body class="library Chrome">
+        <div id="page">
+            
+
+            
+            
+            
+    
+
+    
+    <link type="text/css" rel="stylesheet">
+    
+    <input type="hidden" id="isHeaderBleeding" value="true">
+    <div id="ux-header" dir="ltr" class="ltr msdn" data-device-type="desktop">
+        
+
+      <header>
+        <span id="singleCol"></span>
+        <span id="doubleCol"></span>
+        <span id="isMobile"></span>
+        <div>
+          <div class="row topRow">
+            <div class="top">
+              <div class="left">
+                <a class="msdnLogoImg" href="https://msdn.microsoft.com/en-us">
+                  <div id="msft-logo" class="msft-logo"></div>
+                </a>
+                <div class="GrayPipe"></div>
+                  <a class="DevCenterFullNameNonMegaBlade" href="https://msdn.microsoft.com/en-us">Developer Network</a>
+                <a class="DevCenterFullName" href="https://msdn.microsoft.com/en-us">Developer Network</a>
+                <a class="DevCenterShortName" href="https://msdn.microsoft.com/en-us">Developer</a>
+              </div>
+              <div class="right">
+                <div id="signIn">
+
+  <img class="profileImage" src="./ASP.NET Menu Control Overview_files/profile.jpg">
+
+
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=12&ct=1439207474&rver=6.0.5276.0&wp=MCMBI&wlcxt=MSDN%24MSDN%24MSDN&wreply=https%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fecs0x9w5%2528v%3dvs.80%2529.aspx&lc=1033&id=254354&mkt=en-US" title="Sign in">Sign in</a></div>
+
+
+
+
+                <div class="auxNav">
+                  <div>
+                    <div data-fragmentname="Subscriptions" id="Fragment_Subscriptions" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="https://msdn.microsoft.com/subscriptions/manage/hh442900" id="Subscriptions_2153_1" xmlns="http://www.w3.org/1999/xhtml">MSDN subscriptions</a>
+</div>
+                    <div data-fragmentname="GetTools" id="Fragment_GetTools" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="http://go.microsoft.com/fwlink/?LinkId=309297&clcid=0x409&slcid=0x409&campaign=o~msft~msdn~gettools-header~dn308572" id="GetTools_2153_3" xmlns="http://www.w3.org/1999/xhtml">Get tools</a>
+</div>
+                  </div>
+                  <div>
+                    <div data-fragmentname="SocialLinks" id="Fragment_SocialLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="http://www.facebook.com/microsoftdeveloper" target="_blank" id="SocialLinks_2152_4" class="facebook" xmlns="http://www.w3.org/1999/xhtml">http://www.facebook.com/microsoftdeveloper</a>
+      </li>
+      <li>
+        <a href="https://twitter.com/msdev" target="_blank" id="SocialLinks_2152_5" class="twitter" xmlns="http://www.w3.org/1999/xhtml">https://twitter.com/msdev</a>
+      </li>
+      <li>
+        <a href="http://plus.google.com/111221966647232053570/" target="_blank" id="SocialLinks_2152_6" class="googlePlus" xmlns="http://www.w3.org/1999/xhtml">http://plus.google.com/111221966647232053570/</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row middleRow">
+            <div class="expandTop" style="display: none;">
+              <div class="left"></div>
+              <div class="right"></div>
+            </div>
+          </div>
+        </div>
+        <div id="buttomRowWrapper" class="bg_default">
+          <div class="row buttomRow bg_default">
+            <div class="bottom">
+              <div class="left">
+                <a id="grip" class="menu-icon" href="javascript:void(0)"></a>
+                
+                <div id="drawer">
+                  <div class="toc">
+                    
+        <nav>
+            <ul class="navL1">
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)" title="Technologies">Technologies</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/cloud-app-development-msdn" title="Cloud">Cloud</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/app-development-msdn" title="App Development">App Development</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/web-app-development-msdn" title="Web">Web</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/big-data-development-msdn" title="Data">Data</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/games-development-msdn" title="Gaming">Gaming</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)" title="Downloads">Downloads</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+                                            <a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="Visual Studio">Visual Studio</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/subscriptions" title="MSDN subscription access">MSDN subscription access</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/microsoft-sdks-msdn" title="SDKs">SDKs</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="Trial software">Trial software</a>
+
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/evalcenter" title="Free downloads">Free downloads</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/officeevaluationresources" title="Office resources">Office resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/sharepoint2013resources" title="SharePoint Server 2013 resources">SharePoint Server 2013 resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/sqlserver2014expressresources" title="SQL Server 2014 Express resources">SQL Server 2014 Express resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/windowsserver2012r2resources" title="Windows Server 2012 resources">Windows Server 2012 resources</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)" title="Programs">Programs</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+                                            <a href="https://rewards.msdn.microsoft.com/" title="Rewards">Rewards</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://www.microsoft.com/bizspark" title="Startups">Startups</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="Students">Students</a>
+
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/imagine/imagine-home" title="Microsoft Imagine">Microsoft Imagine</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/microsoftstudentpartners" title="Microsoft Student Partners">Microsoft Student Partners</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="Architects">Architects</a>
+
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/architects-overview-msdn" title="Overview">Overview</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/architects-case-studies-msdn" title="Case studies">Case studies</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/architects-blueprints-msdn" title="Blueprints">Blueprints</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="http://blogs.msdn.com/b/msarchitecture/" title="Blog">Blog</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="http://social.msdn.microsoft.com/forums/en-us/home?brandignore=true&sort=relevancedesc&searchterm=architecture+or+architect" title="Forums">Forums</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://events.msdn.microsoft.com/" title="Events">Events</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="MSDN Subscriptions">MSDN Subscriptions</a>
+
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/msdn-subscriptions-overview" title="Overview">Overview</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/benefits-overview" title="Benefits">Benefits</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/msdn-subscriptions-administration" title="Administrators">Administrators</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)" title="Community">Community</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/magazine/dd767791" title="Magazine">Magazine</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://social.msdn.microsoft.com/forums/" title="Forums">Forums</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://blogs.msdn.com/b/developer-tools/" title="Blogs">Blogs</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://tech-advisors.msdn.microsoft.com/en-us" title="Tech Advisors">Tech Advisors</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://channel9.msdn.com/" title="Channel 9">Channel 9</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive current toggle">
+                            <a href="javascript:void(0)" title="Documentation">Documentation</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive current">
+                                            <a href="https://msdn.microsoft.com/library" title="APIs and reference">APIs and reference</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/developer-centers-msdn" title="Dev centers">Dev centers</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive">
+                            <a href="https://code.msdn.microsoft.com/" title="Samples">Samples</a>
+                        </li>
+            </ul>
+        </nav>
+
+                  </div>
+                </div>
+              </div>
+              <div class="right">
+                <div data-fragmentname="SearchBox" id="Fragment_SearchBox" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="SearchBox">
+    <form id="HeaderSearchForm" name="HeaderSearchForm" method="get" class="SearchBoxOnFocus">
+      <button id="FakeHeaderSearchButton" value="Search" type="submit" class="header-search-button">
+        <div id="search-finder" class="search-finder"></div>
+      </button>
+      <button id="HeaderSearchButton" style="display:none" title="Search MSDN"></button>
+      <div id="searchSplitter"></div>
+      <div id="searchCloseIcon" class="search-clear-x"></div>
+      <div id="searchTextContainer" style="width: 0px; display: none;">
+        <input id="HeaderSearchTextBox" name="query" type="text" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" autocomplete="off">
+      <div id="SearchFlyoutContainer" style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; color: rgb(255, 255, 255); font-family: Arial; font-size: 16px; background-color: rgb(255, 255, 255);"><div id="SuggestionContainer"><ul style="list-style: none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;"></ul></div></div></div>
+    </form>
+    
+    
+  </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+    <div id="overlayMaskHeader"></div></div>
+    
+    
+
+
+
+<div id="skinnyRating">
+    <div class="rating">
+        <div id="s_ratingSection1">
+            <div class="title">
+                Was this page helpful?
+            </div>
+            <div class="description">
+                Your feedback about this content is important. Let us know what you think.
+            </div>
+            <div class="buttons">
+                <button class="button" id="s_ratingYes">Yes</button>
+                <button class="button" id="s_ratingNo">No</button>
+            </div>
+            <input id="s_ratingValue" type="hidden" value="">
+        </div>
+        <div id="s_ratingSection2">
+            <div id="s_skinnyRatingForm">
+                <div class="title">
+                    Additional feedback?
+                </div>
+                <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+                <div class="counter right">
+                    <span id="feedbackTextCounter">1500</span> characters remaining
+                </div>
+            </div>
+            <div class="buttons left">
+                <button class="button" id="s_ratingSubmit">Submit</button>
+                <button class="button" id="s_ratingSkipThis">Skip this</button>
+            </div>
+        </div>
+        <div id="s_ratingSection3" style="display: none">
+            <div class="title">
+                Thank you!
+            </div>
+            <div class="description">
+                We appreciate your feedback.
+            </div>
+        </div>
+
+        
+        <div id="contentFeedbackQAContainer" style="display: none;"></div>
+    </div>
+</div>
+
+        
+    <div class="printExportMenus ltr">
+        <a id="isd_printABook" href="https://msdn.microsoft.com/en-us/library/export/help/?returnUrl=%2fen-us%2flibrary%2fecs0x9w5(v%3dvs.80).aspx" style="display: inline;">
+            Export (<span class="count">0</span>)
+        </a>
+        <a id="isd_print" href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(d=printer,v=vs.80).aspx" rel="nofollow">
+            Print 
+        </a>
+        <a id="isd_archiveControl" style="display:none;" data-include-archive="Include Previous Version" data-exclude-archive="Exclude Previous Version">
+        </a>
+    </div>
+    
+
+        <div class="printExportMenus ltr">
+        <a id="expandCollapseAll" accesskey="e" href="javascript:void(0)" title="Expand/Collapse all sections by pressing Ctrl + Shift + e" style="display: none;">Expand All</a>
+    </div>
+
+    
+
+
+            <div id="body">
+                
+
+
+
+
+
+
+
+
+
+    <div id="leftNav" style="width: 280px; max-width: 480px; min-height: 2537px; height: auto;">
+
+
+
+
+<div id="tocnav" class="">
+
+
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(VS.80).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ms123401.aspx" id="ms310241_MSDN.10_en-us" mtpsaliasid="" mtpsassetid="5DDC0A78-6B2C-43E3-9C56-55F45C0DFFA5_MSDN.10_en-us" mtpsshortid="ms123401_MSDN.10_en-us" title="MSDN Library">MSDN Library</a>            </div>
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(VS.80).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/aa187916.aspx" id="aa187916_MSDN.10_en-us" mtpsaliasid="" mtpsassetid="MSDN|devtoolslang|$\devtoolslang.hxt@0,0_MSDN.10_en-us" mtpsshortid="aa187916_MSDN.10_en-us" title="Development Tools and Languages">Development Tools and Languages</a>            </div>
+            <div class="toclevel0  archive" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(VS.80).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ms950416.aspx" id="aa468128_MSDN.10_en-us" mtpsaliasid="" mtpsassetid="MSDN|dnanchor|~\html\vs2005anchor.htm_MSDN.10_en-us" mtpsshortid="ms950416_MSDN.10_en-us" title="Visual Studio 2005">Visual Studio 2005</a>            </div>
+            <div class="toclevel0  archive" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(VS.80).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ms269115(v=vs.80).aspx" id="ms269115_VS.80_en-us" mtpsaliasid="" mtpsassetid="VS|_vs80|$\_vs80.hxt@0,0_VS.80_en-us" mtpsshortid="ms269115_VS.80_en-us" title="Visual Studio">Visual Studio</a>            </div>
+            <div class="toclevel0  archive" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(VS.80).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ms178093(v=vs.80).aspx" id="ms269120_VS.80_en-us" mtpsaliasid="" mtpsassetid="2294d222-f117-459d-8867-44e7d616f67c_VS.80_en-us" mtpsshortid="ms178093_VS.80_en-us" title="Visual Web Developer">Visual Web Developer</a>            </div>
+            <div class="toclevel0  archive" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(VS.80).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/bs302eat(v=vs.80).aspx" id="ms306611_VS.80_en-us" mtpsaliasid="" mtpsassetid="3058c812-ecc0-4165-8dd0-26303ead58b7_VS.80_en-us" mtpsshortid="bs302eat_VS.80_en-us" title="Web Server Controls">Web Server Controls</a>            </div>
+            <div class="toclevel0  archive" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(VS.80).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/6844y62y(v=vs.80).aspx" id="ms306626_VS.80_en-us" mtpsaliasid="" mtpsassetid="f1878576-b4a0-4247-92ee-5667b0c98521_VS.80_en-us" mtpsshortid="6844y62y_VS.80_en-us" title="Individual Web and HTML Controls">Individual Web and HTML Controls</a>            </div>
+            <div class="toclevel0  archive" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(VS.80).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/c4hb2k3a(v=vs.80).aspx" id="ms307149_VS.80_en-us" mtpsaliasid="" mtpsassetid="e6ccadc7-35dd-41bb-8151-ce43914a09fc_VS.80_en-us" mtpsshortid="c4hb2k3a_VS.80_en-us" title="Navigation Controls">Navigation Controls</a>            </div>
+            <div class="toclevel1  archive" data-toclevel="1" data-childrenloaded="true" style="padding-left: 17px;">
+<a class="toc_expanded" href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(VS.80).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/2xt3t8a7(v=vs.80).aspx" id="ms307151_VS.80_en-us" mtpsaliasid="" mtpsassetid="e7be6ed1-44e4-46ad-82c1-1bcf4925c8a9_VS.80_en-us" mtpsshortid="2xt3t8a7_VS.80_en-us" title="Menu Web Server Control (Visual Studio)">Menu Web Server Control (Visual Studio)</a>            </div>
+            <div class="toclevel2 current  archive" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-US/library/ecs0x9w5(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ASP.NET Menu Control Overview">ASP.NET Menu Control Overview</a>            </div>
+            <div class="toclevel2  archive" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-US/library/305w735z(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Walkthrough: Displaying a Menu on Web Pages">Walkthrough: Displaying a Menu on Web Pages</a>            </div>
+            <div class="toclevel2  archive" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-US/library/16yk5dby(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Walkthrough: Controlling ASP.NET Menus Programmatically">Walkthrough: Controlling ASP.NET Menus Programmatically</a>            </div>
+            <div class="toclevel2  archive" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-US/library/ms366731(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Using CSS and Styles with the Menu Control">Using CSS and Styles with the Menu Control</a>            </div>
+            <div class="toclevel2  archive" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-US/library/ms366712(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Using Images with the Menu Control">Using Images with the Menu Control</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew"></div>
+        
+
+<a id="NavigationResize" href="javascript:void(0)" style="left: 280px; display: inline-block;">
+    <img class="cl_nav_resize_open" src="./ASP.NET Menu Control Overview_files/ImageSprite.png" title="Expand" alt="Expand">
+    <img class="cl_nav_resize_close" src="./ASP.NET Menu Control Overview_files/ImageSprite.png" title="Minimize" alt="Minimize" style="display: none;">
+</a>
+
+
+
+    </div>
+<div id="content" class="content" style="margin-left: 280px; width: auto;">
+
+
+
+
+
+
+
+    <table>
+        <tbody>
+            <tr>
+                <td style="background-color: #00aef0">Important</td>
+                <td style="background-color: #e2e2e2;">This document may not represent best practices for current development, links to downloads and other resources may no longer be valid. Current recommended version can be found here. <a class="cl_IC128933" href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(v=vs.140).aspx" style="display:inline-block"></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">
+            ASP.NET Menu Control Overview
+          </h1>
+  
+  <div class="lw_vs">
+    <div id="curversion">
+      <strong>
+            Visual Studio 2005
+        </strong>
+    </div>
+    <div id="versionclick">
+      <div id="vsseperator" class="cl_lw_vs_seperator"></div>
+      <div>
+        <div>
+          <a id="vsLink" href="javascript:;">
+                        Other Versions
+                    </a>
+        </div>
+        <div class="cl_vs_arrow clip10x10">
+          <img class="cl_lw_vs_arrow" id="vsArrow" alt="" src="./ASP.NET Menu Control Overview_files/ImageSprite.png">
+        </div>
+      </div>
+      <ul id="vsPanel" style="display: none;">
+        <li>
+          <a href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(v=vs.100).aspx">.NET Framework 4</a>
+        </li>
+        <li>
+          <a href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(v=vs.90).aspx">Visual Studio 2008</a>
+        </li>
+        <li>
+          <a href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(v=vs.85).aspx">.NET Framework 3.0</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+  
+  <div id="mainSection">
+      <div id="mainBody">
+        
+        <p></p>
+  
+    <p>The ASP.NET <span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.menu(v=vs.80).aspx">Menu</a></span> control allows you to develop both statically and dynamically displayed menus for your ASP.NET Web pages. You can configure the contents of the <strong>Menu</strong> control directly in the control, or you can specify the contents by binding the control to a data source.</p>
+    <p>Without writing any code, you can control the appearance, orientation, and content of an ASP.NET <strong>Menu</strong> control. In addition to the visual properties exposed by the control, the control supports ASP.NET control skins and themes. For more information on skins and themes, see <span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/ykzx33wh(v=vs.80).aspx">ASP.NET Themes and Skins Overview</a></span>.</p>
+  <h1 class="heading">Static Display and Dynamic Display</h1><div id="sectionSection0" class="seeAlsoNoToggleSection">
+      <p>The <strong>Menu</strong> control has two modes of display: static and dynamic. Static display means that the <strong>Menu</strong> control is fully expanded all the time. The entire structure is visible, and a user can click on any part. In a dynamically displayed menu, only the portions you specify are static, while their child menu items are displayed when the user holds the mouse pointer over the parent node.</p>
+    
+      <h3 class="subHeading">Static Display Behavior</h3><div class="subSection">
+          <p>You can control static display behavior by using the <span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.menu.staticdisplaylevels(v=vs.80).aspx">StaticDisplayLevels</a></span> property of the <strong>Menu</strong> control. The <strong>StaticDisplayLevels</strong> property indicates how many levels to display statically from the root of the menu. For example, if <strong>StaticDisplayLevels</strong> is set to 3, your menu will be expanded to statically display its first three levels. The minimum static display level is 1, and the control will throw an exception if the value is set to 0 or a negative number.</p>
+        </div>
+      <h3 class="subHeading">Dynamic Display Behavior</h3><div class="subSection">
+          <p>The <span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.menu.maximumdynamicdisplaylevels(v=vs.80).aspx">MaximumDynamicDisplayLevels</a></span> property specifies how many levels of dynamically appearing menu nodes should be displayed after the static display level. For example, if your menu has a static level of 3 and a dynamic level of 2, the first three levels of your menu would be statically displayed, while the next two levels would be dynamic.</p>
+          <p>If <strong>MaximumDynamicDisplayLevels</strong> is set to 0, no menu nodes will be dynamically displayed. If the <strong>MaximumDynamicDisplayLevels</strong> is set to a negative number, an exception is thrown.</p>
+        </div>
+    </div><h1 class="heading">Defining Menu Content</h1><div id="sectionSection1" class="seeAlsoNoToggleSection">
+      <p>You can define content for the <strong>Menu</strong> control in two ways: by adding individual <span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.menuitem(v=vs.80).aspx">MenuItem</a></span> objects (declaratively or programmatically), and by data binding the control to an XML data source.</p>
+    
+      <h3 class="subHeading">Adding Menu Items Manually</h3><div class="subSection">
+          <p>You can add individual menu items to the control by specifying them in the <span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.menu.items(v=vs.80).aspx">Items</a></span> property. The <strong>Items</strong> property is a collection of <strong>MenuItem</strong> objects. The following example shows the declarative markup for a <strong>Menu</strong> control with three items, each of which has two child items:</p>
+          
+<div id="code-snippet-1" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_6a74ec1a-d7af-43d0-a859-02c4588473db');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_6a74ec1a-d7af-43d0-a859-02c4588473db" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>&lt;asp:Menu ID="Menu1" runat="server" StaticDisplayLevels="3"&gt;
+  &lt;Items&gt;
+    &lt;asp:MenuItem Text="File" Value="File"&gt;
+      &lt;asp:MenuItem Text="New" Value="New"&gt;&lt;/asp:MenuItem&gt;
+      &lt;asp:MenuItem Text="Open" Value="Open"&gt;&lt;/asp:MenuItem&gt;
+    &lt;/asp:MenuItem&gt;
+    &lt;asp:MenuItem Text="Edit" Value="Edit"&gt;
+      &lt;asp:MenuItem Text="Copy" Value="Copy"&gt;&lt;/asp:MenuItem&gt;
+      &lt;asp:MenuItem Text="Paste" Value="Paste"&gt;&lt;/asp:MenuItem&gt;
+    &lt;/asp:MenuItem&gt;
+    &lt;asp:MenuItem Text="View" Value="View"&gt;
+      &lt;asp:MenuItem Text="Normal" Value="Normal"&gt;&lt;/asp:MenuItem&gt;
+      &lt;asp:MenuItem Text="Preview" Value="Preview"&gt;&lt;/asp:MenuItem&gt;
+    &lt;/asp:MenuItem&gt;
+  &lt;/Items&gt;
+&lt;/asp:Menu&gt;
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+
+        </div>
+      <h3 class="subHeading">Data Binding to an XML Data Source</h3><div class="subSection">
+          <p>Binding to an XML file allows you to control the menu's content through edits to the file, rather than by using the designer. This allows you to update the navigational aspect of your site without revisiting the <strong>Menu</strong> control or editing any code. If you have a site with changing content, an XML file can be used to organize the content, and fed to the <strong>Menu</strong> control to make sure the content is accessible to users of the Web site.</p>
+        </div>
+    </div><h1 class="heading">Appearance and Behavior</h1><div id="sectionSection2" class="seeAlsoNoToggleSection">
+      <p>You can adjust the behavior of the <strong>Menu</strong> control through its properties. Additionally, you can control the behavior of dynamic display, including the amount of time a menu node remains visible once it is displayed. For example, to change the <strong>Menu</strong> orientation from horizontal to vertical, you can set the <span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.menu.orientation(v=vs.80).aspx">Orientation</a></span> property as follows:</p>
+      <p>[Visual Basic]</p>
+      <p><code>Menu.Orientation = Orientation.Vertical</code></p>
+      <p>[C#]</p>
+      <p><code>Menu.Orientation = Orientation.Vertical;</code></p>
+      <p>Setting the property to <code>Orientation.Horizontal</code> changes the orientation back to horizontal.</p>
+      <p>You can set individual properties of the <strong>Menu</strong> control to specify the size, color, font, and other characteristics of its appearance. In addition, you can apply skins and themes to the <strong>Menu</strong> control.</p>
+    
+      <h3 class="subHeading">Style</h3><div class="subSection">
+          <p>Each menu level supports style properties. If no dynamic style properties are set, the static style properties are used. If dynamic style properties are set and no static style properties are set, the default rendering of static style properties is used. The <strong>Menu</strong> control style hierarchy is as follows:</p>
+          <ol><li>
+              <p>Control</p>
+            </li><li>
+              <p><span class="parameter">SubMenuStyles</span></p>
+            </li><li>
+              <p><span class="parameter">MenuItemStyles</span></p>
+            </li><li>
+              <p><span class="parameter">SelectedItemStyles</span></p>
+            </li><li>
+              <p><span class="parameter">HoverMenuItemStyles</span></p>
+            </li></ol>
+          <p>These styles are merged across dynamic and static menus by using the following logic:</p>
+          <ul><li>
+              <p>Each individual style is applied to the appropriate action or item type.</p>
+            </li><li>
+              <p>All styles are a merged into the style preceding them in the hierarchy, with the last style overriding.</p>
+              <div class="alert"><table><tbody><tr><th><img id="note" alt="Note" src="./ASP.NET Menu Control Overview_files/clear.gif" title="Note" xmlns="" class="cl_IC103139">Note </th></tr><tr><td>
+                <p>Static menus never merge and dynamic style is applied if a static style is not defined.</p>
+              </td></tr></tbody></table></div>
+            </li></ul>
+        </div>
+      <h3 class="subHeading">Dynamic Appearance Timing</h3><div class="subSection">
+          <p>One aspect of a dynamic menu is the amount of time it takes for the dynamically appearing portion of a menu to disappear. This value is configurable in milliseconds by adjusting the <span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.menu.disappearafter(v=vs.80).aspx">DisappearAfter</a></span> property as follows:</p>
+          <p>[Visual Basic]</p>
+          <p><code>Menu.DisappearAfter = 1000</code></p>
+          <p>
+          </p>
+          <p>[C#]</p>
+          <p><code>Menu.DisappearAfter = 1000;</code></p>
+          <p>The default value is 500 milliseconds. If the value of <strong>DisappearAfter</strong> is set to 0, pausing outside of the <strong>Menu</strong> control causes it to disappear immediately. Setting the value to -1 indicates that the pause time should be infinite, and only by clicking outside of the <strong>Menu</strong> control will the dynamic portion vanish.</p>
+        </div>
+    </div><h1 class="heading"><span id="seeAlsoNoToggle">See Also</span></h1><div id="seeAlsoSection" class="seeAlsoNoToggleSection"><h4 class="subHeading">Reference</h4><span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.menu(v=vs.80).aspx">Menu</a></span><br><br></div></div>
+      
+    </div>
+</div>
+
+
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community Additions</h2>
+                <a class="communityContentAddLink" href="https://msdn.microsoft.com/en-us/library/community/add/ecs0x9w5(v=vs.80).aspx">
+                    <span class="communityContentAddButton" title="Add">
+                        ADD
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" data-url="/en-us/library/community/comments/ecs0x9w5(v=vs.80).aspx"><div class="communityContentAnnotation">         <a name="9"></a>         <h3>             Can we write a text exctly in front of menu..... if s then how, if no then why we cant explain         </h3>         <div class="communityContentAnnotationBody">             <br><br>Can we write a text exctly in front of menu..... if s then how, if no then why we cant explain<br><br><br>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/don%20izz%20back/" title="" class="communityContentAnnotationAvatar"><img src="./ASP.NET Menu Control Overview_files/avatar.jpg" alt="" width="34" height="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/don%20izz%20back/">                         Don Izz Back                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>2/9/2012</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="10"></a>         <h3>             Can we write a text exctly in front of menu..... if s then how, if no then why we cant explain         </h3>         <div class="communityContentAnnotationBody">             Can we write a text exctly in front of menu..... if s then how, if no then why we cant explainre.         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/don%20izz%20back/" title="" class="communityContentAnnotationAvatar"><img src="./ASP.NET Menu Control Overview_files/avatar.jpg" alt="" width="34" height="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/don%20izz%20back/">                         Don Izz Back                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>2/9/2012</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="8"></a>         <h3>             Simple Tab menu on 1 level for only a few pages         </h3>         <div class="communityContentAnnotationBody">             <p>Hi<br><br><br>I'm attempting to misuse the Menu Control just for sub-navigation of 5 web pages - without any sitemap (using images for the tabs).<br><br><br>It almost works - but chokes on the first item (I suspect because of only having 1 level?) - I probably just haven't set something.<br><br><br>Sorry - I'm a .Net newbie.<br><br><br>Here's what I have<br><br><br>&lt;%&nbsp;&nbsp;If&nbsp;Session("IUO")&nbsp;=&nbsp;"I"&nbsp;Then%&gt;<br><br>&lt;asp:Menu&nbsp;ID="MenuOV1"&nbsp;runat="server"&nbsp;Width="725"&nbsp;Orientation="Horizontal"&nbsp;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StaticEnableDefaultPopOutImage="False"&nbsp;MaximumDynamicDisplayLevels="0"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Items&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>&lt;asp:MenuItem&nbsp;ImageUrl="~/Images/OverviewS.jpg"&nbsp;Selected="False"&nbsp;ToolTip="Overview"&nbsp;Selectable="False"&gt;&lt;/asp:MenuItem&gt;&nbsp;&nbsp;&nbsp;<br><br>&lt;asp:MenuItem&nbsp;ImageUrl="~/Images/NCLNA.jpg"&nbsp;&gt;&lt;/asp:MenuItem&gt;&nbsp;<br><br>&lt;asp:MenuItem&nbsp;ImageUrl="~/Images/PDNA.jpg"&nbsp;&gt;&lt;/asp:MenuItem&gt;&nbsp;&nbsp;<br><br>&lt;asp:MenuItem&nbsp;ImageUrl="~/Images/DirNA.jpg"&nbsp;&gt;&lt;/asp:MenuItem&gt;&nbsp;&nbsp;<br><br>&lt;asp:MenuItem&nbsp;ImageUrl="~/Images/CourtNA.jpg"&nbsp;&gt;&lt;/asp:MenuItem&gt;&nbsp;&nbsp;<br><br>&lt;/Items&gt;<br><br>&lt;/asp:Menu&gt;<br><br>&lt;%&nbsp;Else%&gt;<br><br>&lt;asp:Menu&nbsp;ID="MenuOV2"&nbsp;runat="server"&nbsp;Width="725"&nbsp;Orientation="Horizontal"&nbsp;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StaticEnableDefaultPopOutImage="False"&nbsp;MaximumDynamicDisplayLevels="0"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Items&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>&lt;asp:MenuItem&nbsp;ImageUrl="~/Images/OverviewS.jpg"&nbsp;Selected="False"&gt;&lt;/asp:MenuItem&gt;&nbsp;&nbsp;&nbsp;<br><br>&lt;asp:MenuItem&nbsp;ImageUrl="~/Images/NCL.jpg"&nbsp;&nbsp;NavigateUrl="NCL.aspx"&nbsp;&gt;&lt;/asp:MenuItem&gt;&nbsp;<br><br>&lt;asp:MenuItem&nbsp;ImageUrl="~/Images/PD.jpg"&nbsp;&nbsp;NavigateUrl="PD.aspx"&nbsp;&gt;&lt;/asp:MenuItem&gt;&nbsp;&nbsp;<br><br>&lt;asp:MenuItem&nbsp;ImageUrl="~/Images/Dir.jpg"&nbsp;&nbsp;NavigateUrl="Dir.aspx"&nbsp;&gt;&lt;/asp:MenuItem&gt;&nbsp;&nbsp;<br><br>&lt;asp:MenuItem&nbsp;ImageUrl="~/Images/Court.jpg"&nbsp;&nbsp;NavigateUrl="Court.aspx"&nbsp;&gt;&lt;/asp:MenuItem&gt;<br><br>&lt;/Items&gt;<br><br>&lt;/asp:Menu&gt;<br><br>&lt;%&nbsp;End&nbsp;If%&gt;<br><br><br><br><br><br>The error I get makes NO sense to me?<br><br><br><br><br><br>Object required<br><br><br>if&nbsp;(this.element.tagName&nbsp;===&nbsp;'DIV')&nbsp;{<br><br><br>is highlighted in the extract from the system generated JavaScript below. <br><br>(But I'm using VB.Net - Framework 4.0 - so, DIV should be div - but I have no div and can't see where to introduce one?)<br><br><br><br>if&nbsp;(!window.Sys)&nbsp;{&nbsp;window.Sys&nbsp;=&nbsp;{};&nbsp;}<br><br>if&nbsp;(!Sys.WebForms)&nbsp;{&nbsp;Sys.WebForms&nbsp;=&nbsp;{};&nbsp;}<br><br>Sys.WebForms.Menu&nbsp;=&nbsp;function(options)&nbsp;{<br><br>&nbsp;&nbsp;&nbsp;&nbsp;this.items&nbsp;=&nbsp;[];<br><br>&nbsp;&nbsp;&nbsp;&nbsp;this.depth&nbsp;=&nbsp;options.depth&nbsp;||&nbsp;1;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;this.parentMenuItem&nbsp;=&nbsp;options.parentMenuItem;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;this.element&nbsp;=&nbsp;Sys.WebForms.Menu._domHelper.getElement(options.element);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(this.element.tagName&nbsp;===&nbsp;'DIV')&nbsp;{<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;containerElement&nbsp;=&nbsp;this.element;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.element&nbsp;=&nbsp;Sys.WebForms.Menu._domHelper.firstChild(containerElement);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.element.tabIndex&nbsp;=&nbsp;options.tabIndex&nbsp;||&nbsp;0;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options.element&nbsp;=&nbsp;containerElement;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options.menu&nbsp;=&nbsp;this;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.container&nbsp;=&nbsp;new&nbsp;Sys.WebForms._MenuContainer(options);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sys.WebForms.Menu._domHelper.setFloat(this.element,&nbsp;this.container.rightToLeft&nbsp;?&nbsp;"right"&nbsp;:&nbsp;"left");<br><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;{<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.container&nbsp;=&nbsp;options.container;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.keyMap&nbsp;=&nbsp;options.keyMap;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<br><br><br>Perhaps I'm just being stupid, but I can't see how to get around this?<br><br><br>Thanx 4 ur help!<br><br><br>Alan<br><br><br><br><br></p><br><h3>UPDATE</h3><br><p>I eventually sorted this one out myself.<br><br><br>Would you believe that the "error" above is a bug in M$'s rendition of the Javascript to render the "List" layout option for the Menu Control?<br><br><br>Changing only the layout option to old fashioned "Table" solved the problem and the Menu Control then worked perfectly, without any "errors"!<br><br></p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/mediumsa/" title="" class="communityContentAnnotationAvatar"><img src="./ASP.NET Menu Control Overview_files/avatar(1).jpg" alt="" width="34" height="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/mediumsa/">                         MediumSA                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>8/12/2011</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="5"></a>         <h3>             PRIT49         </h3>         <div class="communityContentAnnotationBody">             PPP         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/prit49/" title="" class="communityContentAnnotationAvatar"><img src="./ASP.NET Menu Control Overview_files/avatar(2).jpg" alt="" width="34" height="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/prit49/">                         prit49                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>7/19/2011</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="4"></a>         <h3>             Problem         </h3>         <div class="communityContentAnnotationBody">             Is there any way to prevent default js file attached to this control by asp.net itself. It messes up my design.<br><br>Thanks.         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/atarikg/" title="" class="communityContentAnnotationAvatar"><img src="./ASP.NET Menu Control Overview_files/avatar(3).jpg" alt="" width="34" height="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/atarikg/">                         atarikg                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>1/11/2011</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="3"></a>         <h3>             Attaching JavaScript function to a menu item         </h3>         <div class="communityContentAnnotationBody">             Is there a way to attach javascript function to the menu items programatically? I want to show a JQuery confirmation box when few of the menu items are clicked.<br><br><br>Thanks,<br><br>Vinodh         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/vinodh%20mylvaganam/" title="" class="communityContentAnnotationAvatar"><img src="./ASP.NET Menu Control Overview_files/avatar(4).jpg" alt="" width="34" height="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/vinodh%20mylvaganam/">                         Vinodh Mylvaganam                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>9/23/2010</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="7"></a>         <h3>             Re: Re: BinScope Overview and Demo         </h3>         <div class="communityContentAnnotationBody">             <p>Like the<br>buffer overflow weaknesses are often used by malware authors to exploit<br>and use for remote code execution attack that can result in the<br>application instlasi malware.</p><br><p><br>  <a href="http://www.cables-leads.co.uk/scart-to-usb-2-0-video-capture-kit/">SCART to USB</a> | <a href="http://kohsamuivillas.biz/">Samui Villas</a></p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/vivek091/" title="" class="communityContentAnnotationAvatar"><img src="./ASP.NET Menu Control Overview_files/avatar(5).jpg" alt="" width="34" height="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/vivek091/">                         vivek091                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>2/20/2010</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="6"></a>         <h3>             Re: How Microsoft Reduces Operational Risk through Business Continuity Management         </h3>         <div class="communityContentAnnotationBody">             <p>Very informative !</p><br><p>&nbsp;</p><br><p><br>  <a href="http://www.1recuperationdedonnees.com/">Récuperation<br>de données</a> | <a href="http://www.1recuperationdefichiers.com/">Récupération<br>de fichiers</a> | <a href="http://www.1reparationdedisquesdurs.com/">Réparation<br>de disques durs</a> | <a href="http://www.recuperationdedisquesdurs.com/">Récupération<br>de disques durs</a> | <a href="http://www.11datarecovery.com/">Data recovery</a><br>| <a href="http://www.dafotec.com/">DAFOTEC</a><a href="http://www.dafotec.fr/">Récupération<br>de données</a> | <a href="http://www.recuperationdedonneesinformatiques.com/">Récupération<br>de données informatiques</a> | <a href="http://www.1recuperationdedonneesdisquesdurs.com/">Récupération de<br>données sur disques durs</a></p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/thecos/" title="" class="communityContentAnnotationAvatar"><img src="./ASP.NET Menu Control Overview_files/avatar(6).jpg" alt="" width="34" height="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/thecos/">                         thecos                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>2/20/2010</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="2"></a>         <h3>             Opening link in new window         </h3>         <div class="communityContentAnnotationBody">             <p>To have a menu link built from web.sitemap open in new window:</p><br><p>In asp.net page add OnMenuItemDataBound event:</p><br><p>&lt;asp:Menu ID="mnuFooter" runat="server" <br>DataSourceID="SiteMapDataSource1"<br>OnMenuItemDataBound="mnuFooter_MenuItemDataBound"&gt;<br>&lt;/asp:Menu&gt;</p><br><p>In web.sitemap, add a ? character to the url:</p><br><p><br>  <br>&lt;siteMapNode title="Privacy Policy" url="http://www.yousitename.com/Privacy_Policy.htm?" roles="*"/&gt;</p><br><p>In code behind, capture the MenuItemDataBound event:</p><br><p>protected void mnuFooter_MenuItemDataBound(Object sender, MenuEventArgs e)<br>{<br>if (e.Item.NavigateUrl.Contains("?"))<br>{<br>e.Item.Target = "_blank";<br>}<br>}</p><br><p>Any url in the web.sitemap that contains a ? will open in a new window. Note, use any other valid url character in place of the ? if necessary.</p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="https://social.msdn.microsoft.com/profile/mielniczuk/" title="" class="communityContentAnnotationAvatar"><img src="./ASP.NET Menu Control Overview_files/avatar(7).jpg" alt="" width="34" height="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="https://social.msdn.microsoft.com/profile/mielniczuk/">                         mielniczuk                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>8/28/2008</span>                                                                                 </div>             </div>         </div>     </div></div>
+</div>
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit">Inherited
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected">Protected
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings.">
+
+
+ 
+</div>
+
+
+            </div>
+            <div class="clear"></div>
+
+            
+    
+<input name="__RequestVerificationToken" type="hidden" value="DNszhDkO-n-OsZk8MhUZE9hqgorZznYTJsODVzp1uKaRsJACauQMHIqEnD2Ej7S7wmOhUG3uvoH3hNxsxJVlygocINY1">
+<input id="ratingSubmitUrl" type="hidden" value="https://msdn.microsoft.com/en-us/library/feedback/add/ecs0x9w5(v=vs.80).aspx">
+<input id="isTopicRated" type="hidden" value="false">
+
+
+    
+
+    
+    <link type="text/css" rel="stylesheet">
+    
+    <div id="ux-footer" class="" style="" dir="ltr">
+            
+            <div id="footerSock" class="librarySock both">
+                <div id="footerSockInner">
+                        <a name="feedback"></a>
+
+<div class="rating">
+    <div id="ratingSection1">
+        <div class="title">
+            Was this page helpful?
+        </div>
+        <div class="description">
+            Your feedback about this content is important.<br>Let us know what you think.
+        </div>
+        <div class="buttons">
+            <button class="button" id="ratingYes">Yes</button>
+            <button class="button" id="ratingNo">No</button>
+        </div>
+        <input id="ratingValue" type="hidden" value="">
+    </div>
+    <div id="ratingSection2">
+        <div class="title">
+            Additional feedback?
+        </div>
+        <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+        <div class="counter right">
+            <span id="feedbackTextCounter">1500</span> characters remaining
+        </div>
+        <div class="buttons left">
+            <button class="button" id="ratingSubmit">Submit</button>
+            <button class="button" id="ratingSkipThis">Skip this</button>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            Thank you!
+        </div>
+        <div class="description">
+            We appreciate your feedback.
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+    
+                    <div class="userVoice">
+    <div class="title">
+        Have a suggestion to improve MSDN Library?
+    </div>
+        <div class="description">
+            Visit our UserVoice Page to submit and vote on ideas!
+        </div>
+    <div class="buttons">
+        <a class="button" id="userVoiceButton" href="http://feedback.msdn.com/forums/257782-msdn-feature-suggestions/category/83975" target="_blank">Make a suggestion</a>
+    </div>
+</div>  
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        <footer class="top">
+            <div data-fragmentname="LeftLinks" id="Fragment_LeftLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Dev centers</div>
+    <ul class="links">
+      <li>
+        <a href="https://dev.windows.com/" id="LeftLinks_2148_1" class="windowsBlue" xmlns="http://www.w3.org/1999/xhtml">Windows</a>
+      </li>
+      <li>
+        <a href="http://dev.office.com/" id="LeftLinks_2148_3" class="office" xmlns="http://www.w3.org/1999/xhtml">Office</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/vstudio" id="LeftLinks_2148_4" class="visualStudio" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+      </li>
+      <li>
+        <a href="http://azure.microsoft.com/en-us/documentation/" target="_blank" id="LeftLinks_2148_12" xmlns="http://www.w3.org/1999/xhtml">Microsoft Azure</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/aa937802" id="LeftLinks_2148_5" xmlns="http://www.w3.org/1999/xhtml">More...</a>
+      </li>
+    </ul>
+  </div>
+</div>    
+            <div id="rightLinks">
+                <div data-fragmentname="CenterLinks1" id="Fragment_CenterLinks1" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Learning resources</div>
+    <ul class="links">
+      <li>
+        <a href="http://www.microsoftvirtualacademy.com/" id="CenterLinks1_2151_4" xmlns="http://www.w3.org/1999/xhtml">Microsoft Virtual Academy</a>
+      </li>
+      <li>
+        <a href="http://channel9.msdn.com/" id="CenterLinks1_2151_5" xmlns="http://www.w3.org/1999/xhtml">Channel 9</a>
+      </li>
+      <li>
+        <a href="http://www.interoperabilitybridges.com/" id="CenterLinks1_2151_6" xmlns="http://www.w3.org/1999/xhtml">Interoperability Bridges</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/magazine/" id="CenterLinks1_2151_7" xmlns="http://www.w3.org/1999/xhtml">MSDN Magazine</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks2" id="Fragment_CenterLinks2" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Community</div>
+    <ul class="links">
+      <li>
+        <a href="https://social.msdn.microsoft.com/forums/en-us/home" id="CenterLinks2_2151_8" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+      </li>
+      <li>
+        <a href="http://blogs.msdn.com/b/developer-tools/" id="CenterLinks2_2151_9" xmlns="http://www.w3.org/1999/xhtml">Blogs</a>
+      </li>
+      <li>
+        <a href="http://www.codeplex.com/" id="CenterLinks2_2151_10" xmlns="http://www.w3.org/1999/xhtml">Codeplex</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks3" id="Fragment_CenterLinks3" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Support</div>
+    <ul class="links">
+      <li>
+        <a href="https://msdn.microsoft.com/hh361695" id="CenterLinks3_2151_11" xmlns="http://www.w3.org/1999/xhtml">Self support</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks4" id="Fragment_CenterLinks4" xmlns="http://www.w3.org/1999/xhtml" class="nth-child-4n">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Programs</div>
+    <ul class="links">
+      <li>
+        <a href="https://www.microsoft.com/bizspark/" id="CenterLinks4_2151_13" xmlns="http://www.w3.org/1999/xhtml">BizSpark (for startups)</a>
+      </li>
+      <li>
+        <a href="https://www.dreamspark.com/" id="CenterLinks4_2151_14" xmlns="http://www.w3.org/1999/xhtml">DreamSpark</a>
+      </li>
+      <li>
+        <a href="http://www.imaginecup.com/" id="CenterLinks4_2151_17" xmlns="http://www.w3.org/1999/xhtml">Imagine Cup</a>
+      </li>
+    </ul>
+  </div>
+</div>                
+            </div>
+        </footer>
+    
+        <footer class="bottom">
+            <span class="localeContainer">
+                
+    <form class="selectLocale" id="selectLocaleForm" action="https://msdn.microsoft.com/en-us/selectlocale-dmc">
+        <input type="hidden" name="fromPage" value="https%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fecs0x9w5(v%3dvs.80).aspx">
+        <a href="https://msdn.microsoft.com/en-us/library/ecs0x9w5(VS.80).aspx#" onclick="$(&#39;#selectLocaleForm&#39;).submit();return false;" title="Change your language">United States (English)</a>
+    </form>
+
+
+            </span>
+        
+            <div data-fragmentname="BottomLinks" id="Fragment_BottomLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="https://msdn.microsoft.com/newsletter.aspx" id="BottomLinks_2148_7" xmlns="http://www.w3.org/1999/xhtml">Newsletter</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/dn529288" id="BottomLinks_2148_8" xmlns="http://www.w3.org/1999/xhtml">Privacy &amp; cookies</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/cc300389" id="BottomLinks_2148_9" xmlns="http://www.w3.org/1999/xhtml">Terms of use</a>
+      </li>
+      <li>
+        <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" id="BottomLinks_2148_10" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+    </ul>
+  </div>
+</div>    
+            <span class="logoLegal">
+                <span class="logo"></span>
+                <span class="copyright">© 2015 Microsoft</span>
+            </span>
+        </footer>
+    </div>
+    
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">© 2015 Microsoft</div>
+            </div>
+
+            
+            
+    
+    
+    <input id="tocPaddingPerLevel" type="hidden" value="17">
+
+
+
+            <input id="MtpsDevice" type="hidden" value="Default">
+
+
+<!--[CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx. ]]-->
+
+            
+            
+            
+            
+            
+
+
+
+
+
+
+<noscript>&lt;div&gt;&lt;img alt="DCSIMG" id="Img1" width="1" height="1" src="https://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;amp;WT.js=No" /&gt;&lt;/div&gt;</noscript>
+
+
+
+
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="LSVuUU8DOJxr-0l_-cxQ1RhJExVW-SPAvBLNyww3GG2emTyWzQZkgrZyHOnTYoZND37cwKm22YQoZG0CR0W2hoQAwUg1">
+</div>
+
+
+        </div>
+
+        
+        
+        
+        
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"js\": \"https://i2-msdn.sec.s-msft.com\", \r\n\t\"css\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"xap\": \"https://msdn.microsoft.com\"\r\n});\r\n/**/" },
+	{ url: "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/ecs0x9w5(l=en-us,v=vs.80).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027msdnlib_devtools_lang\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "//\n\n            window.appInsightsId = \u002760854590-027a-4ae4-98be-2741a40f355f\u0027;\n            //" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:Utilities,1:Layout,2:Header,3:SkinnyRating,1:Rating,2:Footer,0:Topic,4:webtrendsscript,5:WEDCS,0:AppInsightsPerf,6:Toc,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Centers/Themes/StandardDevCenter/Content:2,/Areas/Library/Themes/Msdn/Content:3,/Areas/Global/Content/Webtrends/resources:4,/Areas/Library/Themes/Base/Content:5,/Areas/Library/Content:6\u0026amp;hashKey=B8008380DCD78AB06124122C695B6E0D\u0026amp;v=813EAA8E24FE568E4DDBAE2311A38AD4" },
+	{ url: "https://i1.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=Msdn\u0026loc=en-us\u0026focusOnInit=false\u0026emptyWatermark=true\u0026searchButtonTooltip=Search MSDN" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:PrintExportButton,1:NavigationResize;/Areas/Library/Themes/Base/Content:0,/Areas/Library/Content:1\u0026amp;hashKey=86914F35EE0A9731DDD02541EA123CEF\u0026amp;v=813EAA8E24FE568E4DDBAE2311A38AD4" },
+	{ url: "https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:CommunityContent,0:LibraryMemberFilter,1:Toc_Fixed,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1\u0026amp;hashKey=EB298C838117D9E7008C7CC11E7732E3\u0026amp;v=813EAA8E24FE568E4DDBAE2311A38AD4" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script>
+<script src="./ASP.NET Menu Control Overview_files/broker-config.js"></script><div id="overlayMask"></div></body></html>

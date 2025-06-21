@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)http://www.overpie.com/aspnet/articles/csharp-connect-to-sql-server -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>How to Connect to Microsoft SQL Server using ASP.Net C#.</title>
+	<meta name="viewport" content="width=device-width">
+    <meta id="MetaDescription" name="DESCRIPTION" content="Learn how to connect to Microsoft SQL Server in ASP.Net C#.">
+    <link href="./How to Connect to Microsoft SQL Server using ASP.Net C#._files/css" rel="stylesheet" type="text/css">
+    <link href="./How to Connect to Microsoft SQL Server using ASP.Net C#._files/style.css" type="text/css" rel="stylesheet">
+    <link href="./How to Connect to Microsoft SQL Server using ASP.Net C#._files/menu.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="container">
+        
+<div id="main-nav">
+    <nav id="main-nav-inside">
+
+        <ul>
+            <li><a class="selected" href="http://www.overpie.com/aspnet" title="ASP.Net C# tutorials- The complete ASP.Net C# tutorials for beginners">ASP.Net</a></li><li><a href="http://www.overpie.com/css" title="Learn CSS - CSS Tutorial for beginners">CSS</a></li><li><a href="http://www.overpie.com/css3" title="CSS3 Tutorials - The complete CSS3 Tutorials for beginners">CSS3</a></li><li><a href="http://www.overpie.com/dnn" title="DNN Tutorials - The complete DNN Tutorials for beginners">DNN</a></li><li><a href="http://www.overpie.com/entity-framework" title="Entity Framework Tutorials - The complete entity framework tutorials for beginners">Entity Framework</a></li><li><a href="http://www.overpie.com/html5" title="HTML5 Tutorials - Free HTML5 Tutorials for beginners">HTML5</a></li><li><a href="http://www.overpie.com/javascript" title="Learn Javascript - the complete Javascript Tutorials For Beginners">Javascript</a></li><li><a href="http://www.overpie.com/jquery" title="JQuery Tutorial - The complete JQuery tutorial for Beginners">JQuery</a></li><li><a href="http://www.overpie.com/linq" title="C# LINQ tutorials - The complete LINQ Tutorials for beginners">LINQ</a></li><li><a href="http://www.overpie.com/mvc" title="C# MVC Tutorials - The complete C# MVC Tutorials for beginners">MVC</a></li><li><a href="http://www.overpie.com/mysql" title="MySQL tutorials - The complete MySQL tutorials for beginners">MySQL</a></li><li><a href="http://www.overpie.com/razor" title="MVC Razor Tutorial - The complete MVC Razor tutorial for beginners">Razor</a></li><li><a href="http://www.overpie.com/seo" title="SEO Tutorials - The complete SEO Tutorials for beginners">SEO</a></li><li><a href="http://www.overpie.com/telerik" title="Telerik Tutorials - Learn how to use UI Libraries for .Net Platforms">Telerik</a></li><li><a href="http://www.overpie.com/tsql" title="TSQL Tutorial - Learn Transact SQL language with examples">TSQL</a></li><li><a href="http://www.overpie.com/wordpress" title="Wordpress Tutorials - The complete Wordpress Tutorials for beginners">Wordpress</a></li><li><a href="http://www.overpie.com/web-tools" title="Free Online Services Tools">Web Tools</a></li>
+        </ul>
+    </nav>
+</div>
+        <div id="main-body">
+            
+<div id="left-content">
+    <div class="published-date">Published on: Sat, 03 Aug 2013</div>
+    <h1>How to Connect to Microsoft SQL Server using ASP.Net C#.</h1>
+<p>This tutorial will show you how you can connect to MS SQL server using ASP.Net C#.</p>
+<p>First of all, you will need to import the SqlClient namespace into your project or site page.</p>
+
+<pre class=" hljs cs">    
+<span class="hljs-comment">//required sql namespace</span>
+<span class="hljs-keyword">using</span> System.Data.SqlClient;
+</pre>
+
+<p>The following quick function will connect to the MS SQL server. Basically it defines the SqlConnection object and attaches a connection string value into the object. The .Open() method will try to connect to the server and .Close() method basically will close the database connection.</p>
+
+<pre class=" hljs cs">    
+<span class="hljs-comment">//private function for testing connection</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ConnectToSQL</span>() {
+    <span class="hljs-keyword">string</span> connectionString = <span class="hljs-string">@"Data Source=\SQLEXPRESS;Initial Catalog=DBNAME_HERE;User ID=USERNAME_HERE;Password=PASSWORD_HERE"</span>;
+    <span class="hljs-keyword">using</span> (SqlConnection objSqlConnection = <span class="hljs-keyword">new</span> SqlConnection(connectionString)) {
+        <span class="hljs-keyword">try</span> {
+            objSqlConnection.Open();
+            objSqlConnection.Close();
+            Response.Write(<span class="hljs-string">"Connection is successfull"</span>);
+        } <span class="hljs-keyword">catch</span> (Exception ex) {
+            Response.Write(<span class="hljs-string">"Error : "</span> + ex.Message.ToString());
+        }
+    }
+}
+</pre>
+
+<p>To test it, you can call the function in the Page_Load method just to see what will happen. Remember to set the connectionstring correctly according to your setting.</p>
+
+</div>
+<pre class=" hljs cs">    
+<span class="hljs-comment">//Sample on how to use it</span>
+<span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Page_Load</span>(<span class="hljs-keyword">object</span> sender, EventArgs e) {
+    <span class="hljs-keyword">if</span> (!Page.IsPostBack) {
+        ConnectToSQL();
+    }
+}
+</pre>
+
+
+    <div class="article-list">
+        <h1>Other Articles</h1>
+            <div class="article-box clear">
+                <div class="article-published-date">
+                    <span class="date-day">10</span>
+                    <span class="date-month">Mar</span>
+                    <span class="date-year">2015</span>
+                </div>
+                <div class="article-content">
+                    <div class="article-title"><a href="http://www.overpie.com/aspnet/articles/read-excel-file-using-koogra" title="How to read excel workbook using open source .Net Koogra">How to read excel workbook using open source .Net Koogra </a></div>
+                    <div class="article-desc">
+                        Learn how easy to read excel file using open source .Net Koogra. This library can only used to read excel, biff and xlsx files.
+                    </div>
+                    <div class="link-read-more"><a href="http://www.overpie.com/aspnet/articles/read-excel-file-using-koogra" title="How to read excel workbook using open source .Net Koogra">Read more..</a></div>
+                </div>
+            </div>
+            <div class="article-box clear">
+                <div class="article-published-date">
+                    <span class="date-day">22</span>
+                    <span class="date-month">Mar</span>
+                    <span class="date-year">2014</span>
+                </div>
+                <div class="article-content">
+                    <div class="article-title"><a href="http://www.overpie.com/aspnet/articles/csharp-convert-enum-to-list-of-key-pairs-value" title="Convert Enum values into List of Key Pairs value in ASP.Net C#">Convert Enum values into List of Key Pairs value in ASP.Net C#</a></div>
+                    <div class="article-desc">
+                        In this tutorial you will learn how you can create a quick function to return a list of key pairs value based on given enum type.
+                    </div>
+                    <div class="link-read-more"><a href="http://www.overpie.com/aspnet/articles/csharp-convert-enum-to-list-of-key-pairs-value" title="Convert Enum values into List of Key Pairs value in ASP.Net C#">Read more..</a></div>
+                </div>
+            </div>
+            <div class="article-box clear">
+                <div class="article-published-date">
+                    <span class="date-day">16</span>
+                    <span class="date-month">Mar</span>
+                    <span class="date-year">2014</span>
+                </div>
+                <div class="article-content">
+                    <div class="article-title"><a href="http://www.overpie.com/aspnet/articles/csharp-stored-procedure-with-output-parameter" title="How to output parameter with stored procedure in ASP.Net C#.">How to output parameter with stored procedure in ASP.Net C#</a></div>
+                    <div class="article-desc">
+                        Learn how to you can return or output parameter with stored procedure in ASP.Net C#.
+                    </div>
+                    <div class="link-read-more"><a href="http://www.overpie.com/aspnet/articles/csharp-stored-procedure-with-output-parameter" title="How to output parameter with stored procedure in ASP.Net C#.">Read more..</a></div>
+                </div>
+            </div>
+        
+    </div>
+</div>
+<div id="right-content">
+    <div id="sticky-sticky-wrapper" class="sticky-wrapper" style="height: 0px;"><div id="sticky" class="sticky">
+    <div class="ads-banner">
+        <script async="" src="./How to Connect to Microsoft SQL Server using ASP.Net C#._files/analytics.js"></script><script type="text/javascript"><!--
+    google_ad_client = "ca-pub-1498263618353707";
+    /* overpie.com 300x250 */
+    google_ad_slot = "7531167182";
+    google_ad_width = 300;
+    google_ad_height = 250;
+    //-->
+		    </script>
+		    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	    </script>
+    </div>
+
+    <div class="ads-banner">
+        <script type="text/javascript"><!--
+    google_ad_client = "ca-pub-1498263618353707";
+    /* overpie.com 300x250 */
+    google_ad_slot = "7531167182";
+    google_ad_width = 300;
+    google_ad_height = 250;
+    //-->
+		</script>
+		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	    </script>
+    </div>
+</div></div>
+</div>
+<div class="clear"></div>
+
+
+        </div>
+        <div class="clear-footer"></div>
+    
+    <footer id="footer">
+	<div id="footer-inside">
+		<ul class="ul-footer">
+            <li>© 2015 Overpie.com</li>
+            <li><a href="http://www.overpie.com/terms">Terms</a></li>
+            <li><a href="http://www.overpie.com/privacy">Privacy</a></li>
+            <li><a href="https://www.twitter.com/overpiedotcom">Twitter</a></li>
+            <li><a href="https://www.facebook.com/Overpiedotcom">Facebook</a></li>
+            <li><a href="https://plus.google.com/106379320392437297591/posts?rel=author" rel="publisher">Google+</a></li>
+		</ul>
+        <div class="footer-banner">
+	        <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	        <!-- Overpie 320 x 50 -->
+	        <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-1498263618353707" data-ad-slot="8567327586"></ins>
+	        <script>
+	            (adsbygoogle = window.adsbygoogle || []).push({});
+	        </script>
+        </div>
+
+        <div class="footer-banner">
+	        <!-- Overpie 320 x 50 -->
+	        <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-1498263618353707" data-ad-slot="8567327586"></ins>
+	        <script>
+	            (adsbygoogle = window.adsbygoogle || []).push({});
+	        </script>
+        </div>
+        <div class="clear" <="" div="">
+</div></div></footer>
+<script type="text/javascript">
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+		  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-41419942-1', 'overpie.com');
+    ga('send', 'pageview');
+</script>
+    
+    <script src="./How to Connect to Microsoft SQL Server using ASP.Net C#._files/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://www.overpie.com/content/css/highlight/tomorrow-night.css">
+    <script src="./How to Connect to Microsoft SQL Server using ASP.Net C#._files/highlight.pack.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./How to Connect to Microsoft SQL Server using ASP.Net C#._files/jquery.sticky.js"></script>
+    <script src="./How to Connect to Microsoft SQL Server using ASP.Net C#._files/utils.js" type="text/javascript"></script>
+     
+
+
+
+</body></html>

@@ -1,0 +1,36 @@
+﻿#main-nav {
+    min-height: 100px;
+    background: #f5f4f4;
+    border: solid 1px #dad7d7;
+    border-top:none;
+}
+
+#main-nav ul, #main-nav ul li{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+#main-nav ul {
+    padding:10px 20px;
+}
+
+#main-nav ul li{
+    float:left;
+    margin:0 5px;
+    margin-bottom:7px;
+}
+
+#main-nav ul li a{
+    text-decoration:none;
+    font-size:1em;
+    color:#454545;
+    padding:6px 10px;
+    display:block;
+    text-transform:uppercase;
+}
+
+#main-nav ul li a:hover,#main-nav ul li a.selected{
+    color:#ffffff;
+    background:#395a9d;
+}

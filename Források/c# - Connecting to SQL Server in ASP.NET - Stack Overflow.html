@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>c# - Connecting to SQL Server in ASP.NET - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=6cd6089ee7f6">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=ea71a5211a91&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Connecting to SQL Server in ASP.NET">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I am trying to connect to the SQL Server from Visual Web Developer using asp.net but I am facing some problems If anybody helps in this regard i will be greatful.
+
+public partial class _Default : P...">
+    <meta property="og:url" content="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net">
+    <link rel="canonical" href="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/c# - Connecting to SQL Server in ASP.NET - Stack Overflow.html">
+
+    
+    
+    <script type="text/javascript" async="" src="http://engine.adzerk.net/ados?t=1439206611819&request={%22Placements%22:[{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk65784585%22,%22AT%22:4,%22Z%22:43},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk354673601%22,%22AT%22:4,%22Z%22:44},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk2032747904%22,%22ATA%22:[17,2221],%22Z%22:45}],%22Keywords%22:%22c%2523%2C.net%2Csql-server%2Csql-server-2005%2Cado.net%22,%22Referrer%22:%22%22,%22IsAsync%22:true}"></script><script async="" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/quant.js"></script><script async="" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/beacon.js"></script><script async="" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/analytics.js"></script><script type="text/javascript" async="" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/ados.js"></script><script src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/jquery.min.js"></script>
+    <script src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/stub.en.js"></script>
+    <link rel="stylesheet" type="text/css" href="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Connecting to SQL Server in ASP.NET&#39;" href="http://stackoverflow.com/feeds/question/5947212">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:2,shownCommentCount:2,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:5947212});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '5947212');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1439206611,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"globalAuthDisabled":true,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"0197a776ab5b23fc092e476c6de7b9fe","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"0c289167cd82","js/moderator.en.js":"ddc6dce7f8a9","js/full-anon.en.js":"fc4b7ce1ed8a","js/full.en.js":"04cdc6a0ba3d","js/wmd.en.js":"d933a1503f7c","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"1d9ca5139235","js/help.en.js":"b5f40fd81205","js/tageditor.en.js":"260ae44a356d","js/tageditornew.en.js":"044bbc92636e","js/inline-tag-editing.en.js":"9d7c6b9d01c1","js/revisions.en.js":"6aca57a6c709","js/review.en.js":"63a1d1f5f557","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"05049e5eae8a","js/explore-qlist.en.js":"9c64817b25fa","js/events.en.js":"ef9c91b0c49f","js/keyboard-shortcuts.en.js":"be13c7f674c0","js/external-editor.en.js":"d2e66d99e9b7","js/external-editor.en.js":"d2e66d99e9b7","js/snippet-javascript.en.js":"647d1c96b5a1","js/snippet-javascript-codemirror.en.js":"70db96c8807e"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script async="" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/full-anon.en.js"></script><script async="" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/snippet-javascript.en.js"></script><script async="" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/post-validation.en.js"></script><script async="" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/prettify-full.en.js"></script><script async="" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/external-editor.en.js"></script><script type="text/javascript" src="http://static.adzerk.net/Extensions/adFeedback.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/adFeedback.css"><link type="text/css" rel="stylesheet" href="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/jobs.min.css"></head>
+<body class="question-page new-topbar">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="http://blog.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:7 })">blog</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f5947212%2fconnecting-to-sql-server-in-asp-net" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f5947212%2fconnecting-to-sql-server-in-asp-net" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 149 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                <a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f5947212%2fconnecting-to-sql-server-in-asp-net" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f5947212%2fconnecting-to-sql-server-in-asp-net" class="login-link">log in</a>
+
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                            <a href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="http://stackoverflow.com/tour" id="tell-me-more" class="button">Take the 2-minute tour</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/", expires: 365 });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+                <h1 itemprop="name"><a href="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/c# - Connecting to SQL Server in ASP.NET - Stack Overflow.html" class="question-hyperlink">Connecting to SQL Server in ASP.NET</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="5947212" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk65784585",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk65784585"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo2ODU0MjUsImRpIjoiNGI4NmFjZWEzY2VmNDgyOGFkMDQ5ZWY4MjQzZTVlNjIiLCJkbSI6MSwiZmMiOjcwOTczNCwiZmwiOjQxMDE4MywiaXAiOiIxODguMTQyLjIxMy4zIiwia3ciOiJjIywubmV0LHNxbC1zZXJ2ZXIsc3FsLXNlcnZlci0yMDA1LGFkby5uZXQiLCJudyI6MjIsInBjIjowLCJwciI6MTU2OCwicnQiOjEsInN0Ijo4Mjc3LCJ1ayI6InVlMS1mM2Q2YjU5NzFlNjg0NTM0YmRjNjk2NWJmZDcwNjE0YSIsInpuIjo0MywidHMiOjE0MzkyMDY2MTI4MTUsImJmIjp0cnVlLCJwbiI6ImFkemVyazY1Nzg0NTg1IiwidXIiOiJodHRwOi8vY2FyZWVycy5zdGFja292ZXJmbG93LmNvbS9jdi9nZXQtb25lP3V0bV9zb3VyY2U9c3RhY2tvdmVyZmxvdy5jb20mdXRtX21lZGl1bT1hZCZ1dG1fY2FtcGFpZ249Y2FuZGlkYXRlcy1hZGQtY3YmdXRtX2NvbnRlbnQ9bGItY2FyZWVycy1iaXRidWNrZXQifQ&s=3zMx54wsqnNSP8U1E9HOhZ7xA4M" rel="nofollow" target="_blank" title=""><img src="http://static.adzerk.net/Advertisers/44b9cfc19ad54d0a8aa3042e840e589a.png" title="" alt="" border="0" width="728" height="90" style="display: none !important;"></a><img height="0px" width="0px" border="0" style="position: absolute; display: none !important;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo2ODU0MjUsImRpIjoiNGI4NmFjZWEzY2VmNDgyOGFkMDQ5ZWY4MjQzZTVlNjIiLCJkbSI6MSwiZmMiOjcwOTczNCwiZmwiOjQxMDE4MywiaXAiOiIxODguMTQyLjIxMy4zIiwia3ciOiJjIywubmV0LHNxbC1zZXJ2ZXIsc3FsLXNlcnZlci0yMDA1LGFkby5uZXQiLCJudyI6MjIsInBjIjowLCJwciI6MTU2OCwicnQiOjEsInN0Ijo4Mjc3LCJ1ayI6InVlMS1mM2Q2YjU5NzFlNjg0NTM0YmRjNjk2NWJmZDcwNjE0YSIsInpuIjo0MywidHMiOjE0MzkyMDY2MTI4MTYsImJmIjp0cnVlLCJwbiI6ImFkemVyazY1Nzg0NTg1In0&s=lvLUdTtoSD6_Jk8p4zl9uW6YVNE"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="5947212">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#" title="This is a favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b></b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I am trying to connect to the SQL Server from Visual Web Developer using asp.net but I am facing some problems If anybody helps in this regard i will be greatful.</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="kwd">public</span><span class="pln"> </span><span class="kwd">partial</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">_Default</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="typ">Page</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">protected</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="typ">Page_Load</span><span class="pun">(</span><span class="kwd">object</span><span class="pln"> sender</span><span class="pun">,</span><span class="pln"> </span><span class="typ">EventArgs</span><span class="pln"> e</span><span class="pun">)</span><span class="pln">            
+    </span><span class="pun">{</span><span class="pln">     
+        </span><span class="typ">SqlConnection</span><span class="pln"> conn </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">SqlConnection</span><span class="pun">(</span><span class="str">"Server=localhost;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"Database=DB;User ID=aaaa;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"Password=aaaa"</span><span class="pun">);</span><span class="pln">
+
+        conn</span><span class="pun">.</span><span class="typ">Open</span><span class="pun">();</span><span class="pln"> </span><span class="typ">SqlDataReader</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> conn</span><span class="pun">.</span><span class="typ">ExecuteReader</span><span class="pun">();</span><span class="pln"> 
+        </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">reader</span><span class="pun">.</span><span class="typ">Read</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            employeesLabel</span><span class="pun">.</span><span class="typ">Text</span><span class="pln"> </span><span class="pun">+=</span><span class="pln"> reader</span><span class="pun">[</span><span class="str">"Name"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        reader</span><span class="pun">.</span><span class="typ">Close</span><span class="pun">();</span><span class="pln"> 
+        conn</span><span class="pun">.</span><span class="typ">Close</span><span class="pun">();</span><span class="pln">               
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>I am getting errors saying </p>
+
+<blockquote>
+  <p>'System.Data.SqlClient.SqlConnection' does not contain a definition for <strong>'ExecuteReader'</strong> and no extension method 'ExecuteReader' accepting a first argument of type 'System.Data.SqlClient.SqlConnection' could be found (are you missing a using directive or an assembly reference?)  </p>
+  
+  <p>The name '<strong>employeesLabel</strong>' does not exist in the current context.</p>
+</blockquote>
+
+<p>Can anybody tell the possible reason?</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/c%23" class="post-tag js-gps-track" title="show questions tagged &#39;c#&#39;" rel="tag">c#</a> <a href="http://stackoverflow.com/questions/tagged/.net" class="post-tag js-gps-track" title="show questions tagged &#39;.net&#39;" rel="tag">.net</a> <a href="http://stackoverflow.com/questions/tagged/sql-server" class="post-tag js-gps-track" title="show questions tagged &#39;sql-server&#39;" rel="tag">sql-server</a> <a href="http://stackoverflow.com/questions/tagged/sql-server-2005" class="post-tag js-gps-track" title="show questions tagged &#39;sql-server-2005&#39;" rel="tag">sql-server-2005</a> <a href="http://stackoverflow.com/questions/tagged/ado.net" class="post-tag js-gps-track" title="show questions tagged &#39;ado.net&#39;" rel="tag">ado.net</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/5947212" title="short permalink to this question" class="short-link" id="link-post-5947212">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5947212/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/5947212/revisions" title="show all edits to this post">edited <span title="2011-05-10 08:27:14Z" class="relativetime">May 10 '11 at 8:27</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/41956/abatishchev"><div class="gravatar-wrapper-32"><img src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/b9da2ca6abf3a1e28fb470f2b3ae2c34" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/41956/abatishchev">abatishchev</a><br>
+        <span class="reputation-score" title="reputation score 49579" dir="ltr">49.6k</span><span title="48 gold badges"><span class="badge1"></span><span class="badgecount">48</span></span><span title="184 silver badges"><span class="badge2"></span><span class="badgecount">184</span></span><span title="311 bronze badges"><span class="badge3"></span><span class="badgecount">311</span></span>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2011-05-10 08:23:07Z" class="relativetime">May 10 '11 at 8:23</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/541761/illuminati7590"><div class="gravatar-wrapper-32"><img src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/06facec72e66d94213589d5fa06fa2b3" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/541761/illuminati7590">ILLUMINATI7590</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">346</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="30 bronze badges"><span class="badge3"></span><span class="badgecount">30</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5947212" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-6856388" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">are you missing a using directive or an assembly reference?</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/242076/ariel" title="5898 reputation" class="comment-user">ariel</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#comment6856388_5947212"><span title="2011-05-10 08:25:54Z" class="relativetime-clean">May 10 '11 at 8:25</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-6856436" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Hm executing a connection interesting ....</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/725559/mythje" title="588 reputation" class="comment-user">Mythje</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#comment6856436_5947212"><span title="2011-05-10 08:28:52Z" class="relativetime-clean">May 10 '11 at 8:28</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-5947212" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								6 Answers
+                                <span style="display:none;" itemprop="answerCount">6</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active">active</a>
+        <a href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="5947404"></a>
+<div id="answer-5947404" class="answer accepted-answer" data-answerid="5947404" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="5947404">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>i think you have to create object of SqlCommand class also and pass the command string to its constructor. try this"</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="typ">SqlConnection</span><span class="pln"> conn </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">SqlConnection</span><span class="pun">(</span><span class="str">"Data Source=serverName;"</span><span class="pln">
+           </span><span class="pun">+</span><span class="pln"> </span><span class="str">"Initial Catalog=databaseName;"</span><span class="pln">
+           </span><span class="pun">+</span><span class="pln"> </span><span class="str">"Persist Security Info=True;"</span><span class="pln">
+           </span><span class="pun">+</span><span class="pln"> </span><span class="str">"User ID=userName;Password=password"</span><span class="pun">);</span><span class="pln">
+
+conn</span><span class="pun">.</span><span class="typ">Open</span><span class="pun">();</span><span class="pln">
+
+</span><span class="com">// create a SqlCommand object for this connection</span><span class="pln">
+</span><span class="typ">SqlCommand</span><span class="pln"> command </span><span class="pun">=</span><span class="pln"> conn</span><span class="pun">.</span><span class="typ">CreateCommand</span><span class="pun">();</span><span class="pln">
+command</span><span class="pun">.</span><span class="typ">CommandText</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Select * from tableName"</span><span class="pun">;</span><span class="pln">
+command</span><span class="pun">.</span><span class="typ">CommandType</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="typ">CommandType</span><span class="pun">.</span><span class="typ">Text</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">// execute the command that returns a SqlDataReader</span><span class="pln">
+</span><span class="typ">SqlDataReader</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> command</span><span class="pun">.</span><span class="typ">ExecuteReader</span><span class="pun">();</span><span class="pln">
+
+</span><span class="com">// display the results</span><span class="pln">
+</span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">reader</span><span class="pun">.</span><span class="typ">Read</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">//whatever you want to do.</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// close the connection</span><span class="pln">
+reader</span><span class="pun">.</span><span class="typ">Close</span><span class="pun">();</span><span class="pln">
+conn</span><span class="pun">.</span><span class="typ">Close</span><span class="pun">();</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5947404" title="short permalink to this answer" class="short-link" id="link-post-5947404">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5947404/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/5947404/revisions" title="show all edits to this post">edited <span title="2011-05-10 08:48:21Z" class="relativetime">May 10 '11 at 8:48</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/41956/abatishchev"><div class="gravatar-wrapper-32"><img src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/b9da2ca6abf3a1e28fb470f2b3ae2c34" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/41956/abatishchev">abatishchev</a><br>
+        <span class="reputation-score" title="reputation score 49579" dir="ltr">49.6k</span><span title="48 gold badges"><span class="badge1"></span><span class="badgecount">48</span></span><span title="184 silver badges"><span class="badge2"></span><span class="badgecount">184</span></span><span title="311 bronze badges"><span class="badge3"></span><span class="badgecount">311</span></span>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-05-10 08:37:11Z" class="relativetime">May 10 '11 at 8:37</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/727079/a-b"><div class="gravatar-wrapper-32"><img src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/082d319ac6b1cd16019d3a0f19cc3534" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/727079/a-b">A B</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">1,133</span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="28 bronze badges"><span class="badge3"></span><span class="badgecount">28</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5947404" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-5947404" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk354673601",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk354673601"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo2ODQyOTgsImRpIjoiYjJkNDU0M2M5ODRmNGYzMzkyMTUzMTE5Njc2N2ZlZTgiLCJkbSI6MSwiZmMiOjcwODQ1MiwiZmwiOjQzMTc4MCwiaXAiOiIxODguMTQyLjIxMy4zIiwia3ciOiJjIywubmV0LHNxbC1zZXJ2ZXIsc3FsLXNlcnZlci0yMDA1LGFkby5uZXQiLCJudyI6MjIsInBjIjowLCJwciI6MTYwNCwicnQiOjEsInN0Ijo4Mjc3LCJ1ayI6InVlMS1mM2Q2YjU5NzFlNjg0NTM0YmRjNjk2NWJmZDcwNjE0YSIsInpuIjo0NCwidHMiOjE0MzkyMDY2MTI4MjQsImJmIjp0cnVlLCJwbiI6ImFkemVyazM1NDY3MzYwMSIsInVyIjoiaHR0cDovL2NhcmVlcnMuc3RhY2tvdmVyZmxvdy5jb20vcHJvZHVjdHM_dXRtX3NvdXJjZT1zdGFja292ZXJmbG93LmNvbSZ1dG1fbWVkaXVtPWFkJnV0bV9jYW1wYWlnbj1lbXBsb3llcnMtc3VwZXJoZXJvZXMmdXRtX2NvbnRlbnQ9bWxiLXN1cGVyaGVyb2VzIn0&s=rZQj-BTkqfABNNxFwqO7tUb5ouI" rel="nofollow" target="_blank" title=""><img src="http://static.adzerk.net/Advertisers/7b03b9d327834757b98b657002b37789.png" title="" alt="" border="0" width="728" height="90" style="display: none !important;"></a><img height="0px" width="0px" border="0" style="position: absolute; display: none !important;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo2ODQyOTgsImRpIjoiYjJkNDU0M2M5ODRmNGYzMzkyMTUzMTE5Njc2N2ZlZTgiLCJkbSI6MSwiZmMiOjcwODQ1MiwiZmwiOjQzMTc4MCwiaXAiOiIxODguMTQyLjIxMy4zIiwia3ciOiJjIywubmV0LHNxbC1zZXJ2ZXIsc3FsLXNlcnZlci0yMDA1LGFkby5uZXQiLCJudyI6MjIsInBjIjowLCJwciI6MTYwNCwicnQiOjEsInN0Ijo4Mjc3LCJ1ayI6InVlMS1mM2Q2YjU5NzFlNjg0NTM0YmRjNjk2NWJmZDcwNjE0YSIsInpuIjo0NCwidHMiOjE0MzkyMDY2MTI4MjUsImJmIjp0cnVlLCJwbiI6ImFkemVyazM1NDY3MzYwMSJ9&s=T_oQPNoPAmAri-X9A2fezpNzGgE"></div>
+  
+<a name="5947283"></a>
+<div id="answer-5947283" class="answer" data-answerid="5947283" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="5947283">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Try</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="typ">SqlConnection</span><span class="pln"> conn </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">SqlConnection</span><span class="pun">(</span><span class="str">"Server=localhost;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"Database=DB;User ID=aaaa;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"Password=aaaa"</span><span class="pun">);</span><span class="pln">              
+conn</span><span class="pun">.</span><span class="typ">Open</span><span class="pun">();</span><span class="pln">
+</span><span class="typ">SqlCommand</span><span class="pln"> cmd </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">SqlCommand</span><span class="pun">(</span><span class="str">"Your Query"</span><span class="pun">,</span><span class="pln"> conn</span><span class="pun">);</span><span class="com">//Put your query here</span><span class="pln">
+</span><span class="typ">SqlDataReader</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> cmd</span><span class="pun">.</span><span class="typ">ExecuteReader</span><span class="pun">();</span><span class="pln">              
+</span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">reader</span><span class="pun">.</span><span class="typ">Read</span><span class="pun">())</span><span class="pln"> 
+</span><span class="pun">{</span><span class="pln">                 
+    employeesLabel</span><span class="pun">.</span><span class="typ">Text</span><span class="pln"> </span><span class="pun">+=</span><span class="pln"> reader</span><span class="pun">[</span><span class="str">"Name"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln"> 
+</span><span class="pun">}</span><span class="pln"> 
+reader</span><span class="pun">.</span><span class="typ">Close</span><span class="pun">();</span><span class="pln">             
+conn</span><span class="pun">.</span><span class="typ">Close</span><span class="pun">();</span><span class="pln"> </span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5947283" title="short permalink to this answer" class="short-link" id="link-post-5947283">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5947283/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/5947283/revisions" title="show all edits to this post">edited <span title="2011-05-10 08:29:41Z" class="relativetime">May 10 '11 at 8:29</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/41956/abatishchev"><div class="gravatar-wrapper-32"><img src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/b9da2ca6abf3a1e28fb470f2b3ae2c34" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/41956/abatishchev">abatishchev</a><br>
+        <span class="reputation-score" title="reputation score 49579" dir="ltr">49.6k</span><span title="48 gold badges"><span class="badge1"></span><span class="badgecount">48</span></span><span title="184 silver badges"><span class="badge2"></span><span class="badgecount">184</span></span><span title="311 bronze badges"><span class="badge3"></span><span class="badgecount">311</span></span>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-05-10 08:28:16Z" class="relativetime">May 10 '11 at 8:28</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/723763/abdul-muqtadir"><div class="gravatar-wrapper-32"><img src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/c3a249eb34fa5db8cff9e7323200f5e6" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/723763/abdul-muqtadir">Abdul Muqtadir</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">4,127</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="10 silver badges"><span class="badge2"></span><span class="badgecount">10</span></span><span title="17 bronze badges"><span class="badge3"></span><span class="badgecount">17</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5947283" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-6856596" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thx for reply his error "The name 'employeesLabel' does not exist in the current context" still existing.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/541761/illuminati7590" title="346 reputation" class="comment-user owner">ILLUMINATI7590</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#comment6856596_5947283"><span title="2011-05-10 08:38:36Z" class="relativetime-clean">May 10 '11 at 8:38</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-6856838" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">employeesLabel.Text += reader["Name"] + "&lt;br /&gt;";  Can you see any error inthe above line?</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/541761/illuminati7590" title="346 reputation" class="comment-user owner">ILLUMINATI7590</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#comment6856838_5947283"><span title="2011-05-10 08:53:56Z" class="relativetime-clean">May 10 '11 at 8:53</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-6857351" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Update 'employeesLabel'  with the name of your Label whose Text property you want to set.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/723763/abdul-muqtadir" title="4127 reputation" class="comment-user">Abdul Muqtadir</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#comment6857351_5947283"><span title="2011-05-10 09:27:29Z" class="relativetime-clean">May 10 '11 at 9:27</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-5947283" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="5947284"></a>
+<div id="answer-5947284" class="answer" data-answerid="5947284" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="5947284">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<pre class="default prettyprint prettyprinted"><code><span class="kwd">using</span><span class="pln"> </span><span class="pun">(</span><span class="typ">SqlConnection</span><span class="pln"> conn </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">SqlConnection</span><span class="pun">(...))</span><span class="pln">
+</span><span class="kwd">using</span><span class="pln"> </span><span class="pun">(</span><span class="typ">SqlCommand</span><span class="pln"> command </span><span class="pun">=</span><span class="pln"> conn</span><span class="pun">.</span><span class="typ">CreateCommand</span><span class="pun">())</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    command</span><span class="pun">.</span><span class="typ">CommandText</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"..."</span><span class="pun">;</span><span class="pln">
+    conn</span><span class="pun">.</span><span class="typ">Open</span><span class="pun">();</span><span class="pln">
+    </span><span class="kwd">using</span><span class="pln"> </span><span class="pun">(</span><span class="typ">SqlDataReader</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> command</span><span class="pun">.</span><span class="typ">ExecuteReader</span><span class="pun">())</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// do the sutff</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5947284" title="short permalink to this answer" class="short-link" id="link-post-5947284">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5947284/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-05-10 08:28:19Z" class="relativetime">May 10 '11 at 8:28</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/41956/abatishchev"><div class="gravatar-wrapper-32"><img src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/b9da2ca6abf3a1e28fb470f2b3ae2c34" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/41956/abatishchev">abatishchev</a><br>
+        <span class="reputation-score" title="reputation score 49579" dir="ltr">49.6k</span><span title="48 gold badges"><span class="badge1"></span><span class="badgecount">48</span></span><span title="184 silver badges"><span class="badge2"></span><span class="badgecount">184</span></span><span title="311 bronze badges"><span class="badge3"></span><span class="badgecount">311</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5947284" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-5947284" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="5947268"></a>
+<div id="answer-5947268" class="answer" data-answerid="5947268" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="5947268">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Oops! Only IDbCommand implementations have ExecuteReader returning the whole DataReader:</p>
+
+<ul>
+<li><a href="http://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.aspx" rel="nofollow">http://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.aspx</a></li>
+</ul>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5947268" title="short permalink to this answer" class="short-link" id="link-post-5947268">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5947268/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-05-10 08:27:11Z" class="relativetime">May 10 '11 at 8:27</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/411632/mat%c3%adas-fidemraizer"><div class="gravatar-wrapper-32"><img src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/41e7ea21270a6079bb14d6d60ec75d8a" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/411632/mat%c3%adas-fidemraizer">Matías Fidemraizer</a><br>
+        <span class="reputation-score" title="reputation score 21466" dir="ltr">21.5k</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="32 silver badges"><span class="badge2"></span><span class="badgecount">32</span></span><span title="69 bronze badges"><span class="badge3"></span><span class="badgecount">69</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5947268" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-5947268" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="5947274"></a>
+<div id="answer-5947274" class="answer" data-answerid="5947274" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="5947274">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You are not passing any command/query to ExecuteReader something like this would be correct:</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="typ">SqlDataReader</span><span class="pln"> rdr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span><span class="pln">
+conn</span><span class="pun">.</span><span class="typ">Open</span><span class="pun">();</span><span class="pln">
+</span><span class="typ">SqlCommand</span><span class="pln"> cmd </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">SqlCommand</span><span class="pun">(</span><span class="str">"select * from Customers"</span><span class="pun">,</span><span class="pln"> conn</span><span class="pun">);</span><span class="pln">
+rdr </span><span class="pun">=</span><span class="pln"> cmd</span><span class="pun">.</span><span class="typ">ExecuteReader</span><span class="pun">();</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5947274" title="short permalink to this answer" class="short-link" id="link-post-5947274">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5947274/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-05-10 08:27:44Z" class="relativetime">May 10 '11 at 8:27</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/606019/misam"><div class="gravatar-wrapper-32"><img src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/73f94903b7656355a59fb0a425e92221" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/606019/misam">Misam</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">2,259</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="12 silver badges"><span class="badge2"></span><span class="badgecount">12</span></span><span title="33 bronze badges"><span class="badge3"></span><span class="badgecount">33</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5947274" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-5947274" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="5947333"></a>
+<div id="answer-5947333" class="answer" data-answerid="5947333" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="5947333">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>SqlConnection doesn't have any ExecuteReader() method.
+You have to make object of SqlCommand.
+Your code should like this:</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="kwd">namespace</span><span class="pln"> </span><span class="typ">LearningASP</span><span class="pln">
+
+</span><span class="pun">{</span><span class="pln"> </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">partial</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">_Default</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="typ">System</span><span class="pun">.</span><span class="typ">Web</span><span class="pun">.</span><span class="pln">UI</span><span class="pun">.</span><span class="typ">Page</span><span class="pln">
+
+</span><span class="pun">{</span><span class="pln"> </span><span class="kwd">protected</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="typ">Page_Load</span><span class="pun">(</span><span class="kwd">object</span><span class="pln"> sender</span><span class="pun">,</span><span class="pln"> </span><span class="typ">EventArgs</span><span class="pln"> e</span><span class="pun">)</span><span class="pln">
+
+</span><span class="pun">{</span><span class="pln">
+
+</span><span class="typ">SqlConnection</span><span class="pln"> conn </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">SqlConnection</span><span class="pun">(</span><span class="str">"Server=localhost;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"Database=DB;User ID=aaaa;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"Password=aaaa"</span><span class="pun">);</span><span class="pln">
+
+        conn</span><span class="pun">.</span><span class="typ">Open</span><span class="pun">();</span><span class="pln"> 
+</span><span class="pun">**</span><span class="typ">SqlCommand</span><span class="pln"> cmd </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">SqlCommand</span><span class="pun">();</span><span class="pln">
+        </span><span class="typ">SqlDataReader</span><span class="pln"> reader </span><span class="pun">=</span><span class="pln"> cmd</span><span class="pun">.</span><span class="typ">ExecuteReader</span><span class="pun">();**</span><span class="pln"> 
+</span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(</span><span class="pln">reader</span><span class="pun">.</span><span class="typ">Read</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">             employeesLabel</span><span class="pun">.</span><span class="typ">Text</span><span class="pln"> </span><span class="pun">+=</span><span class="pln"> reader</span><span class="pun">[</span><span class="str">"Name"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;br /&gt;"</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> reader</span><span class="pun">.</span><span class="typ">Close</span><span class="pun">();</span><span class="pln">          conn</span><span class="pun">.</span><span class="typ">Close</span><span class="pun">();</span><span class="pln">      </span><span class="pun">}</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="pun">}</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5947333" title="short permalink to this answer" class="short-link" id="link-post-5947333">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5947333/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/5947333/revisions" title="show all edits to this post">edited <span title="2011-05-10 08:32:38Z" class="relativetime">May 10 '11 at 8:32</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/41956/abatishchev"><div class="gravatar-wrapper-32"><img src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/b9da2ca6abf3a1e28fb470f2b3ae2c34" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/41956/abatishchev">abatishchev</a><br>
+        <span class="reputation-score" title="reputation score 49579" dir="ltr">49.6k</span><span title="48 gold badges"><span class="badge1"></span><span class="badgecount">48</span></span><span title="184 silver badges"><span class="badge2"></span><span class="badgecount">184</span></span><span title="311 bronze badges"><span class="badge3"></span><span class="badgecount">311</span></span>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-05-10 08:31:46Z" class="relativetime">May 10 '11 at 8:31</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/746432/user746432"><div class="gravatar-wrapper-32"><img src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/47213dce92213cde05611c9d69422bf9" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/746432/user746432">user746432</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">76</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5947333" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-6856496" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Format your answer properly!</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/41956/abatishchev" title="49579 reputation" class="comment-user">abatishchev</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#comment6856496_5947333"><span title="2011-05-10 08:32:47Z" class="relativetime-clean">May 10 '11 at 8:32</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-5947333" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/5947212/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="5947212">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="">
+							<h2 class="space">Your Answer</h2>
+
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+            // Have to fire editor after snippets, if snippets enabled
+            if (StackExchange.options.snippets.enabled) {
+                StackExchange.using("snippets", function() {
+                    createEditor();
+                });
+            }
+            else {
+                createEditor();
+            }
+        });
+
+        function createEditor() {
+            prepareEditor({
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                ,immediatelyShowMarkdownHelp:true
+                });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="0197a776ab5b23fc092e476c6de7b9fe">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f5947212%2fconnecting-to-sql-server-in-asp-net%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f5947212%2fconnecting-to-sql-server-in-asp-net%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/c%23" class="post-tag" title="show questions tagged &#39;c#&#39;" rel="tag">c#</a> <a href="http://stackoverflow.com/questions/tagged/.net" class="post-tag" title="show questions tagged &#39;.net&#39;" rel="tag">.net</a> <a href="http://stackoverflow.com/questions/tagged/sql-server" class="post-tag" title="show questions tagged &#39;sql-server&#39;" rel="tag">sql-server</a> <a href="http://stackoverflow.com/questions/tagged/sql-server-2005" class="post-tag" title="show questions tagged &#39;sql-server-2005&#39;" rel="tag">sql-server-2005</a> <a href="http://stackoverflow.com/questions/tagged/ado.net" class="post-tag" title="show questions tagged &#39;ado.net&#39;" rel="tag">ado.net</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2011-05-10 08:23:07Z"><b>4 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>13745 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/5947212/connecting-to-sql-server-in-asp-net?lastactivity" class="lastactivity-link" title="2011-05-11 02:35:24Z">4 years ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk2032747904",[17,2221]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk2032747904"><div id="careersadsdoublehigh" style="display:none;"></div><img height="0px" width="0px" border="0" style="position: absolute; display: none !important;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTIxLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MjY4OCwiZGkiOiJhMTBmMjk1MzZkMTg0YmNkODEzNzAwZjYyMjUxYTVhOSIsImRtIjoxLCJmYyI6MjQ4NSwiZmwiOjI2NjMsImlwIjoiMTg4LjE0Mi4yMTMuMyIsImt3IjoiYyMsLm5ldCxzcWwtc2VydmVyLHNxbC1zZXJ2ZXItMjAwNSxhZG8ubmV0IiwibnciOjIyLCJwYyI6MCwicHIiOjYxNzM3LCJydCI6MSwic3QiOjgyNzcsInVrIjoidWUxLWYzZDZiNTk3MWU2ODQ1MzRiZGM2OTY1YmZkNzA2MTRhIiwiem4iOjQ1LCJ0cyI6MTQzOTIwNjYxMjgyNiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMjAzMjc0NzkwNCJ9&s=AqfxKIZGixYQ9mbKZXg1HOR92Fs"></div>
+        <div id="hireme" class=" orange looking tagged"><a href="http://careers.stackoverflow.com/jobs" target="_blank" data-hf="h" class="top"> <span>Looking for a job?</span></a><ul class="jobs"><li><a data-cid="172085" href="http://careers.stackoverflow.com/jobs/85880/softwareentwickler-senior-scientist-m-w-sirona" target="_blank" title="Softwareentwickler/Senior Scientist (m/w) at Sirona. Click to learn more.">Softwareentwickler/Senior Scientist (m/w)<br><div class="company">Sirona</div><div class="location" title="Bensheim, Deutschland">Bensheim, Deutschland</div></a></li><li><a data-cid="170027" href="http://careers.stackoverflow.com/jobs/83770/szoftverfejleszt%C5%91-aspnet-c-sharp-webes-port%C3%A1l-nat%C3%ADv-dealogic-hungary" target="_blank" title="Szoftverfejlesztő: ASP.NET/C#, webes portál&amp;natív mobil alkalmazás fejlesztés at Dealogic Hungary. Click to learn more.">Szoftverfejlesztő: ASP.NET/C#, webes portál&amp;natív mobil alkalmazás fejlesztés<br><div class="company">Dealogic Hungary</div><div class="location" title="Budapest, Hungary">Budapest, Hungary</div><span class="post-tag">c#</span><span class="post-tag">asp.net-mvc</span></a></li><li><a data-cid="167471" href="http://careers.stackoverflow.com/jobs/81161/c-developer-support-a-million-open-source-users-balabit-it-security" target="_blank" title="C Developer - support a million open source users at BalaBit IT Security. Click to learn more.">C Developer - support a million open source users<br><div class="company">BalaBit IT Security</div><div class="location" title="Budapest, Hungary">Budapest, Hungary</div><span class="post-tag">c</span><span class="post-tag">coding-style</span></a></li><li><a data-cid="167465" href="http://careers.stackoverflow.com/jobs/81155/lead-developer-for-blindspotter-team-balabit-it-security" target="_blank" title="Lead Developer for Blindspotter Team at BalaBit IT Security. Click to learn more.">Lead Developer for Blindspotter Team<br><div class="company">BalaBit IT Security</div><div class="location" title="Budapest, Hungary">Budapest, Hungary</div><span class="post-tag">linux</span><span class="post-tag">python</span></a></li></ul><img class="impression" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/i" style="display:none;"></div>
+			<div class="module" id="chat-feature">
+    
+
+    
+<h4><a href="http://chat.stackoverflow.com/" id="h-chat-link" title="134 users active in 59 rooms the last 60 minutes">134 People Chatting</a></h4>
+
+<div class="related" id="ad502-rooms"><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="JavaScript&lt;ball pit&gt;"><a href="http://chat.stackoverflow.com/rooms/17">JavaScript&lt;ball pit&gt;</a></span></h3><span title="2015-08-10 11:13:32Z" class="ad502-last-message">23 mins ago - <a href="http://chat.stackoverflow.com/users/3317808">overexchange</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/5026445"><img height="23" width="23" title="cswl: 23 mins ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/0d931b4570cdccc25ca9610a9c199a38"></a><a href="http://chat.stackoverflow.com/users/3317808"><img height="23" width="23" title="overexchange: 24 mins ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/17GiF.jpg"></a><a href="http://chat.stackoverflow.com/users/859154"><img height="23" width="23" title="Royi Namir: 29 mins ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/OBpYW.jpg"></a><a href="http://chat.stackoverflow.com/users/1529061"><img height="23" width="23" title="Amine: 30 mins ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/38f872870bf727d505514e2609ddd74c"></a><a href="http://chat.stackoverflow.com/users/2474872"><img height="23" width="23" title="Frondor: 32 mins ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/cioCP.jpg"></a><a href="http://chat.stackoverflow.com/users/4589557"><img height="23" width="23" title="Callum: 44 mins ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/NDqUj.jpg"></a><a href="http://chat.stackoverflow.com/users/1839506"><img height="23" width="23" title="Caprica Six: 44 mins ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/Sej2t.jpg"></a></div></div><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="PHP"><a href="http://chat.stackoverflow.com/rooms/11">PHP</a></span></h3><span title="2015-08-10 11:13:30Z" class="ad502-last-message">23 mins ago - <a href="http://chat.stackoverflow.com/users/2805376">Sajad</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/2805376"><img height="23" width="23" title="Sajad: 23 mins ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/ROWF7.jpg"></a><a href="http://chat.stackoverflow.com/users/1401975"><img height="23" width="23" title="HamZa: 23 mins ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/Jh3mC.jpg"></a><a href="http://chat.stackoverflow.com/users/508666"><img height="23" width="23" title="PeeHaa: 24 mins ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/0dpOE.png"></a><a href="http://chat.stackoverflow.com/users/811241"><img height="23" width="23" title="Fabor: 25 mins ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/XWWc3.jpg"></a><a href="http://chat.stackoverflow.com/users/4968696"><img height="23" width="23" title="Rahul: 26 mins ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/2e40613b104a8720c32dbfc670e39724"></a><a href="http://chat.stackoverflow.com/users/1063823"><img height="23" width="23" title="Duikboot: 1 hour ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/mFbX3.jpg"></a><a href="http://chat.stackoverflow.com/users/836646"><img height="23" width="23" title="Sergey Telshevsky: 1 hour ago" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/c9d3823e79bae04bb12f702335d6d312"></a></div></div></div>
+<script>
+// <!--
+    StackExchange.ready(
+    function () {
+        var options = {
+            chatUrl: 'http://chat.stackoverflow.com',
+            reloadUrl: '/api/recent-chat',
+            preloadData: {"activeUsers":134,"activeRooms":59,"rooms":[{"name":"JavaScript\u003cball pit\u003e","id":17,"lastPost":1439205212,"posts":2798181,"users":[{"name":"cswl","id":5026445,"emailhash":"0d931b4570cdccc25ca9610a9c199a38","lastPost":1439205176},{"name":"overexchange","id":3317808,"emailhash":"!http://i.stack.imgur.com/17GiF.jpg?s=128\u0026g=1","lastPost":1439205171},{"name":"Royi Namir","id":859154,"emailhash":"!http://i.stack.imgur.com/OBpYW.jpg?s=128\u0026g=1","lastPost":1439204828},{"name":"Amine","id":1529061,"emailhash":"38f872870bf727d505514e2609ddd74c","lastPost":1439204772},{"name":"Frondor","id":2474872,"emailhash":"!http://i.stack.imgur.com/cioCP.jpg?s=128\u0026g=1","lastPost":1439204684},{"name":"Callum","id":4589557,"emailhash":"!http://i.stack.imgur.com/NDqUj.jpg?s=128\u0026g=1","lastPost":1439203936},{"name":"Caprica Six","id":1839506,"emailhash":"!http://i.stack.imgur.com/Sej2t.jpg?s=128\u0026g=1","lastPost":1439203929}],"messages":[{"date":1439205212,"user":"overexchange","userid":3317808}],"singleImage":false,"tags":["ecmascript","es6","iojs","jabbascript","javascript","nodejs","promises"]},{"name":"PHP","id":11,"lastPost":1439205210,"posts":2020455,"users":[{"name":"Sajad","id":2805376,"emailhash":"!http://i.stack.imgur.com/ROWF7.jpg?s=128\u0026g=1","lastPost":1439205211},{"name":"HamZa","id":1401975,"emailhash":"!http://i.stack.imgur.com/Jh3mC.jpg?s=128\u0026g=1","lastPost":1439205207},{"name":"PeeHaa","id":508666,"emailhash":"!http://i.stack.imgur.com/0dpOE.png?s=128\u0026g=1","lastPost":1439205143},{"name":"Fabor","id":811241,"emailhash":"!http://i.stack.imgur.com/XWWc3.jpg?s=128\u0026g=1","lastPost":1439205077},{"name":"Rahul","id":4968696,"emailhash":"2e40613b104a8720c32dbfc670e39724","lastPost":1439205022},{"name":"Duikboot","id":1063823,"emailhash":"!http://i.stack.imgur.com/mFbX3.jpg?s=128\u0026g=1","lastPost":1439202474},{"name":"Sergey Telshevsky","id":836646,"emailhash":"c9d3823e79bae04bb12f702335d6d312","lastPost":1439201202}],"messages":[{"date":1439205210,"user":"Sajad","userid":2805376}],"singleImage":false,"tags":["php"]}]} 
+        };
+
+        StackExchange.chatAd.init(options);
+    });
+// -->
+</script>
+
+</div>  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/22073612?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/22073612/connectionstring-open-throws-an-error?lq=1" class="question-hyperlink">connectionString.open() throws an error</a>
+</div>			</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/510899?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">45
+    </div>
+</a><a href="http://stackoverflow.com/questions/510899/multipleactiveresultsets-true-or-multiple-connections?rq=1" class="question-hyperlink">MultipleActiveResultSets=True or multiple connections?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/670774?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">59
+    </div>
+</a><a href="http://stackoverflow.com/questions/670774/how-can-i-solve-a-connection-pool-problem-between-asp-net-and-sql-server?rq=1" class="question-hyperlink">How can I solve a connection pool problem between ASP.NET and SQL Server?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/1299410?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">28
+    </div>
+</a><a href="http://stackoverflow.com/questions/1299410/can-i-save-an-object-in-a-sql-server-database?rq=1" class="question-hyperlink">Can I save an 'Object' in a SQL Server database?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/1499718?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">11
+    </div>
+</a><a href="http://stackoverflow.com/questions/1499718/any-limit-of-sql-server-connection-count?rq=1" class="question-hyperlink">any limit of SQL Server connection count?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/1499768?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/1499768/connection-leak-issue-in-sql-server?rq=1" class="question-hyperlink">connection leak issue in SQL Server</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/1612686?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/1612686/problem-in-the-connection-string-of-microsoft-sql-server-2005?rq=1" class="question-hyperlink">Problem in the connection string of Microsoft SQL Server 2005 !</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/1642705?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">7
+    </div>
+</a><a href="http://stackoverflow.com/questions/1642705/sql-server-connection-string-asynchronous-processing-true?rq=1" class="question-hyperlink">SQL Server connection string Asynchronous Processing=true</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/2334712?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted extra-large">1393
+    </div>
+</a><a href="http://stackoverflow.com/questions/2334712/update-from-select-using-sql-server?rq=1" class="question-hyperlink">UPDATE from SELECT using SQL Server</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/3491302?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/3491302/select-a-data-from-ms-sql-server-2005?rq=1" class="question-hyperlink">Select a data from MS SQL Server 2005</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/4308417?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">45
+    </div>
+</a><a href="http://stackoverflow.com/questions/4308417/connection-timeout-for-sql-server?rq=1" class="question-hyperlink">Connection timeout for SQL server</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1391737/integrating-an-absolute-value-problem" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    integrating an absolute value problem
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="http://puzzling.stackexchange.com/questions/19812/what-is-my-word" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is my word?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-gis" title="Geographic Information Systems Stack Exchange"></div><a href="http://gis.stackexchange.com/questions/157656/password-protect-qgis-project" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:79 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Password Protect QGIS project
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/98769/was-the-ring-narya-ever-intended-to-be-passed-to-a-mortal" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Was the ring Narya ever intended to be passed to a mortal?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="http://askubuntu.com/questions/659653/rename-hundreds-of-directories" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Rename hundreds of directories
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1390365/what-is-the-difference-between-dense-and-closed-sets" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the difference between dense and closed sets?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/51206/is-it-ethical-legal-to-use-the-universitys-resources-for-a-personal-project" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it ethical/legal to use the University's resources for a personal project?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-tridion" title="Tridion Stack Exchange"></div><a href="http://tridion.stackexchange.com/questions/12596/color-significance-for-locked-page-in-cme" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:485 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    color significance for locked page in CME
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="http://superuser.com/questions/954275/fake-online-website-when-offline" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Fake online website when offline
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/98870/where-is-this-dinosaur-from" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Where is this dinosaur from?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1391733/continuous-surjective-mapping-from-half-open-interval-to-the-reals-the-cantor" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Continuous surjective mapping from half-open interval to the reals / the Cantor set
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/96134/why-are-ransom-attacks-successful" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why are ransom attacks successful?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/222146/awk-does-not-end" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    awk does not end
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-blender" title="Blender Stack Exchange"></div><a href="http://blender.stackexchange.com/questions/35363/curved-arrow-of-variable-thickness-to-connect-to-objects" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:502 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Curved arrow of variable thickness to connect to objects
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/265938/what-does-it-s-always-a-pig-in-a-poke-so-why-not-a-pig-who-pokes-mean" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does “It’s always a pig in a poke. So why not a pig who pokes?”mean?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-blender" title="Blender Stack Exchange"></div><a href="http://blender.stackexchange.com/questions/35415/why-is-blender-so-popular-for-3d-printing" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:502 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is Blender so popular for 3D printing?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-anime" title="Anime &amp; Manga Stack Exchange"></div><a href="http://anime.stackexchange.com/questions/23941/what-anime-is-this-from-girl-with-pink-hair-and-girl-with-purple-hair-kissing" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:477 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What anime is this from? Girl with pink hair and girl with purple hair kissing
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/31913821/how-to-remove-input-by-javascript" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to remove input by Javascript
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/96428/which-hashing-algorithm-better-to-use-to-store-a-password-sha256-or-sha512" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    which hashing algorithm better to use to store a password, sha256 or sha512?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/184911/panelization-depaneling-a-metal-core-pcb" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Panelization (&amp; Depaneling) a Metal Core PCB
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/96377/why-do-people-use-ip-bans-when-ip-addresses-often-change" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do people use IP bans when IP addresses often change?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1391781/exponential-simultaneous-equations" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Exponential Simultaneous Equations
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="http://space.stackexchange.com/questions/10517/why-do-deep-space-probes-have-to-be-sterilized" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do deep space probes have to be sterilized?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/50655/staying-late-for-appearance" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Staying late for appearance?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/5947212" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/5947212/ivc/bde2');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/5947212/ivc/bde2" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">default</div></div>
+
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (9)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (5)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2015 Stack Exchange Inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.8.10.683
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('c%23,.net,sql-server,sql-server-2005,ado.net');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');        
+        
+        ga('set', 'dimension2', '|c#|.net|sql-server|sql-server-2005|ado.net|');         
+        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>            
+    
+<script type="text/javascript" src="./c# - Connecting to SQL Server in ASP.NET - Stack Overflow_files/p"></script></body></html>

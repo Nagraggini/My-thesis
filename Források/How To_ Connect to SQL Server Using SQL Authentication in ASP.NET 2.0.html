@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://msdn.microsoft.com/en-us/library/ff648340.aspx -->
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="WT.seg_1" content="en-us"><link rel="canonical" href="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0.html">
+        <title>How To: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0</title>
+
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/ff648340(d=default,l=en-us,v=pandp.10).aspx">
+
+<meta name="NormalizedUrl" content="https://msdn.microsoft.com/en-us/library/ff648340(d=default,l=en-us,v=pandp.10).aspx">
+
+<meta name="ms.normalizedurl" content="https://msdn.microsoft.com/en-us/library/ff648340(d=default,l=en-us,v=pandp.10).aspx">
+
+<meta name="DCSext.MSDNLibraryNode" content="_pandp_all_">
+
+<meta name="VotingContextUrl" content="https://msdn.microsoft.com/en-us/library/ff648340(d=default,l=en-us,v=pandp.10).aspx">
+
+<meta name="MN" content="EE4293C3-4:38:14 AM">
+
+<meta name="Search.ShortId" content="ff648340">
+
+<meta name="ms.shortidmsdn" content="ff648340">
+
+<meta name="Ms.Locale" content="en-us">
+
+<meta name="ms.prodver" content="PandP.10">
+
+<meta name="ms.contentlang" content="EN">
+
+<meta name="ms.lang" content="EN">
+
+<meta name="ms.loc" content="US">
+
+<meta name="ms.sitever" content="2015.07.28.2">
+
+<meta name="ms.assetid" content="pandp|dnpag2|~\html\paght000010.htm">
+
+<meta name="ms.auth" content="0">
+
+
+
+
+
+
+
+
+        
+    <link rel="stylesheet" type="text/css" href="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/Combined.css"><script type="text/javascript" src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/ai.0.js" async=""></script><script class="mtps-injected">try {
+/**/
+(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { 
+	"image": "https://i-msdn.sec.s-msft.com", 
+	"js": "https://i2-msdn.sec.s-msft.com", 
+	"css": "https://i-msdn.sec.s-msft.com", 
+	"xap": "https://msdn.microsoft.com"
+});
+/**/
+} finally { MTPS._injectNextScript_0 && MTPS._injectNextScript_0(); }</script><script class="mtps-injected" src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/jquery-1.8.2.min.js"></script><script class="mtps-injected">try {
+//
+  var literalNormalizedUrl = '/en-us/library/ff648340(l=en-us,v=pandp.10).aspx';
+  var wt_nvr_ru = 'WT_NVR_RU';
+  var wt_fpcdom = '.microsoft.com';
+  var wt_domlist = 'msdn.microsoft.com';
+  var wt_pathlist = '';
+  var wt_paramlist = 'DCSext.mtps_devcenter';
+  var wt_siteid = 'MSDN';
+  var gDomain = 'm.webtrends.com';
+  var gDcsId = 'dcsmgru7m99k7mqmgrhudo0k8_8c6m';
+  var gFpc = 'WT_FPC';
+
+
+
+  if (document.cookie.indexOf(gFpc + "=") == -1) {
+    var wtidJs = document.createElement("script");
+    wtidJs.src = "//" + gDomain + "/" + gDcsId + "/wtid.js";
+    document.getElementsByTagName("head")[0].appendChild(wtidJs);
+  }
+
+
+
+  var detectedLocale = 'en-us';
+  var wtsp = '_sto_msdn_patternsandpractices_';
+  var gTrackEvents = '0';
+/**/
+} finally { MTPS._injectNextScript_2 && MTPS._injectNextScript_2(); }</script><script class="mtps-injected">try {
+//
+
+            window.appInsightsId = '60854590-027a-4ae4-98be-2741a40f355f';
+            //
+} finally { MTPS._injectNextScript_3 && MTPS._injectNextScript_3(); }</script><script class="mtps-injected" src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/Combined.js"></script><script class="mtps-injected" src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/SearchBox.jss"></script><script class="mtps-injected" src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/Combined(1).js"></script><script src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/broker.js"></script><script class="mtps-injected">try {
+$(document).ready(function() {
+        try {
+            var token = $("#globalRequestVerification input[name='__RequestVerificationToken']").clone();
+            $("#siteFeedbackForm").append(token);
+        } catch(err) {
+            
+        }
+    });
+} finally { MTPS._injectNextScript_7 && MTPS._injectNextScript_7(); }</script><link href="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/PrintView.css" rel="stylesheet" type="text/css" media="print"><script type="text/javascript" src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/ms.js"></script></head>
+    <body class="library Chrome">
+        <div id="page">
+            
+
+            
+            
+            
+    
+
+    
+    <link type="text/css" rel="stylesheet">
+    
+    <input type="hidden" id="isHeaderBleeding" value="true">
+    <div id="ux-header" dir="ltr" class="ltr msdn" data-device-type="desktop">
+        
+
+      <header>
+        <span id="singleCol"></span>
+        <span id="doubleCol"></span>
+        <span id="isMobile"></span>
+        <div>
+          <div class="row topRow">
+            <div class="top">
+              <div class="left">
+                <a class="msdnLogoImg" href="https://msdn.microsoft.com/en-us">
+                  <div id="msft-logo" class="msft-logo"></div>
+                </a>
+                <div class="GrayPipe"></div>
+                  <a class="DevCenterFullNameNonMegaBlade" href="https://msdn.microsoft.com/en-us">Developer Network</a>
+                <a class="DevCenterFullName" href="https://msdn.microsoft.com/en-us">Developer Network</a>
+                <a class="DevCenterShortName" href="https://msdn.microsoft.com/en-us">Developer</a>
+              </div>
+              <div class="right">
+                <div id="signIn">
+
+  <img class="profileImage" src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/profile.jpg">
+
+
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=12&ct=1439206694&rver=6.0.5276.0&wp=MCMBI&wlcxt=MSDN%24MSDN%24MSDN&wreply=https%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fff648340.aspx&lc=1033&id=254354&mkt=en-US" title="Sign in">Sign in</a></div>
+
+
+
+
+                <div class="auxNav">
+                  <div>
+                    <div data-fragmentname="Subscriptions" id="Fragment_Subscriptions" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="https://msdn.microsoft.com/subscriptions/manage/hh442900" id="Subscriptions_2153_1" xmlns="http://www.w3.org/1999/xhtml">MSDN subscriptions</a>
+</div>
+                    <div data-fragmentname="GetTools" id="Fragment_GetTools" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="http://go.microsoft.com/fwlink/?LinkId=309297&clcid=0x409&slcid=0x409&campaign=o~msft~msdn~gettools-header~dn308572" id="GetTools_2153_3" xmlns="http://www.w3.org/1999/xhtml">Get tools</a>
+</div>
+                  </div>
+                  <div>
+                    <div data-fragmentname="SocialLinks" id="Fragment_SocialLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="http://www.facebook.com/microsoftdeveloper" target="_blank" id="SocialLinks_2152_4" class="facebook" xmlns="http://www.w3.org/1999/xhtml">http://www.facebook.com/microsoftdeveloper</a>
+      </li>
+      <li>
+        <a href="https://twitter.com/msdev" target="_blank" id="SocialLinks_2152_5" class="twitter" xmlns="http://www.w3.org/1999/xhtml">https://twitter.com/msdev</a>
+      </li>
+      <li>
+        <a href="http://plus.google.com/111221966647232053570/" target="_blank" id="SocialLinks_2152_6" class="googlePlus" xmlns="http://www.w3.org/1999/xhtml">http://plus.google.com/111221966647232053570/</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row middleRow">
+            <div class="expandTop" style="display: none;">
+              <div class="left"></div>
+              <div class="right"></div>
+            </div>
+          </div>
+        </div>
+        <div id="buttomRowWrapper" class="bg_default">
+          <div class="row buttomRow bg_default">
+            <div class="bottom">
+              <div class="left">
+                <a id="grip" class="menu-icon" href="javascript:void(0)"></a>
+                
+                <div id="drawer">
+                  <div class="toc">
+                    
+        <nav>
+            <ul class="navL1">
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)" title="Technologies">Technologies</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/cloud-app-development-msdn" title="Cloud">Cloud</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/app-development-msdn" title="App Development">App Development</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/web-app-development-msdn" title="Web">Web</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/big-data-development-msdn" title="Data">Data</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/games-development-msdn" title="Gaming">Gaming</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)" title="Downloads">Downloads</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+                                            <a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="Visual Studio">Visual Studio</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/subscriptions" title="MSDN subscription access">MSDN subscription access</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/microsoft-sdks-msdn" title="SDKs">SDKs</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="Trial software">Trial software</a>
+
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/evalcenter" title="Free downloads">Free downloads</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/officeevaluationresources" title="Office resources">Office resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/sharepoint2013resources" title="SharePoint Server 2013 resources">SharePoint Server 2013 resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/sqlserver2014expressresources" title="SQL Server 2014 Express resources">SQL Server 2014 Express resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/windowsserver2012r2resources" title="Windows Server 2012 resources">Windows Server 2012 resources</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)" title="Programs">Programs</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+                                            <a href="https://rewards.msdn.microsoft.com/" title="Rewards">Rewards</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://www.microsoft.com/bizspark" title="Startups">Startups</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="Students">Students</a>
+
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/imagine/imagine-home" title="Microsoft Imagine">Microsoft Imagine</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/microsoftstudentpartners" title="Microsoft Student Partners">Microsoft Student Partners</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="Architects">Architects</a>
+
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/architects-overview-msdn" title="Overview">Overview</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/architects-case-studies-msdn" title="Case studies">Case studies</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/architects-blueprints-msdn" title="Blueprints">Blueprints</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="http://blogs.msdn.com/b/msarchitecture/" title="Blog">Blog</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="http://social.msdn.microsoft.com/forums/en-us/home?brandignore=true&sort=relevancedesc&searchterm=architecture+or+architect" title="Forums">Forums</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://events.msdn.microsoft.com/" title="Events">Events</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="MSDN Subscriptions">MSDN Subscriptions</a>
+
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/msdn-subscriptions-overview" title="Overview">Overview</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/benefits-overview" title="Benefits">Benefits</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/msdn-subscriptions-administration" title="Administrators">Administrators</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)" title="Community">Community</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/magazine/dd767791" title="Magazine">Magazine</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://social.msdn.microsoft.com/forums/" title="Forums">Forums</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://blogs.msdn.com/b/developer-tools/" title="Blogs">Blogs</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://tech-advisors.msdn.microsoft.com/en-us" title="Tech Advisors">Tech Advisors</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://channel9.msdn.com/" title="Channel 9">Channel 9</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive current toggle">
+                            <a href="javascript:void(0)" title="Documentation">Documentation</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive current">
+                                            <a href="https://msdn.microsoft.com/library" title="APIs and reference">APIs and reference</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/developer-centers-msdn" title="Dev centers">Dev centers</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive">
+                            <a href="https://code.msdn.microsoft.com/" title="Samples">Samples</a>
+                        </li>
+            </ul>
+        </nav>
+
+                  </div>
+                </div>
+              </div>
+              <div class="right">
+                <div data-fragmentname="SearchBox" id="Fragment_SearchBox" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="SearchBox">
+    <form id="HeaderSearchForm" name="HeaderSearchForm" method="get">
+      <button id="FakeHeaderSearchButton" value="Search" type="submit" class="header-search-button">
+        <div id="search-finder" class="search-finder"></div>
+      </button>
+      <button id="HeaderSearchButton" style="display:none" title="Search MSDN"></button>
+      <div id="searchSplitter"></div>
+      <div id="searchCloseIcon" class="search-clear-x"></div>
+      <div id="searchTextContainer" style="width: 0px; display: none;">
+        <input id="HeaderSearchTextBox" name="query" type="text" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" autocomplete="off">
+      <div id="SearchFlyoutContainer" style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; color: rgb(255, 255, 255); font-family: Arial; font-size: 16px; background-color: rgb(255, 255, 255);"><div id="SuggestionContainer"><ul style="list-style: none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;"></ul></div></div></div>
+    </form>
+    
+    
+  </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+    <div id="overlayMaskHeader"></div></div>
+    
+    
+
+
+
+<div id="skinnyRating">
+    <div class="rating">
+        <div id="s_ratingSection1">
+            <div class="title">
+                Was this page helpful?
+            </div>
+            <div class="description">
+                Your feedback about this content is important. Let us know what you think.
+            </div>
+            <div class="buttons">
+                <button class="button" id="s_ratingYes">Yes</button>
+                <button class="button" id="s_ratingNo">No</button>
+            </div>
+            <input id="s_ratingValue" type="hidden" value="">
+        </div>
+        <div id="s_ratingSection2">
+            <div id="s_skinnyRatingForm">
+                <div class="title">
+                    Additional feedback?
+                </div>
+                <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+                <div class="counter right">
+                    <span id="feedbackTextCounter">1500</span> characters remaining
+                </div>
+            </div>
+            <div class="buttons left">
+                <button class="button" id="s_ratingSubmit">Submit</button>
+                <button class="button" id="s_ratingSkipThis">Skip this</button>
+            </div>
+        </div>
+        <div id="s_ratingSection3" style="display: none">
+            <div class="title">
+                Thank you!
+            </div>
+            <div class="description">
+                We appreciate your feedback.
+            </div>
+        </div>
+
+        
+        <div id="contentFeedbackQAContainer" style="display: none;"></div>
+    </div>
+</div>
+
+        
+    <div class="printExportMenus ltr">
+        <a id="isd_printABook" href="https://msdn.microsoft.com/en-us/library/export/help/?returnUrl=%2fen-us%2flibrary%2fff648340.aspx" style="display: inline;">
+            Export (<span class="count">0</span>)
+        </a>
+        <a id="isd_print" href="https://msdn.microsoft.com/en-us/library/ff648340(d=printer).aspx" rel="nofollow">
+            Print 
+        </a>
+        <a id="isd_archiveControl" style="display:none;" data-include-archive="Include Previous Version" data-exclude-archive="Exclude Previous Version">
+        </a>
+    </div>
+    
+
+        <div class="printExportMenus ltr">
+        <a id="expandCollapseAll" accesskey="e" href="javascript:void(0)" title="Expand/Collapse all sections by pressing Ctrl + Shift + e" style="display: none;">Expand All</a>
+    </div>
+
+    
+
+
+            <div id="body">
+                
+
+
+
+
+
+
+
+
+
+    <div id="leftNav" style="width: 280px; max-width: 480px; min-height: 6126px; height: auto;">
+
+
+
+
+<div id="tocnav" class="hide-archive">
+
+
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ms123401.aspx" id="ms310241_MSDN.10_en-us" mtpsaliasid="" mtpsassetid="5DDC0A78-6B2C-43E3-9C56-55F45C0DFFA5_MSDN.10_en-us" mtpsshortid="ms123401_MSDN.10_en-us" title="MSDN Library">MSDN Library</a>            </div>
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ff921345.aspx" id="ff653621_PandP.10_en-us" mtpsaliasid="" mtpsassetid="87CCB374-6803-42A5-B0B8-0E7C7074634F_PandP.10_en-us" mtpsshortid="ff921345_PandP.10_en-us" title="patterns &amp; practices">patterns &amp; practices</a>            </div>
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ff921344.aspx" id="ff653525_PandP.10_en-us" mtpsaliasid="" mtpsassetid="5A242F3B-A901-4B31-9BD6-438A1D43A0A8_PandP.10_en-us" mtpsshortid="ff921344_PandP.10_en-us" title="Retired">Retired</a>            </div>
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/hh917304.aspx" id="ff653527_PandP.10_en-us" mtpsaliasid="" mtpsassetid="7546b38e-25e8-4e48-80ac-1c5bdf0e691d_PandP.10_en-us" mtpsshortid="hh917304_PandP.10_en-us" title="Solution Development Fundamentals">Solution Development Fundamentals</a>            </div>
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/hh917316.aspx" id="ff833095_PandP.10_en-us" mtpsaliasid="" mtpsassetid="17c28104-0990-46a1-b2ba-67b8da975813_PandP.10_en-us" mtpsshortid="hh917316_PandP.10_en-us" title="Security">Security</a>            </div>
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ff650760.aspx" id="ff833096_PandP.10_en-us" mtpsaliasid="" mtpsassetid="pandp|dnpag2|~\html\securityguidanceindex.htm_PandP.10_en-us" mtpsshortid="ff650760_pandp.10_en-us" title="Security Guidance for Applications">Security Guidance for Applications</a>            </div>
+            <div class="toclevel1 " data-toclevel="1" data-childrenloaded="true" style="padding-left: 17px;">
+<a class="toc_expanded" href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ff650055.aspx" id="ff833106_PandP.10_en-us" mtpsaliasid="" mtpsassetid="pandp|dnpag2|~\html\securityhowtosindex.htm_PandP.10_en-us" mtpsshortid="ff650055_pandp.10_en-us" title="How Tos">How Tos</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff649308.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Configure MachineKey in ASP.NET 2.0">How To: Configure MachineKey in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 current " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0.html" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0">How To: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff649309.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Create a Service Account for an ASP.NET 2.0 Application">How To: Create a Service Account for an ASP.NET 2.0 Application</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff647396.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Connect to SQL Server Using Windows Authentication in ASP.NET 2.0">How To: Connect to SQL Server Using Windows Authentication in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff647398.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI">How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff650304.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Encrypt Configuration Sections in ASP.NET 2.0 Using RSA">How To: Encrypt Configuration Sections in ASP.NET 2.0 Using RSA</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff649316.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Improve Security When Hosting Multiple Applications in ASP.NET 2.0">How To: Improve Security When Hosting Multiple Applications in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff650306.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Instrument ASP.NET 2.0 Applications for Security">How To: Instrument ASP.NET 2.0 Applications for Security</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff649310.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Prevent Cross-Site Scripting in ASP.NET">How To: Prevent Cross-Site Scripting in ASP.NET</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff648341.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Protect Forms Authentication in ASP.NET 2.0">How To: Protect Forms Authentication in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff647397.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Protect From Injection Attacks in ASP.NET">How To: Protect From Injection Attacks in ASP.NET</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff648339.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Protect From SQL Injection in ASP.NET">How To: Protect From SQL Injection in ASP.NET</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff647400.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use ADAM for Roles in ASP.NET 2.0">How To: Use ADAM for Roles in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff649313.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Authorization Manager (AzMan) with ASP.NET 2.0">How To: Use Authorization Manager (AzMan) with ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff649312.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Code Access Security in ASP.NET 2.0">How To: Use Code Access Security in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff650308.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Forms Authentication with Active Directory in ASP.NET 2.0">How To: Use Forms Authentication with Active Directory in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff650307.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Forms Authentication with Active Directory in Multiple Domains">How To: Use Forms Authentication with Active Directory in Multiple Domains</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff649314.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Forms Authentication with SQL Server in ASP.NET 2.0">How To: Use Forms Authentication with SQL Server in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff650305.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Health Monitoring in ASP.NET 2.0">How To: Use Health Monitoring in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff647404.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Impersonation and Delegation in ASP.NET 2.0">How To: Use Impersonation and Delegation in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff648344.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Medium Trust in ASP.NET 2.0">How To: Use Medium Trust in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff648345.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Membership in ASP.NET 2.0">How To: Use Membership in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff649317.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Protocol Transition and Constrained Delegation in ASP.NET 2.0">How To: Use Protocol Transition and Constrained Delegation in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff650303.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Regular Expressions to Constrain Input in ASP.NET">How To: Use Regular Expressions to Constrain Input in ASP.NET</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff647401.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Role Manager in ASP.NET 2.0">How To: Use Role Manager in ASP.NET 2.0</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff647402.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use the Network Service Account to Access Resources in ASP.NET">How To: Use the Network Service Account to Access Resources in ASP.NET</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/ff647405.aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="How To: Use Windows Authentication in ASP.NET 2.0">How To: Use Windows Authentication in ASP.NET 2.0</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew"></div>
+        
+
+<a id="NavigationResize" href="javascript:void(0)" style="left: 280px; display: inline-block;">
+    <img class="cl_nav_resize_open" src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/ImageSprite.png" title="Expand" alt="Expand">
+    <img class="cl_nav_resize_close" src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/ImageSprite.png" title="Minimize" alt="Minimize" style="display: none;">
+</a>
+
+
+
+    </div>
+<div id="content" class="content" style="margin-left: 280px; width: auto;">
+
+
+
+
+
+
+
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">How To: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0</h1>
+  
+  <div id="scrollyes">&nbsp;
+ <div class="alert">
+   <table>
+     <tbody><tr><th>Retired Content</th></tr>
+     <tr><td><p>This content is outdated and is no longer being maintained. It is provided as a courtesy for individuals who are still using these technologies.
+       This page may contain URLs that were valid when originally published, but now link to sites or pages that no longer exist.</p>
+       </td></tr>
+   </tbody></table>
+ </div>
+
+<p class="fig"></p><p><a href="https://msdn.microsoft.com/practices"><img id="pandp-logo-txt-2009" alt="patterns &amp; practices Developer Center" src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/IC368873.png" title="patterns &amp; practices Developer Center" xmlns=""></a></p>
+<a href="https://msdn.microsoft.com/practices">patterns &amp; practices Developer Center</a>
+
+<p>J.D. Meier, Alex Mackman, Blaine Wastell, Prashant Bansode, Andy Wigley, Kishore Gopalan</p>
+
+<p>Microsoft Corporation</p>
+
+<p>August 2005</p>
+
+<h2 class="dtH1">Applies To</h2>
+
+<ul>
+	<li>ASP.NET version 2.0</li>
+
+	<li>Microsoft® SQL Server 2000</li>
+</ul>
+
+<h2 class="dtH1">Summary</h2>
+
+<p>This How To shows you how to connect an ASP.NET application securely to Microsoft® SQL Server when database access authentication uses native SQL authentication. Windows authentication is the recommended way to connect to SQL Server because you avoid storing credentials in connection strings and you avoid passing passwords over the network to your database server. You can also use Microsoft Active Directory® directory service for unified account management and to enforce strong password policies. If you do need to use SQL authentication, then you need to protect stored credentials in your connection strings by encrypting the connection strings. In addition, you might need to secure the credentials as they are passed over the network from your application to the database server. Also, you should not use the sa account. Instead, use a least privileged account with a strong password.</p>
+
+<h2 class="dtH1">Contents</h2>
+
+<p><a href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#paght000010_objectives">Objectives</a><br>
+<a href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#paght000010_overview">Overview</a><br>
+<a href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#paght000010_summaryofsteps">Summary of Steps</a><br>
+<a href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#paght000010_step1">Step 1. Configure a Connection String</a><br>
+<a href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#paght000010_step2">Step 2. Encrypt the Connection String</a><br>
+<a href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#paght000010_step3">Step 3. Configure SQL Server Security</a><br>
+<a href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#paght000010_step4">Step 4. Test Security Access</a><br>
+<a href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#paght000010_step5">Step 5. Secure the Communications Channel to the Database</a><br>
+<a href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#paght000010_additionalresources">Additional Resources</a></p>
+
+<h2 class="dtH1"><a id="paght000010_objectives"></a>Objectives</h2>
+
+<ul>
+	<li>Connect to SQL Server using SQL authentication.</li>
+
+	<li>Restrict your account in the database.</li>
+
+	<li>Protect database credentials.</li>
+
+	<li>Protect your database connection string in a Web farm. </li>
+</ul>
+
+<h2 class="dtH1"><a id="paght000010_overview"></a>Overview</h2>
+
+<p>You should only use SQL authentication to connect to SQL Server if you cannot use Windows authentication. Windows authentication is recommended for the following reasons:
+
+</p><ul>
+	<li>You avoid storing user names and passwords in database connection strings.</li>
+
+	<li>Credentials are not passed over the network to the database server.</li>
+
+	<li>You can enforce Active Directory password policies.</li>
+
+	<li>Active Directory provides a single identity store with a single set of management tools. You do not have to maintain a separate set of SQL accounts.</li>
+</ul>
+
+<p>You might not be able to use Windows authentication if a firewall between your application server and database server prevents Windows authentication or if your application server and database server are in separate domains without trust. In some of these situations, you might be able to use mirrored local accounts, where you connect using local accounts with the same user name and password on both computers. However, if you must use SQL authentication, then you need to:
+
+</p><ul>
+	<li>Protect database connection strings in storage.</li>
+
+	<li>Optionally, provide channel security to protect user names sent over the network to the database server.</li>
+
+	<li>Avoid using the sa account, and instead use a least privileged SQL account with a strong password.</li>
+</ul>
+
+<p>For more information about how to use Windows authentication, see <a href="https://msdn.microsoft.com/en-us/library/ms998292.aspx">How To: Connect to SQL Server Using Windows Authentication in ASP.NET 2.0</a>.</p>
+
+<h2 class="dtH1"><a id="paght000010_summaryofsteps"></a>Summary of Steps</h2>
+
+<p>Follow these steps to create a test ASP.NET application using secured SQL Server access, encrypted connection information, and secure communications:
+
+</p><ul>
+	<li><strong>Step 1. Configure a connection string</strong>.</li>
+
+	<li><strong>Step 2. Encrypt the connection string</strong>.</li>
+
+	<li><strong>Step 3. Configure SQL Server security</strong>.</li>
+
+	<li><strong>Step 4. Test security access</strong>.</li>
+
+	<li><strong>Step 5. Secure the communications channel to the database</strong>.</li>
+</ul>
+
+<h2 class="dtH1"><a id="paght000010_step1"></a>Step 1. Configure a Connection String</h2>
+
+<p>For ASP.NET 2.0 applications, you should store connection strings in the &lt;<strong>connectionStrings</strong>&gt; section of the application's Web.config file. The connection string used with SQL authentication must include the user name and password of the database user, as shown here.</p>
+
+<pre class="code">&lt;configuration&gt;
+ &lt;connectionStrings&gt;
+  
+   &lt;add name="MyDbConn" 
+        connectionString="Server=MyServer; Database=pubs; User Id=MyUser; password= P@ssw0rd"
+        providerName="System.Data.SqlClient" /&gt;
+ &lt;/connectionStrings&gt;
+&lt;/configuration&gt;</pre>
+
+<h2 class="dtH1"><a id="paght000010_step2"></a>Step 2. Encrypt the Connection String</h2>
+
+<p>To help make sure that the SQL account credentials remain confidential, you should encrypt the connection string in the Web.config file. To do so, you use the Aspnet<strong>_</strong>regiis utility with either the Windows Data Protection API (DPAPI) or RSA protected configuration providers.</p>
+
+<p>The <strong>DataProtectionConfigurationProvider</strong> uses DPAPI and the <strong>RSAProtectedConfigurationProvider</strong> uses RSA public-key encryption. Because of the ease with which RSA keys can be exported, use the <strong>RSAProtectedConfigurationProvider</strong> if your application is deployed in a Web farm.</p>
+
+<p>The following command shows how to encrypt the &lt;<strong>connectionStrings</strong>&gt; section of the Web.config file by using the <strong>DataProtectionConfigurationProvider</strong>:</p>
+
+<p><strong>aspnet_regiis -pe "connectionStrings" -app "/<em>MyWebsite</em>" -prov "DataProtectionConfigurationProvider"</strong></p>
+
+<p>Where /<em>MyWebsite</em> is the virtual path to your ASP.NET application.</p>
+
+<p>To use the encrypted connection string in your application, simply access the string value at run time as shown in the following example.</p>
+
+<pre class="code">string dbConn = ConfigurationManager.ConnectionString["MyDbConn"].ToString();
+  </pre>
+
+<p>ASP.NET automatically decrypts encrypted sections at run time.</p>
+
+<blockquote class="dtBlock">
+<strong>Note</strong>&nbsp;&nbsp;&nbsp;You can programmatically encrypt and decrypt connection strings and other sections of your configuration file by using the <strong>System.Configuration.SectionInformation</strong> class and the methods <strong>ProtectSection</strong> and <strong>UnProtectSection</strong>.</blockquote>
+
+<p>For more information about using the protected configuration providers to encrypt configuration file sections, see:
+
+</p><ul>
+	<li><a href="https://msdn.microsoft.com/en-us/library/ms998280.aspx">How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI</a></li>
+
+	<li><a href="https://msdn.microsoft.com/en-us/library/ms998283.aspx">How To: Encrypt Configuration Sections in ASP.NET 2.0 Using RSA</a></li>
+</ul>
+
+<h2 class="dtH1"><a id="paght000010_step3"></a>Step 3. Configure SQL Server Security</h2>
+
+<p>To access a SQL Server database using SQL Server authentication, SQL Server must be configured for SQL authentication and you must create a login account.</p>
+
+<p><strong>To verify the SQL Server authentication mode</strong>
+
+</p><ol>
+	<li>Start SQL Server Enterprise Manager.</li>
+
+	<li>Locate the SQL Server instance within the SQL Server group.</li>
+
+	<li>Right-click your SQL Server and click <strong>Properties</strong>.</li>
+
+	<li>Click the <strong>Security</strong> tab and make sure that authentication is set to <strong>SQL Server and Windows</strong>.</li>
+</ol>
+
+<p><strong>To create a new SQL Server login</strong>
+
+</p><ol>
+	<li>Expand the <strong>Security</strong> folder in the SQL Server Enterprise Manager, right-click <strong>Logins</strong>, and click<strong> New Login</strong>.</li>
+
+	<li>Select the <strong>SQL Server Authentication</strong> option for <strong>Authentication</strong>.</li>
+
+	<li>Enter a login name and strong password. You should use a combination of letters, numbers, and non-alphanumeric characters for the password and use at least 8 characters total.</li>
+</ol>
+
+<p>SQL Server can now authenticate the new login, but the login has no permission to access any of the user-defined databases.</p>
+
+<p><strong>To grant database access</strong>
+
+</p><ol>
+	<li>Locate the <strong>Users </strong>folder for the database you want to grant access to, right-click, and click <strong>New Database User</strong>.</li>
+
+	<li>Select the <strong>Login name</strong> from the drop-down list and click <strong>OK</strong>. The database user name defaults to the same name.</li>
+
+	<li>Select <strong>Database Roles</strong>, right-click and then click <strong>New Database Role</strong>.
+<p>Avoid granting permissions to individual database users because the database user name may change and/or additional users may require the same permissions. Instead, grant permissions to database roles.
+</p></li>
+
+	<li>Enter a role name and select the <strong>Database Role</strong> type as <strong>Standard Role</strong>. Click the <strong>Add</strong> button, add the new user you created, and click <strong>OK</strong>.</li>
+
+	<li>Select the new role, right-click, and then click <strong>Properties</strong>.</li>
+
+	<li>Click <strong>Permissions</strong>. Locate the relevant stored procedures, and grant the EXEC (execute) permission to these objects.
+<p>By default, a new database role has no permission to read the base tables or views in the database and cannot execute stored procedures. It is best practice to grant permissions to stored procedures and views because then you can control what users can read and update.
+</p></li>
+</ol>
+
+<p>As an alternative to using Enterprise Manager, you can run the following database script to perform the steps outlined above. </p>
+
+<pre class="code">-- Create a new SQL Server Login
+exec sp_addlogin @loginame = 'MyUser', @passwd = 'P@ssw0rd'
+-- Grant the SQL login access to your database. 
+-- Create a database user called WebAppUser to which the login is associated 
+Use YourDatabase
+GO
+exec sp_grantdbaccess 'MyUser'
+-- Create a user-defined database role. 
+exec sp_addrole 'WebAppUserRole'
+-- Add the database user to the new database role. 
+exec sp_addrolemember 'WebAppUserRole', 'MyUser'
+-- Grant the role execute permissions on the stored procedure called sprocname
+grant execute on sprocname to WebAppUserRole
+  </pre>
+
+<h2 class="dtH1"><a id="paght000010_step4"></a>Step 4. Test Security Access</h2>
+
+<p>To test database access, create a test ASP.NET Web application and add the following .aspx page.</p>
+
+<pre class="code">&lt;%@ Page Language="C#" %&gt;
+&lt;%@ Import Namespace="System.Data" %&gt;
+&lt;%@ Import Namespace="System.Data.SqlClient" %&gt;
+
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;
+
+&lt;script runat="server"&gt;
+  protected void Page_Load(object sender, EventArgs e)
+  {
+      using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["MyDbConn"].ToString()))
+      {
+          SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM authors", cn);
+          cn.Open();
+          SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+          rdr.Read();
+          Response.Write(rdr[0].ToString()); //read a value
+      }
+  }
+&lt;/script&gt;
+
+&lt;html xmlns="http://www.w3.org/1999/xhtml" &gt;
+&lt;head runat="server"&gt;
+    &lt;title&gt;SQL Authentication&lt;/title&gt;
+&lt;/head&gt;
+&lt;body/&gt;
+&lt;/html&gt;
+  </pre>
+
+<p>Add a Web.config file and add a connection string entry as described in Step 1. Build and run the application. If you have not specifically permitted SELECT access to the authors table, you will see an error message such as the following:</p>
+
+<pre class="code">SELECT permission denied on object 'authors', database 'pubs', owner 'dbo'.
+  </pre>
+
+<h2 class="dtH1"><a id="paght000010_step5"></a>Step 5. Secure the Communications Channel to the Database</h2>
+
+<p>You might consider it necessary to encrypt the user name and data transmission, particularly if it contains sensitive application data between SQL Server and your ASP.NET application server. If your application is in a physically secured Internet data center, then this might not be necessary. In other situations, you might want to secure the communication channel to mitigate the risk posed by network eavesdropping.</p>
+
+<p>There are two options for securing the data transmission:
+
+</p><ul>
+	<li>Internet Protocol Security (IPSec)</li>
+
+	<li>Secure Sockets Layer (SSL) using a server certificate on SQL Server</li>
+</ul>
+
+<h3 class="dtH1">IPSec</h3>
+
+<p>IPSec is a transport-level service that provides port filtering, authentication, encryption, and integrity for all traffic between two computers. IPSec is transparent to applications; therefore, it can be used to secure applications without requiring their modification. However, IPSec is not intended as a replacement for application-level security. Consider using IPSec to provide additional infrastructure security to secure the communication channel between your Web application and database server and to restrict the computers that can communicate with your database server. For example, you can help secure a database server by establishing a policy that permits requests only from a trusted client computer, such as an application or Web server. You can also restrict communication to specific IP protocols and TCP/UDP ports.</p>
+
+<p>For detailed information about using IPSec, see:
+
+</p><ul>
+	<li>"How To: Use IPSec to Provide Secure Communications Between Two Servers," at <a href="https://msdn.microsoft.com/en-us/library/cc402160.aspx">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/secmod/html/secmod32.asp</a></li>
+
+	<li>"How To: Use IPSec for Filtering Ports and Authentication," at <a href="https://msdn.microsoft.com/en-us/library/aa302366.aspx">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnnetsec/html/HTUseIPSec.asp</a></li>
+</ul>
+
+<h3 class="dtH1">SSL</h3>
+
+<p>SSL uses cryptographic functions to provide an encrypted channel between client and server applications, and can be used to secure data transmission between a SQL Server and an ASP.NET application server. With SSL, each application can choose whether or not to create an encrypted communications channel; therefore, it offers more granularity than IPSec.</p>
+
+<p>To configure SQL Server to use SSL, you must install a server certificate on the server, and the clients must have a root certificate authority that matches the server certificate.</p>
+
+<p>For detailed information about how to install SSL, see:
+
+</p><ul>
+	<li>"How To: Use SSL to Secure Communication with SQL Server 2000," at <a href="https://msdn.microsoft.com/en-us/library/cc402161.aspx">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/secmod/html/secmod33.asp</a></li>
+
+	<li>"How To: Enable SSL Encryption for SQL Server 2000 with Microsoft Management Console," at <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;316898">http://support.microsoft.com/default.aspx?scid=kb;en-us;316898</a></li>
+
+	<li>"How to Enable SSL Encryption for SQL Server 2000 with Certificate Server," at <a href="http://support.microsoft.com/default.aspx?scid=276553">http://support.microsoft.com/default.aspx?scid=276553</a></li>
+</ul>
+
+<p>You can choose to configure SQL Server to force all clients to use SSL by running the SQL Server Network Utility (Svrnetcn.exe<strong>)</strong> tool and checking the <strong>Force protocol encryption</strong> option for TCP/IP. However, you may prefer to choose when to use SSL at an application level on a per-connection basis. For example, your application can use an unencrypted connection when it is not handling sensitive data, and only use an encrypted connection when necessary.</p>
+
+<p>If you are using the ADO.NET SQL Server managed data provider and a <strong>SqlConnection</strong> object to connect to SQL Server, then you can enable encryption by adding the <strong>encrypt=true</strong> parameter to the connection string as shown here.</p>
+
+<pre class="code">&lt;configuration&gt;
+  &lt;connectionStrings&gt; 
+       &lt;add name="MyDbConn" 
+            connectionString="Server=MyServer;Database=pubs;User Id=MyUser; password=P@ssw0rd;encrypt=true"
+            providerName="System.Data.SqlClient" /&gt;
+   &lt;/connectionStrings&gt;
+&lt;/configuration&gt;
+  </pre>
+
+<p>Note that encryption is off by default.</p>
+
+<h2 class="dtH1"><a id="paght000010_additionalresources"></a>Additional Resources</h2>
+
+<ul>
+	<li><a href="https://msdn.microsoft.com/en-us/library/ms998292.aspx">How To: Connect to SQL Server Using Windows Authentication in ASP.NET 2.0</a></li>
+
+	<li><a href="https://msdn.microsoft.com/en-us/library/ms998280.aspx">How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI</a></li>
+
+	<li><a href="https://msdn.microsoft.com/en-us/library/ms998283.aspx">How To: Encrypt Configuration Sections in ASP.NET 2.0 Using RSA</a></li>
+
+	<li><a href="https://msdn.microsoft.com/en-us/library/ms998271.aspx">How To: Protect From SQL Injection in ASP.NET</a></li>
+
+	<li><a href="https://msdn.microsoft.com/en-us/library/cc402160.aspx">How To: Use IPSec to Provide Secure Communications Between Two Servers</a></li>
+
+	<li><a href="https://msdn.microsoft.com/en-us/library/cc402161.aspx">How To: Use SSL to Secure Communication with SQL Server 2000</a></li>
+</ul>
+
+<h2 class="dtH1"><a id="paght000010_feedback"></a>Feedback</h2>
+
+<p>Provide feedback by using either a Wiki or e-mail:
+
+</p><ul>
+	<li><strong>Wiki.</strong> Security Guidance Feedback page: <a href="http://channel9.msdn.com/wiki/securityguidancefeedback/">http://channel9.msdn.com/wiki/securityguidancefeedback/</a></li>
+
+	<li><strong>E-mail. </strong>Send e-mail to <a href="mailto:secguide@microsoft.com">secguide@microsoft.com</a>.</li>
+</ul>
+
+<p>We are particularly interested in feedback regarding the following:
+
+</p><ul>
+	<li>Technical issues specific to recommendations </li>
+
+	<li>Usefulness and usability issues</li>
+</ul>
+
+<h2 class="dtH1"><a id="paght000010_technicalsupport"></a>Technical Support</h2>
+
+<p>Technical support for the Microsoft products and technologies referenced in this guidance is provided by Microsoft Support Services. For product support information, please visit the Microsoft Support Web site at <a href="http://support.microsoft.com/">http://support.microsoft.com</a>.</p>
+
+<h2 class="dtH1"><a id="paght000010_community"></a>Community and Newsgroups</h2>
+
+<p>Community support is provided in the forums and newsgroups:
+
+</p><ul>
+	<li><strong>MSDN Newsgroups:</strong> <span class="unresolvedLink">http://msdn.microsoft.com/newsgroups/default.asp</span></li>
+
+	<li><strong>ASP.NET Forums:</strong> <a href="http://forums.asp.net/">http://forums.asp.net</a></li>
+</ul>
+
+<p>To get the most benefit, find the newsgroup that corresponds to your technology or problem. For example, if you have a problem with ASP.NET security features, you would use the ASP.NET Security forum.</p>
+
+<h2 class="dtH1">Contributors and Reviewers</h2>
+
+<ul>
+	<li><strong>External Contributors and Reviewers:</strong> Jason Taylor, Security Innovation; Rudolph Araujo, Foundstone Professional Services</li>
+
+	<li><strong>Microsoft Services and PSS Contributors and Reviewers:</strong> Adam Semel, Nobuyuki Akama, Prash Shirolkar, Tom Christian, Wade Mascia</li>
+
+	<li><strong>Microsoft Product Group Contributors and Reviewers:</strong> Mike Volodarsky </li>
+
+	<li><strong>Test team:</strong> Larry Brader, Microsoft Corporation; Nadupalli Venkata Surya Sateesh, Sivanthapatham Shanmugasundaram, Infosys Technologies Ltd.</li>
+
+	<li><strong>Edit team: </strong>Nelly Delgado, Microsoft Corporation; Tina Burden McGrayne, TinaTech Inc.</li>
+
+	<li><strong>Release Management: </strong>Sanjeev Garg, Microsoft Corporation</li>
+</ul>
+<p><a href="https://msdn.microsoft.com/practices"><img id="pandp-logo-txt-2009" alt="patterns &amp; practices Developer Center" src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/IC368873.png" title="patterns &amp; practices Developer Center" xmlns=""></a></p>
+<p class="fig">
+</p></div> 
+ 
+ <div class="alert">
+   <table>
+     <tbody><tr><th>Retired Content</th></tr>
+     <tr><td><p>This content is outdated and is no longer being maintained. It is provided as a courtesy for individuals who are still using these technologies.
+       This page may contain URLs that were valid when originally published, but now link to sites or pages that no longer exist.</p>
+       </td></tr>
+   </tbody></table>
+ </div>
+ 
+</div>
+
+
+    
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit">Inherited
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected">Protected
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings.">
+
+
+ 
+</div>
+
+
+            </div>
+            <div class="clear"></div>
+
+            
+    
+<input name="__RequestVerificationToken" type="hidden" value="7DZ2bDxhQwNVtxCe460LKUkoNmZdbsPDX3FK5X4xgb2UBxLMs-e1rC_N8MGblfGbVRAPsYzJ65ycwh1lX7tWN--gPJc1">
+<input id="ratingSubmitUrl" type="hidden" value="https://msdn.microsoft.com/en-us/library/feedback/add/ff648340.aspx">
+<input id="isTopicRated" type="hidden" value="false">
+
+
+    
+
+    
+    <link type="text/css" rel="stylesheet">
+    
+    <div id="ux-footer" class="" style="" dir="ltr">
+            
+            <div id="footerSock" class="librarySock both">
+                <div id="footerSockInner">
+                        <a name="feedback"></a>
+
+<div class="rating">
+    <div id="ratingSection1">
+        <div class="title">
+            Was this page helpful?
+        </div>
+        <div class="description">
+            Your feedback about this content is important.<br>Let us know what you think.
+        </div>
+        <div class="buttons">
+            <button class="button" id="ratingYes">Yes</button>
+            <button class="button" id="ratingNo">No</button>
+        </div>
+        <input id="ratingValue" type="hidden" value="">
+    </div>
+    <div id="ratingSection2">
+        <div class="title">
+            Additional feedback?
+        </div>
+        <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+        <div class="counter right">
+            <span id="feedbackTextCounter">1500</span> characters remaining
+        </div>
+        <div class="buttons left">
+            <button class="button" id="ratingSubmit">Submit</button>
+            <button class="button" id="ratingSkipThis">Skip this</button>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            Thank you!
+        </div>
+        <div class="description">
+            We appreciate your feedback.
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+    
+                    <div class="userVoice">
+    <div class="title">
+        Have a suggestion to improve MSDN Library?
+    </div>
+        <div class="description">
+            Visit our UserVoice Page to submit and vote on ideas!
+        </div>
+    <div class="buttons">
+        <a class="button" id="userVoiceButton" href="http://feedback.msdn.com/forums/257782-msdn-feature-suggestions/category/83975" target="_blank">Make a suggestion</a>
+    </div>
+</div>  
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        <footer class="top">
+            <div data-fragmentname="LeftLinks" id="Fragment_LeftLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Dev centers</div>
+    <ul class="links">
+      <li>
+        <a href="https://dev.windows.com/" id="LeftLinks_2148_1" class="windowsBlue" xmlns="http://www.w3.org/1999/xhtml">Windows</a>
+      </li>
+      <li>
+        <a href="http://dev.office.com/" id="LeftLinks_2148_3" class="office" xmlns="http://www.w3.org/1999/xhtml">Office</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/vstudio" id="LeftLinks_2148_4" class="visualStudio" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+      </li>
+      <li>
+        <a href="http://azure.microsoft.com/en-us/documentation/" target="_blank" id="LeftLinks_2148_12" xmlns="http://www.w3.org/1999/xhtml">Microsoft Azure</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/aa937802" id="LeftLinks_2148_5" xmlns="http://www.w3.org/1999/xhtml">More...</a>
+      </li>
+    </ul>
+  </div>
+</div>    
+            <div id="rightLinks">
+                <div data-fragmentname="CenterLinks1" id="Fragment_CenterLinks1" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Learning resources</div>
+    <ul class="links">
+      <li>
+        <a href="http://www.microsoftvirtualacademy.com/" id="CenterLinks1_2151_4" xmlns="http://www.w3.org/1999/xhtml">Microsoft Virtual Academy</a>
+      </li>
+      <li>
+        <a href="http://channel9.msdn.com/" id="CenterLinks1_2151_5" xmlns="http://www.w3.org/1999/xhtml">Channel 9</a>
+      </li>
+      <li>
+        <a href="http://www.interoperabilitybridges.com/" id="CenterLinks1_2151_6" xmlns="http://www.w3.org/1999/xhtml">Interoperability Bridges</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/magazine/" id="CenterLinks1_2151_7" xmlns="http://www.w3.org/1999/xhtml">MSDN Magazine</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks2" id="Fragment_CenterLinks2" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Community</div>
+    <ul class="links">
+      <li>
+        <a href="https://social.msdn.microsoft.com/forums/en-us/home" id="CenterLinks2_2151_8" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+      </li>
+      <li>
+        <a href="http://blogs.msdn.com/b/developer-tools/" id="CenterLinks2_2151_9" xmlns="http://www.w3.org/1999/xhtml">Blogs</a>
+      </li>
+      <li>
+        <a href="http://www.codeplex.com/" id="CenterLinks2_2151_10" xmlns="http://www.w3.org/1999/xhtml">Codeplex</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks3" id="Fragment_CenterLinks3" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Support</div>
+    <ul class="links">
+      <li>
+        <a href="https://msdn.microsoft.com/hh361695" id="CenterLinks3_2151_11" xmlns="http://www.w3.org/1999/xhtml">Self support</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks4" id="Fragment_CenterLinks4" xmlns="http://www.w3.org/1999/xhtml" class="nth-child-4n">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Programs</div>
+    <ul class="links">
+      <li>
+        <a href="https://www.microsoft.com/bizspark/" id="CenterLinks4_2151_13" xmlns="http://www.w3.org/1999/xhtml">BizSpark (for startups)</a>
+      </li>
+      <li>
+        <a href="https://www.dreamspark.com/" id="CenterLinks4_2151_14" xmlns="http://www.w3.org/1999/xhtml">DreamSpark</a>
+      </li>
+      <li>
+        <a href="http://www.imaginecup.com/" id="CenterLinks4_2151_17" xmlns="http://www.w3.org/1999/xhtml">Imagine Cup</a>
+      </li>
+    </ul>
+  </div>
+</div>                
+            </div>
+        </footer>
+    
+        <footer class="bottom">
+            <span class="localeContainer">
+                
+    <form class="selectLocale" id="selectLocaleForm" action="https://msdn.microsoft.com/en-us/selectlocale-dmc">
+        <input type="hidden" name="fromPage" value="https%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fff648340.aspx">
+        <a href="https://msdn.microsoft.com/en-us/library/ff648340.aspx#" onclick="$(&#39;#selectLocaleForm&#39;).submit();return false;" title="Change your language">United States (English)</a>
+    </form>
+
+
+            </span>
+        
+            <div data-fragmentname="BottomLinks" id="Fragment_BottomLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="https://msdn.microsoft.com/newsletter.aspx" id="BottomLinks_2148_7" xmlns="http://www.w3.org/1999/xhtml">Newsletter</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/dn529288" id="BottomLinks_2148_8" xmlns="http://www.w3.org/1999/xhtml">Privacy &amp; cookies</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/cc300389" id="BottomLinks_2148_9" xmlns="http://www.w3.org/1999/xhtml">Terms of use</a>
+      </li>
+      <li>
+        <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" id="BottomLinks_2148_10" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+    </ul>
+  </div>
+</div>    
+            <span class="logoLegal">
+                <span class="logo"></span>
+                <span class="copyright">© 2015 Microsoft</span>
+            </span>
+        </footer>
+    </div>
+    
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">© 2015 Microsoft</div>
+            </div>
+
+            
+            
+    
+    
+    <input id="tocPaddingPerLevel" type="hidden" value="17">
+
+
+
+            <input id="MtpsDevice" type="hidden" value="Default">
+
+
+<!--[CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx. ]]-->
+
+            
+            
+            
+            
+            
+
+
+
+
+
+
+<noscript>&lt;div&gt;&lt;img alt="DCSIMG" id="Img1" width="1" height="1" src="https://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;amp;WT.js=No" /&gt;&lt;/div&gt;</noscript>
+
+
+
+
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="zf3opAZ7ILkjmS_PuWRA6eLWjQFT-ygJwaPKp-BSBZYPoqlJaqs5bqfiMFMFEhAXbx1cZbbJMwzOIecaeuYQnX3Y8bc1">
+</div>
+
+
+        </div>
+
+        
+        
+        
+        
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"js\": \"https://i2-msdn.sec.s-msft.com\", \r\n\t\"css\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"xap\": \"https://msdn.microsoft.com\"\r\n});\r\n/**/" },
+	{ url: "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/ff648340(l=en-us,v=pandp.10).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027_sto_msdn_patternsandpractices_\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "//\n\n            window.appInsightsId = \u002760854590-027a-4ae4-98be-2741a40f355f\u0027;\n            //" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:Utilities,1:Layout,2:Header,3:SkinnyRating,1:Rating,2:Footer,0:Topic,4:webtrendsscript,5:WEDCS,0:AppInsightsPerf,6:Toc,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Centers/Themes/StandardDevCenter/Content:2,/Areas/Library/Themes/Msdn/Content:3,/Areas/Global/Content/Webtrends/resources:4,/Areas/Library/Themes/Base/Content:5,/Areas/Library/Content:6\u0026amp;hashKey=B8008380DCD78AB06124122C695B6E0D\u0026amp;v=939959D6BF7B86F842C6AA0D0BBD8B42" },
+	{ url: "https://i1.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=Msdn\u0026loc=en-us\u0026focusOnInit=false\u0026emptyWatermark=true\u0026searchButtonTooltip=Search MSDN" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:PrintExportButton,1:NavigationResize,1:LibraryMemberFilter,2:Toc_Fixed,2:CodeSnippet,2:TopicNotInScope,2:CollapsibleArea,2:VersionSelector,2:SurveyBroker;/Areas/Library/Themes/Base/Content:0,/Areas/Library/Content:1,/Areas/Epx/Content/Scripts:2\u0026amp;hashKey=E0DECA244890C3205395CB2ABC519471\u0026amp;v=939959D6BF7B86F842C6AA0D0BBD8B42" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script>
+<script src="./How To_ Connect to SQL Server Using SQL Authentication in ASP.NET 2.0_files/broker-config.js"></script><div id="overlayMask"></div></body></html>

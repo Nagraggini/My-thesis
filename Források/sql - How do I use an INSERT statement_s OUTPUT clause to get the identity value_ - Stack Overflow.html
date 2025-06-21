@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<!-- saved from url=(0117)http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>sql - How do I use an INSERT statement's OUTPUT clause to get the identity value? - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=6cd6089ee7f6">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=ea71a5211a91&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="How do I use an INSERT statement&#39;s OUTPUT clause to get the identity value?">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="If I have an insert statement such as:
+
+INSERT INTO MyTable
+(  
+  Name,
+  Address,
+  PhoneNo
+)
+VALUES
+(
+  &#39;Yatrix&#39;,
+   &#39;1234 Address Stuff&#39;,
+   &#39;1112223333&#39;
+)
+
+
+How do I set @var INT to the new row&#39;s ">
+    <meta property="og:url" content="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value">
+    <link rel="canonical" href="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow.html">
+
+    
+    
+    <script type="text/javascript" async="" src="http://engine.adzerk.net/ados?t=1439207052658&request={%22Placements%22:[{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk1339736194%22,%22AT%22:4,%22Z%22:43},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk1535878746%22,%22ATA%22:[17,2221],%22Z%22:45}],%22Keywords%22:%22sql%2Csql-server-2005%2Cinsert%22,%22Referrer%22:%22https%3A%2F%2Fwww.google.hu%2F%22,%22IsAsync%22:true}"></script><script async="" src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/quant.js"></script><script async="" src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/beacon.js"></script><script async="" src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/analytics.js"></script><script type="text/javascript" async="" src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/ados.js"></script><script src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/jquery.min.js"></script>
+    <script src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/stub.en.js"></script>
+    <link rel="stylesheet" type="text/css" href="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;How do I use an INSERT statement&#39;s OUTPUT clause to get the identity value?&#39;" href="http://stackoverflow.com/feeds/question/10999396">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:4,shownCommentCount:4,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:10999396});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '10999396');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1439207052,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"globalAuthDisabled":true,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"0197a776ab5b23fc092e476c6de7b9fe","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"0c289167cd82","js/moderator.en.js":"ddc6dce7f8a9","js/full-anon.en.js":"fc4b7ce1ed8a","js/full.en.js":"04cdc6a0ba3d","js/wmd.en.js":"d933a1503f7c","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"1d9ca5139235","js/help.en.js":"b5f40fd81205","js/tageditor.en.js":"260ae44a356d","js/tageditornew.en.js":"044bbc92636e","js/inline-tag-editing.en.js":"9d7c6b9d01c1","js/revisions.en.js":"6aca57a6c709","js/review.en.js":"63a1d1f5f557","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"05049e5eae8a","js/explore-qlist.en.js":"9c64817b25fa","js/events.en.js":"ef9c91b0c49f","js/keyboard-shortcuts.en.js":"be13c7f674c0","js/external-editor.en.js":"d2e66d99e9b7","js/external-editor.en.js":"d2e66d99e9b7","js/snippet-javascript.en.js":"647d1c96b5a1","js/snippet-javascript-codemirror.en.js":"70db96c8807e"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script async="" src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/full-anon.en.js"></script><script async="" src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/snippet-javascript.en.js"></script><script async="" src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/post-validation.en.js"></script><script async="" src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/prettify-full.en.js"></script><script async="" src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/external-editor.en.js"></script><script type="text/javascript" src="http://static.adzerk.net/Extensions/adFeedback.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/adFeedback.css"><link type="text/css" rel="stylesheet" href="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/jobs.min.css"></head>
+<body class="question-page new-topbar">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="http://blog.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:7 })">blog</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f10999396%2fhow-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f10999396%2fhow-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 149 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                <a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f10999396%2fhow-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f10999396%2fhow-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value" class="login-link">log in</a>
+
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                            <a href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="http://stackoverflow.com/tour" id="tell-me-more" class="button">Take the 2-minute tour</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/", expires: 365 });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+                <h1 itemprop="name"><a href="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow.html" class="question-hyperlink">How do I use an INSERT statement's OUTPUT clause to get the identity value?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="10999396" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1339736194",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1339736194"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo2ODQyODAsImRpIjoiOGUyOGJlY2UwNTE5NGVjZWE0NDhkN2U5NjUzYjFiOTciLCJkbSI6MSwiZmMiOjcwODQzNCwiZmwiOjQzMTc4MCwiaXAiOiIxODguMTQyLjIxMy4zIiwia3ciOiJzcWwsc3FsLXNlcnZlci0yMDA1LGluc2VydCIsIm53IjoyMiwicGMiOjAsInByIjoxNjA0LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuaHUvIiwic3QiOjgyNzcsInVrIjoidWUxLWYzZDZiNTk3MWU2ODQ1MzRiZGM2OTY1YmZkNzA2MTRhIiwiem4iOjQzLCJ0cyI6MTQzOTIwNzA1MzU4NSwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTMzOTczNjE5NCIsInVyIjoiaHR0cDovL2NhcmVlcnMuc3RhY2tvdmVyZmxvdy5jb20vcHJvZHVjdHM_dXRtX3NvdXJjZT1zdGFja292ZXJmbG93LmNvbSZ1dG1fbWVkaXVtPWFkJnV0bV9jYW1wYWlnbj1lbXBsb3llcnMtYmVzdC13YXkmdXRtX2NvbnRlbnQ9bGItYmVzdC13YXkifQ&s=fjZecGybpDIY5pKElmlPQqvVOCw" rel="nofollow" target="_blank" title=""><img src="http://static.adzerk.net/Advertisers/6a84d696ad6c4679804e4923a617ade4.png" title="" alt="" border="0" width="728" height="90" style="display: none !important;"></a><img height="0px" width="0px" border="0" style="position: absolute; display: none !important;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo2ODQyODAsImRpIjoiOGUyOGJlY2UwNTE5NGVjZWE0NDhkN2U5NjUzYjFiOTciLCJkbSI6MSwiZmMiOjcwODQzNCwiZmwiOjQzMTc4MCwiaXAiOiIxODguMTQyLjIxMy4zIiwia3ciOiJzcWwsc3FsLXNlcnZlci0yMDA1LGluc2VydCIsIm53IjoyMiwicGMiOjAsInByIjoxNjA0LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuaHUvIiwic3QiOjgyNzcsInVrIjoidWUxLWYzZDZiNTk3MWU2ODQ1MzRiZGM2OTY1YmZkNzA2MTRhIiwiem4iOjQzLCJ0cyI6MTQzOTIwNzA1MzU4NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTMzOTczNjE5NCJ9&s=Ob9XtB2bY3n_EYbW_lunrZQDSI0"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="10999396">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">52</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value#" title="This is a favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b>10</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>If I have an insert statement such as:</p>
+
+<pre class="lang-sql prettyprint prettyprinted"><code><span class="kwd">INSERT</span><span class="pln"> </span><span class="kwd">INTO</span><span class="pln"> MyTable
+</span><span class="pun">(</span><span class="pln">  
+  Name</span><span class="pun">,</span><span class="pln">
+  Address</span><span class="pun">,</span><span class="pln">
+  PhoneNo
+</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">VALUES</span><span class="pln">
+</span><span class="pun">(</span><span class="pln">
+  </span><span class="str">'Yatrix'</span><span class="pun">,</span><span class="pln">
+   </span><span class="str">'1234 Address Stuff'</span><span class="pun">,</span><span class="pln">
+   </span><span class="str">'1112223333'</span><span class="pln">
+</span><span class="pun">)</span></code></pre>
+
+<p>How do I set <code>@var INT</code> to the new row's identity value (called <code>Id</code>) using the OUTPUT clause? I've seen samples of putting INSERTED.Name into table variables, for example, but I can't get it into a non-table variable. </p>
+
+<p>I've tried <code>OUPUT INSERTED.Id AS @var</code>, <code>SET @var = INSERTED.Id</code>, but neither have worked. </p>
+
+<p>Thanks in advance.</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/sql" class="post-tag js-gps-track" title="show questions tagged &#39;sql&#39;" rel="tag">sql</a> <a href="http://stackoverflow.com/questions/tagged/sql-server-2005" class="post-tag js-gps-track" title="show questions tagged &#39;sql-server-2005&#39;" rel="tag">sql-server-2005</a> <a href="http://stackoverflow.com/questions/tagged/insert" class="post-tag js-gps-track" title="show questions tagged &#39;insert&#39;" rel="tag">insert</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/10999396" title="short permalink to this question" class="short-link" id="link-post-10999396">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/10999396/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/10999396/revisions" title="show all edits to this post">edited <span title="2015-02-09 15:22:11Z" class="relativetime">Feb 9 at 15:22</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2012-06-12 15:03:49Z" class="relativetime">Jun 12 '12 at 15:03</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/850749/yatrix"><div class="gravatar-wrapper-32"><img src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/CiIm3.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/850749/yatrix">Yatrix</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">4,425</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="20 silver badges"><span class="badge2"></span><span class="badgecount">20</span></span><span title="41 bronze badges"><span class="badge3"></span><span class="badgecount">41</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-10999396" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-14372152" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I know about @@SCOPE_IDENTITY already, I specifically want to know how to do it with OUPUT. Thanks.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/850749/yatrix" title="4425 reputation" class="comment-user owner">Yatrix</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value#comment14372152_10999396"><span title="2012-06-12 15:04:23Z" class="relativetime-clean">Jun 12 '12 at 15:04</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-14372238" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">4</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You need to insert it into a table variable then select from that. There is no syntax to assign directly to a scalar variable from the <code>OUTPUT</code> clause.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/73226/martin-smith" title="213325 reputation" class="comment-user">Martin Smith</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value#comment14372238_10999396"><span title="2012-06-12 15:07:00Z" class="relativetime-clean">Jun 12 '12 at 15:07</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-14372246" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The <a href="http://msdn.microsoft.com/en-us/library/ms177564.aspx" rel="nofollow">OUTPUT clause</a> has to output into a table or table variable..</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/116614/mellamokb" title="37112 reputation" class="comment-user">mellamokb</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value#comment14372246_10999396"><span title="2012-06-12 15:07:14Z" class="relativetime-clean">Jun 12 '12 at 15:07</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-14372280" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">5</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The <code>OUTPUT</code> clause writes to a table.  It can be a table variable, temporary table, ... .</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/92546/habo" title="7012 reputation" class="comment-user">HABO</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value#comment14372280_10999396"><span title="2012-06-12 15:07:57Z" class="relativetime-clean">Jun 12 '12 at 15:07</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-10999396" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								1 Answer
+                                <span style="display:none;" itemprop="answerCount">1</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active">active</a>
+        <a href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="10999467"></a>
+<div id="answer-10999467" class="answer accepted-answer" data-answerid="10999467" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="10999467">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">110</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You can either have the newly inserted ID being output to the SSMS console like this:</p>
+
+<pre class="lang-sql prettyprint prettyprinted"><code><span class="kwd">INSERT</span><span class="pln"> </span><span class="kwd">INTO</span><span class="pln"> MyTable</span><span class="pun">(</span><span class="pln">Name</span><span class="pun">,</span><span class="pln"> Address</span><span class="pun">,</span><span class="pln"> PhoneNo</span><span class="pun">)</span><span class="pln">
+OUTPUT INSERTED</span><span class="pun">.</span><span class="pln">ID
+</span><span class="kwd">VALUES</span><span class="pln"> </span><span class="pun">(</span><span class="str">'Yatrix'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'1234 Address Stuff'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'1112223333'</span><span class="pun">)</span></code></pre>
+
+<p>You can use this also from e.g. C#, when you need to get the ID back to your calling app - just execute the SQL query with <code>.ExecuteScalar()</code> (instead of <code>.ExecuteNonQuery()</code>) to read the resulting <code>ID</code> back.</p>
+
+<p>Or if you need to capture the newly inserted <code>ID</code> inside T-SQL (e.g. for later further processing), you need to create a table variable:</p>
+
+<pre class="lang-sql prettyprint prettyprinted"><code><span class="kwd">DECLARE</span><span class="pln"> </span><span class="pun">@</span><span class="pln">OutputTbl </span><span class="kwd">TABLE</span><span class="pln"> </span><span class="pun">(</span><span class="pln">ID INT</span><span class="pun">)</span><span class="pln">
+
+</span><span class="kwd">INSERT</span><span class="pln"> </span><span class="kwd">INTO</span><span class="pln"> MyTable</span><span class="pun">(</span><span class="pln">Name</span><span class="pun">,</span><span class="pln"> Address</span><span class="pun">,</span><span class="pln"> PhoneNo</span><span class="pun">)</span><span class="pln">
+OUTPUT INSERTED</span><span class="pun">.</span><span class="pln">ID </span><span class="kwd">INTO</span><span class="pln"> </span><span class="pun">@</span><span class="pln">OutputTbl</span><span class="pun">(</span><span class="pln">ID</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">VALUES</span><span class="pln"> </span><span class="pun">(</span><span class="str">'Yatrix'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'1234 Address Stuff'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'1112223333'</span><span class="pun">)</span></code></pre>
+
+<p>This way, you can put multiple values into <code>@OutputTbl</code> and do further processing on those. You could also use a "regular" temporary table (<code>#temp</code>) or even a "real" persistent table as your "output target" here.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/10999467" title="short permalink to this answer" class="short-link" id="link-post-10999467">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/10999467/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/10999467/revisions" title="show all edits to this post">edited <span title="2012-12-12 13:48:01Z" class="relativetime">Dec 12 '12 at 13:48</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2012-06-12 15:07:29Z" class="relativetime">Jun 12 '12 at 15:07</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/13302/marc-s"><div class="gravatar-wrapper-32"><img src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/b4779212f57ff2e9549ea90a4499c2d7" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/13302/marc-s">marc_s</a><br>
+        <span class="reputation-score" title="reputation score 382552" dir="ltr">383k</span><span title="71 gold badges"><span class="badge1"></span><span class="badgecount">71</span></span><span title="686 silver badges"><span class="badge2"></span><span class="badgecount">686</span></span><span title="873 bronze badges"><span class="badge3"></span><span class="badgecount">873</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-10999467" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-35663249" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The answer here for the code behind was concise. ExecuteScalar() FTW</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/561710/joe-johnston" title="805 reputation" class="comment-user">Joe Johnston</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value#comment35663249_10999467"><span title="2014-04-25 15:26:49Z" class="relativetime-clean">Apr 25 '14 at 15:26</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-45066448" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You can insert the result in a <code>real persistent table</code> - this is extremely fantastic because it means that you can <code>INSERT</code> information in <code>TWO</code> tables at the same time.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1080354/gotqn" title="7341 reputation" class="comment-user">gotqn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value#comment45066448_10999467"><span title="2015-02-06 09:13:15Z" class="relativetime-clean">Feb 6 at 9:13</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-10999467" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/10999396/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="10999396">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.hu/">
+							<h2 class="space">Your Answer</h2>
+
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+            // Have to fire editor after snippets, if snippets enabled
+            if (StackExchange.options.snippets.enabled) {
+                StackExchange.using("snippets", function() {
+                    createEditor();
+                });
+            }
+            else {
+                createEditor();
+            }
+        });
+
+        function createEditor() {
+            prepareEditor({
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                ,immediatelyShowMarkdownHelp:true
+                });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="0197a776ab5b23fc092e476c6de7b9fe">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f10999396%2fhow-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f10999396%2fhow-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/sql" class="post-tag" title="show questions tagged &#39;sql&#39;" rel="tag">sql</a> <a href="http://stackoverflow.com/questions/tagged/sql-server-2005" class="post-tag" title="show questions tagged &#39;sql-server-2005&#39;" rel="tag">sql-server-2005</a> <a href="http://stackoverflow.com/questions/tagged/insert" class="post-tag" title="show questions tagged &#39;insert&#39;" rel="tag">insert</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2012-06-12 15:03:49Z"><b>3 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>55333 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value?lastactivity" class="lastactivity-link" title="2015-02-09 15:22:11Z">6 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1535878746",[17,2221]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1535878746"><div id="careersadsdoublehigh" style="display:none;"></div><img height="0px" width="0px" border="0" style="position: absolute; display: none !important;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTIxLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MjY4OCwiZGkiOiI2ODk5OWVkZDQ1ZGM0ZGFmODgzYjhjMmI2Y2Y1M2I1ZSIsImRtIjoxLCJmYyI6MjQ4NSwiZmwiOjI2NjMsImlwIjoiMTg4LjE0Mi4yMTMuMyIsImt3Ijoic3FsLHNxbC1zZXJ2ZXItMjAwNSxpbnNlcnQiLCJudyI6MjIsInBjIjowLCJwciI6NjE3MzcsInJ0IjoxLCJyZiI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5odS8iLCJzdCI6ODI3NywidWsiOiJ1ZTEtZjNkNmI1OTcxZTY4NDUzNGJkYzY5NjViZmQ3MDYxNGEiLCJ6biI6NDUsInRzIjoxNDM5MjA3MDUzNTg4LCJiZiI6dHJ1ZSwicG4iOiJhZHplcmsxNTM1ODc4NzQ2In0&s=PwtwSwrvSFoWJXOB6KfscyUfGrA"></div>
+        <div id="hireme" class=" orange near-you tagged"><a href="http://careers.stackoverflow.com/jobs/location/Budapest%2C%20Hungary" target="_blank" data-loc="Budapest%2C%20Hungary" data-hf="h" class="top"> <span>Jobs near you</span></a><ul class="jobs"><li><a data-cid="170027" href="http://careers.stackoverflow.com/jobs/83770/szoftverfejleszt%C5%91-aspnet-c-sharp-webes-port%C3%A1l-nat%C3%ADv-dealogic-hungary" target="_blank" title="Szoftverfejlesztő: ASP.NET/C#, webes portál&amp;natív mobil alkalmazás fejlesztés at Dealogic Hungary. Click to learn more.">Szoftverfejlesztő: ASP.NET/C#, webes portál&amp;natív mobil alkalmazás fejlesztés<br><div class="company">Dealogic Hungary</div><div class="location" title="Budapest, Hungary">Budapest, Hungary</div><span class="post-tag">c#</span><span class="post-tag">asp.net-mvc</span></a></li><li><a data-cid="162734" href="http://careers.stackoverflow.com/jobs/76424/creative-developer-frontend-personalization-scarab-research" target="_blank" title="Creative developer (frontend, personalization, profit) at Scarab Research. Click to learn more.">Creative developer (frontend, personalization, profit)<br><div class="company">Scarab Research</div><div class="location" title="Budapest, Hungary / relocation">Budapest, Hungary / relocation</div><span class="post-tag">frontend</span><span class="post-tag">user-experience</span></a></li><li><a data-cid="167465" href="http://careers.stackoverflow.com/jobs/81155/lead-developer-for-blindspotter-team-balabit-it-security" target="_blank" title="Lead Developer for Blindspotter Team at BalaBit IT Security. Click to learn more.">Lead Developer for Blindspotter Team<br><div class="company">BalaBit IT Security</div><div class="location" title="Budapest, Hungary">Budapest, Hungary</div><span class="post-tag">linux</span><span class="post-tag">python</span></a></li><li><a data-cid="179631" href="http://careers.stackoverflow.com/jobs/93648/engineering-manager-budapest-prezicom" target="_blank" title="Engineering Manager - Budapest at Prezi.com. Click to learn more.">Engineering Manager - Budapest<br><div class="company">Prezi.com</div><div class="location" title="Budapest, Hungary / relocation">Budapest, Hungary / relocation</div><span class="post-tag">functional-programming</span><span class="post-tag">project-management</span></a></li><li class="city"><a href="http://careers.stackoverflow.com/jobs/location/Budapest%2C%20Hungary" target="_blank" data-hf="f" data-loc="Budapest%2C%20Hungary">More jobs near Budapest…</a></li></ul><img class="impression" src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/i" style="display:none;"></div>
+			  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/42648?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted large">442</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/42648/best-way-to-get-identity-of-inserted-row?lq=1" class="question-hyperlink">Best way to get identity of inserted row?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/908257?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">16</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/908257/instead-of-trigger-in-sql-server-loses-scope-identity?lq=1" class="question-hyperlink">Instead of trigger in SQL Server loses SCOPE_IDENTITY?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/23015030?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/23015030/how-to-get-the-just-inserted-row-in-sql-server-stored-procedure-without-using-t?lq=1" class="question-hyperlink">How to get the just inserted row in SQL Server stored procedure (without using trigger)?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/25268670?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/25268670/output-clause-get-a-return-in-php?lq=1" class="question-hyperlink">OUTPUT clause get a return in PHP</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/18586995?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/18586995/how-to-return-last-identity-value-generated-for-a-specific-table-in-the-current?lq=1" class="question-hyperlink">How to return last identity value generated for a specific table in the current session and the current scope</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/27487930?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/27487930/reading-last-inserted-uid-from-database-using-sql-command?lq=1" class="question-hyperlink">Reading last inserted UID from database using SQL Command</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/16974764?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/16974764/locking-a-table-while-inserting-and-selecting?lq=1" class="question-hyperlink">Locking a table while inserting and selecting</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/30030139?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/30030139/c-sharp-stored-procedure-scope-identity?lq=1" class="question-hyperlink">c# stored procedure scope_identity</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/26110309?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">-2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/26110309/get-the-auto-increment-value-right-after-an-inset?lq=1" class="question-hyperlink">Get the auto-increment value right after an inset</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/23979355?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/23979355/getting-a-variable-from-a-database-via-an-sql-command?lq=1" class="question-hyperlink">Getting a Variable From a Database via an SQL Command</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/10999396?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/95988?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">27
+    </div>
+</a><a href="http://stackoverflow.com/questions/95988/how-to-insert-multiple-records-and-get-the-identity-value?rq=1" class="question-hyperlink">How to insert multiple records and get the identity value?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/586182?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted large">730
+    </div>
+</a><a href="http://stackoverflow.com/questions/586182/how-do-i-insert-an-item-into-an-array-at-a-specific-index?rq=1" class="question-hyperlink">How do I insert an Item into an array at a specific Index?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/2624713?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted large">159
+    </div>
+</a><a href="http://stackoverflow.com/questions/2624713/how-do-i-insert-multiple-rows-without-repeating-the-insert-into-dbo-blah-part?rq=1" class="question-hyperlink">How do I insert multiple rows WITHOUT repeating the “INSERT INTO dbo.Blah” part of the statement?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/5247343?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/5247343/sql-server-05-inserting-to-new-table-and-getting-id-from-an-old-and-the-newly-c?rq=1" class="question-hyperlink">SQL Server 05: Inserting to new table and getting ID from an old and the newly created ID from new</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/6649379?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">7
+    </div>
+</a><a href="http://stackoverflow.com/questions/6649379/insert-into-select-vs-values?rq=1" class="question-hyperlink">INSERT INTO SELECT vs VALUES</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/9871432?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/9871432/how-to-insert-only-if-not-exists?rq=1" class="question-hyperlink">How to insert only if not exists</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/15237100?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">3
+    </div>
+</a><a href="http://stackoverflow.com/questions/15237100/how-to-insert-leading-zero-in-sql-server?rq=1" class="question-hyperlink">How to insert leading zero in SQL Server</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/23933817?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/23933817/sql-2005-update-column-on-insert?rq=1" class="question-hyperlink">SQL 2005 Update Column on Insert</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/27886698?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/27886698/does-db2-have-identity-insert-on?rq=1" class="question-hyperlink">does db2 have identity insert on?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/29313636?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/29313636/simple-sql-server-insert-many-comma-delimited-values-from-textbox-to-one-colum?rq=1" class="question-hyperlink">Simple SQL Server Insert - Many Comma Delimited Values from Textbox to ONE Column</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/96004/are-there-technical-differences-which-make-linux-less-vulnerable-to-virus-than-w" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are there technical differences which make Linux less vulnerable to virus than Windows?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/96419/how-to-send-httprequest-anonymously" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to send HTTPrequest anonymously
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/184911/panelization-depaneling-a-metal-core-pcb" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Panelization (&amp; Depaneling) a Metal Core PCB
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="http://travel.stackexchange.com/questions/52502/abaya-standards-in-saudi-arabia" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Abaya standards in Saudi Arabia
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/265938/what-does-it-s-always-a-pig-in-a-poke-so-why-not-a-pig-who-pokes-mean" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does “It’s always a pig in a poke. So why not a pig who pokes?”mean?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/98873/etymology-of-muggles" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Etymology of 'Muggles'
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-ux" title="User Experience Stack Exchange"></div><a href="http://ux.stackexchange.com/questions/82705/why-is-sugar-not-in-a-shaker" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is sugar not in a shaker?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="http://aviation.stackexchange.com/questions/17676/why-cant-horizontal-stabilizers-be-longer-than-they-are-today" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why can't horizontal stabilizers be longer than they are today?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-hsm" title="History of Science and Mathematics Stack Exchange"></div><a href="http://hsm.stackexchange.com/questions/2631/historically-how-did-people-define-multiplication-for-negative-numbers" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:587 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Historically, how did people define multiplication for negative numbers?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/50509/is-it-a-scam-if-the-person-only-wants-to-deposit-into-my-account-not-make-a-wit" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it a scam if the person only wants to deposit into my account, not make a withdrawal?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/51677/why-is-cheque-cashing-a-legitimate-business" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is "cheque cashing" a legitimate business?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1391473/what-do-we-call-a-function-which-is-not-defined-on-part-of-its-domain" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What do we call a "function" which is not defined on part of its domain?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/98769/was-the-ring-narya-ever-intended-to-be-passed-to-a-mortal" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Was the ring Narya ever intended to be passed to a mortal?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="http://tex.stackexchange.com/questions/260613/using-swash-italics-through-fontspec" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Using swash italics through fontspec
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="http://superuser.com/questions/954275/fake-online-website-when-offline" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Fake online website when offline
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-boardgames" title="Board &amp; Card Games Stack Exchange"></div><a href="http://boardgames.stackexchange.com/questions/25534/when-you-use-rebound-does-the-card-go-to-the-graveyard" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:147 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    When you use 'Rebound' does the card go to the graveyard?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-dba" title="Database Administrators Stack Exchange"></div><a href="http://dba.stackexchange.com/questions/110530/cumulative-sum-of-quantity" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:182 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    cumulative sum of quantity
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/221970/is-documents-a-relative-or-an-absolute-path" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is `~/Documents` a relative or an absolute path?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/98844/why-wasnt-harry-kim-promoted-beyond-ensign-when-others-like-tom-paris-were-mul" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why wasn't Harry Kim promoted beyond ensign, when others like Tom Paris were multiple times?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/50785/how-to-tell-a-company-i-wont-do-a-background-check" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to tell a company I won't do a background check?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="http://space.stackexchange.com/questions/10517/why-do-deep-space-probes-have-to-be-sterilized" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do deep space probes have to be sterilized?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/31900892/why-is-a-in-abc-true-while-a-in-abc-is-false" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is 'a' in ('abc') True while 'a' in ['abc'] is False?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/98827/why-would-the-binary-language-of-moisture-vaporators-be-that-different-from-the" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why would the binary language of moisture vaporators be that different from the binary language of other machines or droids?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-opensource" title="Open Source Stack Exchange"></div><a href="http://opensource.stackexchange.com/questions/1530/is-it-ok-to-remove-the-license-terms-for-a-code-snippet" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:619 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it OK to remove the license terms for a code snippet?
+                </a>
+
+            </li>
+    </ul>
+
+        <a href="http://stackoverflow.com/questions/10999396/how-do-i-use-an-insert-statements-output-clause-to-get-the-identity-value#" class="show-more js-show-more js-gps-track" data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
+            more hot questions
+        </a>
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/10999396" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/10999396/ivc/bde2');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/10999396/ivc/bde2" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">lang-sql</div></div>
+
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (9)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (5)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2015 Stack Exchange Inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.8.10.683
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('sql,sql-server-2005,insert');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');        
+        
+        ga('set', 'dimension2', '|sql|sql-server-2005|insert|');         
+        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>            
+    
+<script type="text/javascript" src="./sql - How do I use an INSERT statement's OUTPUT clause to get the identity value_ - Stack Overflow_files/p"></script></body></html>

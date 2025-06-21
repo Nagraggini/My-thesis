@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs -->
+<html style="height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Previewing Image in ASP.NET Image Control using C# - CodeProject</title> 
+	<link type="text/css" rel="stylesheet" href="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/Main.min.css">
+
+	
+
+<meta name="Description" content="Previewing Image in ASP.NET Image Control using C#; Author: Santhosh Kumar Jayaraman; Updated: 7 Aug 2012; Section: Charts, Graphs and Images; Chapter: Web Development; Updated: 7 Aug 2012">
+<meta name="Keywords" content="C#, ASP.NET, Dev, Intermediate,Charts, Graphs and Images,Web Development,Free source code, tutorials">
+<meta name="Author" content="Santhosh Kumar Jayaraman">
+<meta name="Rating" content="General">
+<meta name="Revisit-After" content="1 days">
+<meta name="application-name" content="CodeProject">
+<meta name="google-translate-customization" content="d908bb7ce7aff658-4c2f3a504525c916-g629383f736781a8a-13">
+
+<link rel="dns-prefetch" href="http://ajax.googleapis.com/"> 
+<link rel="canonical" href="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/Previewing Image in ASP.NET Image Control using C# - CodeProject.html">
+
+
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - All Topics" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=1">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - Android" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=22">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - iOS" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=25">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - C++" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=2">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - C#" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=3">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - Web" href="http://www.codeproject.com/WebServices/ArticleRSS.aspx?cat=23">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Lounge Postings" href="http://www.codeproject.com/webservices/LoungeRSS.aspx">
+<meta name="robots" content="index, follow">
+<link rel="search" type="application/opensearchdescription+xml" title="CodeProject" href="http://www.codeproject.com/info/OpenSearch.xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--<base target="_top">--><base href="." target="_top">
+	<link rel="icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="shortcut icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="apple-touch-icon" href="http://www.codeproject.com/images/FavIcon-Apple.png" type="image/png">
+<script type="text/javascript" language="Javascript">//<![CDATA[
+function defrm () { /* thanks twitter */ document.write = ''; window.top.location = window.self.location;  setTimeout(function() { document.body.innerHTML = ''; }, 0);  window.self.onload = function(evt) { document.body.innerHTML = ''; }; }if (window.top !== window.self) {  try {  if (window.top.location.host) { /* will throw */ } else { defrm(); /* chrome */ }  } catch (ex) { defrm(); /* everyone else */ } }if (typeof(DemoUrl)!='undefined')   document.write(unescape('%3Cme')+'ta http'+'-equiv="re'+'fresh"                  con'+'tent="1;url='+DemoUrl+unescape('"%3CE'));
+(function() { 
+	var _dma = document.createElement('script');
+        _dma.type = 'text/javascript';
+        _dma.async = true;
+        _dma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn2.developermedia.com/a.min.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_dma);
+})();
+
+//]]>
+</script><script type="text/javascript" async="" src="http://cdn2.developermedia.com/a.min.js"></script>
+
+	
+
+
+
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-1735123-1']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_setDomainName', 'www.codeproject.com']);
+	_gaq.push(['_setSessionTimeout', '1200']); 
+
+	(function () {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})(); 
+</script><script type="text/javascript" async="" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/ga.js"></script>
+
+
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/main_hu.js"></script><script type="text/javascript" charset="UTF-8" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/element_main.js"></script></head>	
+
+<body class="chrome chrome44" style="position: relative; min-height: 100%; top: 0px;">
+
+<a class="access-link" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#Main"><img alt="Click here to Skip to main content" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t.gif"></a>
+
+
+
+
+
+<div class="page-background">
+
+	
+	
+
+	
+<div class="alert-bar  overlay ">
+	<a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" class="close-notify">×</a>
+	<div>Sign up for our free weekly <a href="http://www.codeproject.com/feature/web-newsletter">Web Developer Newsletter</a>.</div>
+</div>
+
+	
+    <div id="ctl00_STM" class="site-top-menu fixed">
+        <div class="main-content">
+            
+
+<div class="container memberbar clearfix">
+
+	<div id="ctl00_MemberMenu_GenInfo" class="float-left">11,659,528 members (75,187 online)</div>
+
+	<div class="float-left">
+		
+	</div>
+
+	<div class="float-right">
+
+		
+
+		<span id="ctl00_MemberMenu_CurRat" class="tooltip">
+				<a id="ctl00_MemberMenu_MyProfile" dir="ltr" href="http://www.codeproject.com/script/Membership/View.aspx?mid=10409544">ecsediandrea</a><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/arrow-down-16.png" style="width:16px;height:16px;vertical-align:middle">
+				<div class="tooltip-flyout" style="width:12em !important;">
+					
+					<div class="list-item"><a id="ctl00_MemberMenu_MySettingsDefault" href="https://www.codeproject.com/script/Membership/Modify.aspx">My Settings</a></div>
+					
+					<div class="list-item"><a id="ctl00_MemberMenu_MyBookmarks" href="http://www.codeproject.com/script/Bookmarks/List.aspx?obtid=2">My Bookmarks</a></div>
+					<div class="list-item"><a id="ctl00_MemberMenu_MyArticles" href="http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=10409544">My Articles</a></div>
+					<div class="list-item"><a id="ctl00_MemberMenu_MyMessages" href="http://www.codeproject.com/script/Forums/Messages.aspx?fmid=10409544">My Messages</a></div>
+					<div class="list-item"><a id="ctl00_MemberMenu_MyQuestions" href="http://www.codeproject.com/script/Answers/MemberPosts.aspx?tab=questions&mid=10409544&showall=True">My Questions</a></div>
+					<div class="list-item"><a id="ctl00_MemberMenu_MyAnswers" href="http://www.codeproject.com/script/Answers/MemberPosts.aspx?tab=answers&mid=10409544&showall=True">My Answers</a></div>
+					<div class="list-item"><a id="ctl00_MemberMenu_MyComments" href="http://www.codeproject.com/script/comments/MemberComments.aspx?mid=10409544">My Comments</a></div>
+					<div class="list-item"><a id="ctl00_MemberMenu_MyContacts" href="http://www.codeproject.com/script/Membership/ListContacts.aspx">My Contact info</a></div>
+					
+					
+					
+					
+				</div>
+			</span><span id="ctl00_MemberMenu_TotalPoints" title="Total reputation points"><a class="bold member-rep-box bronze" title="136" href="http://www.codeproject.com/script/Reputation/List.aspx?mid=10409544">136</a></span>
+			&nbsp;
+			<a id="ctl00_MemberMenu_Signout" href="http://www.codeproject.com/script/Membership/LogOff.aspx?rp=%2fTips%2f430320%2fPreviewing-Image-in-ASP-NET-Image-Control-using-Cs">Sign out</a>
+			<img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/circle-cross.gif" width="16px" height="16px" style="vertical-align:middle;margin-top:-3px;">
+		
+
+		
+	</div>
+</div>
+        </div>
+    </div>
+
+	
+    <div id="ctl00_SH" class="site-header fixed">
+        <div class="main-content">
+            <div class="logo"><a href="http://www.codeproject.com/"><img id="ctl00_Logo" tabindex="1" title="CodeProject" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/logo250x135.gif" alt="Home" style="height:135px;width:250px;border-width:0px;"></a></div>
+            <div class="promo"><div class="msg-728x90" data-format="728x90" data-type="ad" data-publisher="lqm.codeproject.site" data-zone="Web-Development/Charts-Graphs-and-Images/Images-and-multimedia" data-country="HU" data-tags="C#, ASP.NET, Dev, Intermediate,rating4.5"><noscript>&lt;a href="http://ad.doubleclick.net/N6839/jump/lqm.codeproject.site/Web-Development/Charts-Graphs-and-Images/Images-and-multimedia;sz=728x90;ord=635747888817000980?"&gt;&lt;img src="http://ad.doubleclick.net/N6839/ad/lqm.codeproject.site/Web-Development/Charts-Graphs-and-Images/Images-and-multimedia;sz=728x90;ord=635747888817000980?"  width="728px" height="90px" /&gt;&lt;/a&gt;</noscript></div></div>
+        </div>
+    </div>
+
+	<a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#Main"><img alt="Click here to Skip to main content" class="access-link" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t.gif"></a>
+
+	
+	<div id="ctl00_TPR" class="sub-headerbar clearfix fixed">
+    <div class="float-right">
+		
+
+<div class="searchbar">
+
+<form method="get" action="http://www.codeproject.com/search.aspx?sbo=kw" name="Search" class="tight">
+
+
+<table border="0" cellspacing="0" cellpadding="0" class="search"><tbody><tr><td><input tabindex="2" class="search  subdue" id="sb_tb" value="" name="q"></td><td><input type="image" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/search.gif"></td></tr></tbody></table>
+
+<div class="hover-container">
+	<div id="SearchFilter" class="search-advanced small-text align-left" style="display: none;">
+	<b>Search within:<br></b>
+		
+		<input type="radio" id="sb_kw" name="sbo" value="kw" checked="true"><label for="sb_kw">Articles</label><br>
+<input type="radio" id="sb_qa" name="sbo" value="qa"><label for="sb_qa">Quick Answers</label><br>
+<input type="radio" id="sb_fm" name="sbo" value="fm"><label for="sb_fm">Messages</label><br>
+
+
+		
+		
+
+		
+		
+	</div>
+</div>
+</form>
+
+</div>
+    </div>
+    <div class="float-left">
+		
+
+<div class="navbar clearfix">
+<ul class="navmenu openable">
+
+<li class="desktop-only"><a id="ctl00_TopNavBar_Home" href="http://www.codeproject.com/">home</a>
+
+
+</li><li class=""><a id="ctl00_TopNavBar_Art" class="down selected" href="http://www.codeproject.com/script/Articles/Latest.aspx">articles</a>
+
+	<ul>
+		<li class=""><a id="ctl00_TopNavBar_ArtTopicList" class="fly" onmouseover="navBarMenu.ShowMap(this, &#39;ctl00_TopNavBar_MapFlyout&#39;);" href="http://www.codeproject.com/script/Content/SiteMap.aspx">Chapters and Sections<span class="has-submenu">&gt;</span></a><ul id="ctl00_TopNavBar_MapFlyout">
+			<li>
+				<div id="siteMap">
+					<img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/animated.gif" alt="loading" style="margin:150px;width:100px;height:100px;">
+				</div>
+			</li>
+			</ul>
+		</li>
+		<li><a id="ctl00_TopNavBar_ArtSearch" class="fly break" href="http://www.codeproject.com/search.aspx?sbo=kw">Search</a></li>
+		<li><a id="ctl00_TopNavBar_ArtLatestArts" class="fly" href="http://www.codeproject.com/script/Articles/Latest.aspx?at=1,3,7">Latest Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtLatestTips" class="fly" href="http://www.codeproject.com/script/Articles/Latest.aspx?at=6">Latest Tips/Tricks</a></li>
+		<li><a id="ctl00_TopNavBar_ArtTop" class="fly" href="http://www.codeproject.com/script/Articles/TopArticles.aspx?ta_so=5">Top Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtBeginner" class="fly" href="http://www.codeproject.com/search.aspx?sbo=kw?aidlst=152&sa_us=True">Beginner Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtBlogArticles" class="fly break" href="http://www.codeproject.com/script/Articles/BlogArticleList.aspx">Technical Blogs</a></li>
+		<li><a id="ctl00_TopNavBar_ArtGuide" class="fly" href="http://www.codeproject.com/info/Submit.aspx">Posting/Update Guidelines</a></li>
+		<li><a id="ctl00_TopNavBar_ArtHelpForum" class="fly" href="http://www.codeproject.com/Forums/1641/Article-Writing.aspx">Article Help Forum</a></li>
+		<li><a id="ctl00_TopNavBar_ArtCompetition" class="fly break" href="http://www.codeproject.com/script/Awards/CurrentCompetitions.aspx?cmpTpId=1">Article Competition</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostArticle" class="fly highlight1" href="http://www.codeproject.com/script/Articles/Submit.aspx">
+			<img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/write13.png" width="13px" height="13px"> Submit an article or tip
+			</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostBlog" class="fly highlight2" href="http://www.codeproject.com/script/Articles/BlogFeed.aspx">
+			<img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/write13.png" width="13px" height="13px"> Post your Blog
+			</a></li>		<li class="last"></li>
+	</ul>
+
+</li>
+
+
+
+<li class="">
+<a id="ctl00_TopNavBar_Answers" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active">
+    <span class="desktop-only tablet-only">quick answers</span><span class="mobile-only">Q&amp;A</span>
+</a>
+	<ul>
+		
+
+		<li><a id="ctl00_TopNavBar_QAAsk" class="fly highlight2" href="http://www.codeproject.com/Questions/ask.aspx"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/write13.png" width="13px" height="13px"> Ask a Question</a></li>
+
+		
+		<li><a id="ctl00_TopNavBar_QAUnanswered" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=unanswered">View Unanswered Questions</a></li>
+		<li><a id="ctl00_TopNavBar_QALatest" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active">View All Questions...</a></li>
+		
+				<li><a id="ctl00_TopNavBar_QATR_ctl00_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&alltags=true&tags=120" style="padding-left:30px">Linux questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl01_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&alltags=true&tags=81" style="padding-left:30px">C# questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl02_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&alltags=true&tags=85" style="padding-left:30px">ASP.NET questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl03_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&alltags=true&tags=1223" style="padding-left:30px">C#5 questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl04_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&alltags=true&tags=93" style="padding-left:30px">SQL questions</a></li>
+			
+		<li class="last"></li>
+	</ul>
+
+</li>
+
+
+
+<li class=""><a id="ctl00_TopNavBar_Forums" href="http://www.codeproject.com/script/Forums/List.aspx">
+        <span class="desktop-only tablet-only">discussions</span><span class="mobile-only">forums</span>
+</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_MessageBoardsAll" class="fly" href="http://www.codeproject.com/script/Forums/List.aspx">All Message Boards...</a></li>
+		<li class=""><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1580997/Application-Lifecycle.aspx">Application Lifecycle<span class="has-submenu">&gt;</span></a>
+<ul class="openable"><li><a class="fly" href="http://www.codeproject.com/Forums/1533717/Running-a-Business.aspx">Running a Business</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1533716/Sales-Marketing.aspx">Sales / Marketing</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1651/Collaboration-Beta-Testing.aspx">Collaboration / Beta Testing</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/3304/Work-Issues.aspx">Work  Issues</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/369270/Design-and-Architecture.aspx">Design and Architecture</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/12076/ASP-NET.aspx">ASP.NET</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1580226/JavaScript.aspx">JavaScript</a>
+</li>
+<li class=""><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1647/C-Cplusplus-MFC.aspx">C / C++ / MFC<span class="has-submenu">&gt;</span></a>
+<ul class="openable"><li><a class="fly" href="http://www.codeproject.com/Forums/4486/ATL-WTL-STL.aspx">ATL /  WTL / STL</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/3785/Managed-Cplusplus-CLI.aspx">Managed C++/CLI</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1649/Csharp.aspx">C#</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1627782/Free-Tools.aspx">Free Tools</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1827460/Objective-C-and-Swift.aspx">Objective-C and Swift</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1725/Database.aspx">Database</a>
+</li>
+<li class=""><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/186301/Hardware-Devices.aspx">Hardware &amp; Devices<span class="has-submenu">&gt;</span></a>
+<ul class="openable"><li><a class="fly" href="http://www.codeproject.com/Forums/1644/System-Admin.aspx">System Admin</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1606152/Hosting-and-Servers.aspx">Hosting and Servers</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1643/Java.aspx">Java</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1650/NET-Framework.aspx">.NET Framework</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1848626/Android.aspx">Android</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1876716/iOS.aspx">iOS</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/13695/Mobile.aspx">Mobile</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1540733/Sharepoint.aspx">Sharepoint</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1004257/Silverlight-WPF.aspx">Silverlight / WPF</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1646/Visual-Basic.aspx">Visual Basic</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1640/Web-Development.aspx">Web Development</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/suggestions.aspx">Site Bugs / Suggestions</a>
+</li>
+
+		<li class="last"></li>
+	</ul>
+
+</li>
+
+<li class="desktop-only"><a id="ctl00_TopNavBar_Features" href="http://www.codeproject.com/Feature/">features</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_Comps" class="fly" href="http://www.codeproject.com/script/Awards/CurrentCompetitions.aspx?cmpTpId=1&awsac=true">Competitions</a></li>
+		<li><a id="ctl00_TopNavBar_News" class="fly" href="http://www.codeproject.com/script/News/List.aspx">News</a></li>
+		<li><a id="ctl00_TopNavBar_Insider" class="fly" href="http://www.codeproject.com/Feature/Insider/">The Insider Newsletter</a></li>
+    	<li><a id="ctl00_TopNavBar_DailyBuild" class="fly" href="http://www.codeproject.com/Feature/DailyBuild">The Daily Build Newsletter</a></li>
+		<li><a id="ctl00_TopNavBar_Newsletters" class="fly" href="http://www.codeproject.com/script/Mailouts/Archive.aspx?mtpid=1">Newsletter archive</a></li>
+		<li><a id="ctl00_TopNavBar_Surveys" class="fly" href="http://www.codeproject.com/script/Surveys/List.aspx">Surveys</a></li>
+		<li><a id="ctl00_TopNavBar_Showcase" class="fly" href="http://www.codeproject.com/KB/showcase/">Product Showcase</a></li>
+		<li><a id="ctl00_TopNavBar_Research" class="fly" href="http://www.codeproject.com/script/ResearchLibrary/Index.aspx">Research Library</a></li>
+
+		<li><a id="ctl00_TopNavBar_Stuff" class="fly" href="http://www.codeproject.com/Info/Stuff.aspx">CodeProject Stuff</a></li>
+		<li class="last"></li>
+	</ul>
+
+</li>
+
+
+<li class=""><a id="ctl00_TopNavBar_Lounge" href="http://www.codeproject.com/Lounge.aspx">
+            <span class="desktop-only tablet-only">community</span><span class="mobile-only">lounge</span>
+</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_WhosWho" class="fly" href="http://www.codeproject.com/script/Membership/Profiles.aspx">Who's Who</a></li>
+		<li><a id="ctl00_TopNavBar_MVPs" class="fly break" href="http://www.codeproject.com/script/Awards/MVPWinners.aspx">Most Valuable Professionals</a></li>
+		
+
+		<li><a id="ctl00_TopNavBar_LoungeLnk" class="fly highlight2" href="http://www.codeproject.com/Lounge.aspx">The Lounge &nbsp;</a></li>
+		<li><a id="ctl00_TopNavBar_InsiderLnk" class="fly" href="http://www.codeproject.com/Insider.aspx">The Insider News</a></li>
+		<li><a id="ctl00_TopNavBar_WeirdWonderful" class="fly" href="http://www.codeproject.com/Feature/WeirdAndWonderful.aspx">The Weird &amp; The Wonderful</a></li>
+		<li><a id="ctl00_TopNavBar_SoapBoxLnk" class="fly" href="http://www.codeproject.com/Forums/1536756/The-Soapbox.aspx">The Soapbox</a></li>
+		<li><a id="ctl00_TopNavBar_PRLnk" class="fly break" href="http://www.codeproject.com/Forums/1738007/Press-Releases.aspx">Press Releases</a></li>
+
+		
+		<li class=""><a class="fly" href="http://www.codeproject.com/Forums/1580229/Hindi.aspx">Non-English Language
+			<span class="has-submenu">&gt;</span></a>
+		<ul>
+		<li><a class="fly" href="http://www.codeproject.com/Forums/1580229/Hindi.aspx">General Indian Topics</a></li>
+		<li><a class="fly" href="http://www.codeproject.com/Forums/1580230/Chinese.aspx">General Chinese Topics</a></li>
+		</ul>
+		</li><li class="last"></li>
+		
+	</ul>
+
+</li>
+
+
+<li class="desktop-only tablet-only" style="margin-left:20px"><a id="ctl00_TopNavBar_Help" href="http://www.codeproject.com/KB/FAQs/">help</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_HelpWhatIs" class="fly" href="http://www.codeproject.com/info/guide.aspx">What is 'CodeProject'?</a></li>
+		<li><a id="ctl00_TopNavBar_HelpGeneral" class="fly break" href="http://www.codeproject.com/KB/FAQs/">General FAQ</a></li>
+		<li><a id="ctl00_TopNavBar_HelpPostQuestion" class="fly break highlight2" href="http://www.codeproject.com/Questions/ask.aspx">Ask a Question</a></li>
+		<li><a id="ctl00_TopNavBar_HelpBugs" class="fly" href="http://www.codeproject.com/suggestions.aspx">Bugs and Suggestions</a></li>
+		<li><a id="ctl00_TopNavBar_HelpArticles" class="fly" href="http://www.codeproject.com/Forums/1641/Article-Writing.aspx">Article Help Forum</a></li>
+		<li><a id="ctl00_TopNavBar_HelpSiteMap" class="fly" href="http://www.codeproject.com/script/Content/SiteMap.aspx">Site Map</a></li>
+		<li><a id="ctl00_TopNavBar_HelpAdvertise" class="fly" href="http://developermedia.com/">Advertise with us</a></li>
+		<li><a id="ctl00_TopNavBar_HelpJobs" class="fly" href="http://www.codeproject.com/info/Jobs/">Employment Opportunities</a></li>
+		<li><a id="ctl00_TopNavBar_HelpAboutUs" class="fly" href="http://www.codeproject.com/info/about.aspx">About Us</a></li>
+		<li class="last"></li>
+	</ul>
+
+</li>
+
+</ul>
+
+</div>
+    </div>
+	<div class="sub-headerbar-divider"></div>
+	</div>		
+	
+
+	<div id="A" class="container-content-wrap fixed"> 
+
+	<div itemscope="" itemtype="http://schema.org/Article" class="container-content"> 
+
+
+		<div class="clearfix">
+			<div class="container-breadcrumb float-left ">
+				<div><a href="http://www.codeproject.com/script/Content/SiteMap.aspx">Articles</a> » <a href="http://www.codeproject.com/Chapters/2/Web-Development.aspx">Web Development</a> » <a href="http://www.codeproject.com/KB/web-image/"><span itemprop="articleSection">Charts, Graphs and Images</span></a> » <a href="http://www.codeproject.com/KB/web-image/#Images+and+multimedia">Images and multimedia</a></div>
+			</div>
+
+			<div class="float-left">
+				
+			</div>
+
+			<div class="edit-links float-right">
+				
+
+
+ 
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+			</div>
+
+			<div class="article-nav float-right">
+					
+		        
+		        
+					
+
+                
+				
+
+<a id="ctl00_ActionLinks_BookmarkMd_ImgBt" title="Bookmark" alternatetext="Bookmark" name="bm_430320_2" onclick="return bookmarkMe(430320,2,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=430320&amp;obtid=2&amp;action=AddBookmark&amp;bio=true&amp;bis=medium&#39;,&#39;medium&#39;);" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=430320&obtid=2&action=AddBookmark&bio=true&bis=medium" style="display:inline-block;height:24px;width:24px;"><img title="Bookmark" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/bookmark24.png" alt="" style="border-width:0px;"></a>
+
+
+<span id="ctl00_ActionLinks_BookmarkMd_StatusMsg" class="tiny-text" style="display:none" name="bm_430320_2"></span>
+<a id="ctl00_ActionLinks_PrintMd" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?display=Print">
+	<img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/print24.png" title="Print" width="24px" height="24px" style="border:0">
+</a>
+			</div>
+		</div>
+
+		<table class="extended container-article-parts" cellpadding="0" cellspacing="0">
+        <tbody><tr valign="top">
+		<td width="117px" class="article-wing-left">
+
+			<div id="ctl00_Nav" class="container-article-tabs" style="position: static; top: 235px; left: 155.5px;">
+				<div class="tabs">
+					
+
+<div class="">
+	<div class="selected">Tip/Trick</div><div class="unselected"><a href="http://www.codeproject.com/script/Articles/ViewDownloads.aspx?aid=430320">Browse Code</a></div><div class="unselected"><a href="http://www.codeproject.com/script/Articles/Statistics.aspx?aid=430320">Stats</a></div><div class="unselected"><a href="http://www.codeproject.com/script/Articles/ListVersions.aspx?aid=430320">Revisions (6)</a></div><div class="unselected"><a href="http://www.codeproject.com/script/Articles/ListAlternatives.aspx?aid=430320">Alternatives</a></div>
+
+	<div class="unselected"><a href="http://www.codeproject.com/Tips/430320/WebControls/#_comments" id="ctl00_ArticleTabs_CommentLink" class="anchorLink">Comments 
+        <span id="ctl00_ArticleTabs_CmtCnt">(20)</span></a>
+	</div>
+</div>	
+
+				</div>
+
+				<a id="ctl00_AddAlternative" title="Write a related article about upgrades or translate this into a different language." class="add-item" href="http://www.codeproject.com/script/Articles/SubmissionWizard.aspx?at=6&apid=430320">Add your own<br>alternative version</a>
+
+			    <div class="tags"> 
+                    <h4>Tagged as</h4>
+			        <span id="ctl00_TagsList_TagWrp" class="tags">
+	
+	
+	
+	<span id="ctl00_TagsList_VisibleTags"><div class="t"><a rel="tag" href="http://www.codeproject.com/Tags/C--hash--">C#</a></div><div class="t"><a rel="tag" href="http://www.codeproject.com/Tags/ASP.NET">ASP.NET</a></div><div class="t"><a rel="tag" href="http://www.codeproject.com/Tags/Dev">Dev</a></div><div class="t"><a rel="tag" href="http://www.codeproject.com/Tags/Intermediate">Intermediate</a></div></span> 
+
+	
+	
+</span>
+
+			    </div>
+                
+			</div>
+
+		</td>
+		<td>
+			
+			<div id="AT" class="container-article  fixed"> 
+
+				<div class="article">
+
+					<form name="aspnetForm" method="post" action="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/Previewing Image in ASP.NET Image Control using C# - CodeProject.html" id="aspnetForm" style="margin:0;padding:0">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="3f/nytDrNZeRCBd/94gkpbVHanKRxwGTxobIHQyrwsdZN2I3rra/lqc5gWI5MlIE7oR2LdhKh+Frw+OkiBI8gE+1iDODyRL6/w/RHhNAwFsPIy4DrLPftGbvaVy6XoKW+A9RbMDqIAO9Fcx85QLgROev3fM59miybpdAI2Qg3dycbrDuliPFJJHI6tXbxshB8fFNwO5r2NC7mppqSfhFELNGiB2uNIyJAeXijy+sYCtShu3RTjWjF04NPGSrwvrdcop1S94quisKG9Q+iT0BHTOCfA6jEWItr/nk5EH5bH9IlHn9kgsq5XfPtprBigzfmJzDwP/aIoDK7nqtsC6NAArbTi9JDTAXokYZizaA/EZppEzfoS/6XU2tQQNMQAVAN9D++0fJOlLvEgydYl5sKoo+yub+ZdlyNRbrOgk8HPk4DvLEjtTNZ4dR0PZnWTV6Tuq7GxVENiQufKq8MOTg1pIF3gA9zP0ZJ/ZwMW+OpQ6Llk3jZnwC7N2VCHCPu60AcPD0/iNwd4D6RrusoJ9m4QCuOU/VzN4M9ZyUXqtqfwD1sTGDAO9wPpvUMB6HN1KyKWp/2nZtVAJjwmXhw4grK6Gxbuw6iLHCybgJwLWKVAYZx21Qls4hhIw0c0BmsqepJQeoz3vp7yySlcjL8E2SGxQkzmjYKZC3jW6Q9/fv1CiR7uPI5ksSBlnD/x5uqTtryYVh7FgReFiNyK0Flqn5JiLGZur39VH/bBICFl6HYNLBa3uuYlFbJvBZK2ArlNJRN8EdrOedLtFnrIvb+0HkDMA/QZfa9jenA69RpWc85pqOV6Yw9bxCREixUUY2gg80gjnsh/xyfT/IhJTYqA6NonVZQ+UKzbWJoDsPEebCbI9XDghrJS2Oy/iH7Q91EXqDcTB12s2dLu/5aNkjHPkc6x3IV03frmhkw+fzuUGEoXyANw5G4z9z6q9Qihl0MrqhQDSBwTYX+HG+nU68D/TSWslgMJ1jEtDzpkNGtXIzOdfOgNHMWDD1LAp8uFXgmMRVAC5RheGunlNXBfK+gnCowaKJ8mRrU/5/wmbWSXcDv8Wpai47bouZI2N4bO0BrNtYH3uPW908CGotwx/RkDFOoWR0pyVHQiQqMow0hkP2ML4ZPUAghu1H1gtQejFVrXNO9V/MgnYMMIbvM5QKR16wXc1/OVLsWC/0SzC8Jy/31lDhiEC48cO76YOSiCZadnB0IhrJtB7kZ/qMq+WK4XaRrSms3dbwGXXHWbTVldI69L0JbcPhZx8nDy0LZu782SfZemMdnkEWDMOvryoKe3BmtQh4Guza6QjAXfjqo83Ez0fT81eNkdy3Yk2UC9heiLj+OO4WYh4nw/CN1a+t1VdsY4FdLKZ1dd3FTQcO3xPpQeZXoTbSNpzZHHHQLZVMyzl1EWzjJG3eDCMBoR7+AZUvsH5qldYGdt/pH1Jfrf0aFxg/4InDXgif99OiYowDPWq+ZkKy0ZS8tRflWedu18m4TZUQ3251tSQXZ0E5CEQSTaDl1MNyCb7TkTpjuYuNU5xBs6JOWz4tP+4ohg5nwdYotmZqyV0sYtc1lP27JbrIfuVx/l/N+u9x1rnSNNLYzVk3CTop8l8/OCik9wNyxqgbZU6Kqn22B6v7K7NoX7rNsRkRLMcqt2Kx+moqnDuhXplfLZferdIKJjae68Prd7fAOezkPF8TzKpULrHOQhRWrH4RALtt2XBu49wGuvBLmMiSwIsFJxYRHbzPB+bpaF/qhRINY6S65MB9mH9cfjYmCJYNWD26W7l9dUYis997I4DV/0BIx0APMyYZbH0o1ypyNxlA2Cp/ZjwdWM8Ce2+Zpk2dM+WkRLOdR0m2JgEACUQnAdTcMfrNLB00ehyqDH+5CY8qZPndWIMMqtvt1I6mYZ9iNHXfunp0X7F5IOJ4fdbS7OnvYkH4y9dh5aMS+kxIPSWp4FNJrXQrGDcvnJVXcfgEtKoiZn/PkXlHcgjen3TOsjen54kGnkkTWAOMleZkC6wv01GziS/T71hU3ORWPt0lutFVEBctsW2NPqr0K8wCrbogrF0BcgvgdoGIXrseVNAHMl/xTZ1jPL6TmdF7YzehFism16G0mXKwXv1ZZbb/eyUnsq5sVL7bpEdpOhU4LEaS88oMgl/MqaJXllvwFc/kwmn40Gb7cZ682X+lm+HXc6hDDWrZuMH4yRTzV+TzC1KhERxgrNj+Ygcbf79HcpjIoFLjKEPOSFugxq8gy/b/XDGbDlCpBFOnAahYjkZztf02kp89voMrn6ebXtkr2HkGB2wFc1tSrS+Q+nXikBXqCNkLApM6m1/AZDHVv9f2bU2+JA82RJi2gcggN7WHASKVZcskXlEpfdwwjWFWWkN9KZH+hdZPsqgHMnAOUcPbNqnRi2q+fRinsC9MqMujVEiIUu/Ldny5AmX6M82ChUeviCDxVkbxkN6a/qFQdZgPfkRGvJz/E8YQLUEkWa2jmjyQYK4iNrr3q0lNH++zrmGQzGx7AQ8H2SRsrWPEX8ZJKEpHjWHJzt606TjWz2zJFY5B5v5u">
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="10C1FD69">
+</div>
+
+					
+					 
+					<div class="header">
+					    <a name="Main"></a>
+
+					    
+					    <a name="_articleTop" id="_articleTop"></a>
+					    <div class="title">
+					        
+					        <h1 id="ctl00_ArticleTitle" itemprop="name">Previewing Image in ASP.NET Image Control using C#</h1> 
+					    </div>
+
+                        <div style="height:34px">
+					        
+					        <div class="entry float-left">
+                                <img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/{626f9e5c-78b4-433b-9ded-69f9a1d8c552}.JPG" id="ctl00_avatar" class="float-left avatar">
+                                <div class="float-left">
+
+						            <span class="author"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=7467767" rel="author"><span itemprop="author" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Santhosh Kumar Jayaraman</span></span></a></span>, 
+						            <span class="date" itemprop="dateModified" content="2012-08-07 11:39:00">
+							            7 Aug 2012</span>
+			
+                                    <a id="ctl00_LicenseLink" title="The Code Project Open License (CPOL)" class="license" href="http://www.codeproject.com/info/cpol10.aspx">CPOL</a><span id="ctl00_ArtStats" class="stats"><img title="views" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/read32.png" style="width:16px;height:16px;"> 87.4K<img title="downloads" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/download32.png" style="width:16px;height:16px;"> 5.7K<img title="bookmarks" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/bookmark32.png" style="width:16px;height:16px;"> 14</span><div id="ctl00_CurRat" class="tooltip anchorLink" style="cursor:pointer;margin-top: 5px" name="CurRat_430320">
+				
+							            
+
+<table cellpadding="0" cellspacing="0" class="small-text" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating"> 
+<tbody><tr>
+	
+	<td class="nowrap">
+
+		
+			<meta itemprop="bestRating" content="5"> 
+			<meta itemprop="worstRating" content="1">
+		
+
+		<span id="ctl00_ArticleRating_VI">
+		<div class="nowrap rating-stars-large" style="height:21px;width:119px;position:relative;">
+	<div class="clipped align-left float-left" style="height:19px;width:113px;">
+		<img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/stars-fill-lg.png" style="border-width:0px;">
+	</div><div class="clipped" style="height:19px;width:6px;position:relative;">
+		<img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/stars-empty-lg.png" style="border-width:0px;position:absolute;top:0;right:0;">
+	</div>
+</div>
+		</span>
+
+		
+	</td>
+	
+	<td id="ctl00_ArticleRating_VR" class="nowrap">
+		&nbsp;
+		<span id="ctl00_ArticleRating_VotesR">&nbsp;<span itemprop="ratingValue" class="rating">4.69</span> (<span itemprop="ratingCount" class="count">15</span> votes)</span>
+		
+	</td>
+
+</tr>
+
+</tbody></table>
+
+
+							            <div id="ctl00_RB" class="speech-bubble-container-up">
+								            <div class="speech-bubble-up" style="width:150px !important">
+									                        
+<div>
+<table class="feature" width="100%" height="50px" title="Voting Distribution. Recent data only" cellpadding="0" cellspacing="0"><tbody><tr class="chart-row"><td class="chart-column"><span title="0 votes">1</span></td>
+<td class="chart-column"><span title="0 votes">2</span></td>
+<td class="chart-column"><div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pollcol.gif" width="20pxpx" height="5px" border="0px" alt="1 vote, 6.7%" title="1 vote, 6.7%"></div><span title="1 vote">3</span></td>
+<td class="chart-column"><div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pollcol.gif" width="20pxpx" height="27px" border="0px" alt="5 votes, 33.3%" title="5 votes, 33.3%"></div><span title="5 votes">4</span></td>
+<td class="chart-column"><div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pollcol.gif" width="20pxpx" height="50px" border="0px" alt="9 votes, 60.0%" title="9 votes, 60.0%"></div><span title="9 votes">5</span></td>
+</tr></tbody></table><div class="small-text align-center">4.69/5 - 15 votes</div><div class="small-text align-center subdue">μ 4.50, σ<sub>a</sub> 0.82 [<a href="http://www.codeproject.com/KB/FAQs/RatingReputationFAQ.aspx#noisefilter">?</a>]</div>
+</div>
+								            </div>
+								            <div class="speech-bubble-pointer-up">
+									            <div class="speech-bubble-pointer-up-inner"></div>
+								            </div>
+							            </div>
+						            </div>
+                                </div>
+					        </div>
+
+                            
+						    <div id="ctl00_RateArticleRow" class="float-right align-right voting-bar">
+						        <div id="ctl00_RateArticle_RateItemWrapper" class="small-text" name="RateItem_430320">
+
+	<table width="100%" cellpadding="0" cellspacing="0" class="small-text">
+	<tbody><tr>
+		<td id="ctl00_RateArticle_VoteResultDiv" class="rating-result align-right">
+			<span class="align-right"></span>
+			<img class="loaderImg" width="16px" alt="loading..." height="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/animated_loading_blue.gif" style="display:none;"> 
+		</td>
+
+	
+		<td class="voteTbl" style="white-space:nowrap" align="right">
+			<table class="small-text">
+			<tbody><tr>
+				
+				<td id="ctl00_RateArticle_StartForm" align="right" nowrap="nowrap">Rate: </td>
+
+				<td id="ctl00_RateArticle_VoteFormDiv" class="nowrap rating-stars-voter-large">
+					
+
+					<span id="ctl00_RateArticle_RB" class="tooltip ajaxHist radio voting">
+						<span id="ctl00_RateArticle_VoteRBL"><input id="ctl00_RateArticle_VoteRBL_0" type="radio" name="ctl00$RateArticle$VoteRBL" value="1" style="display: none;"><input id="ctl00_RateArticle_VoteRBL_1" type="radio" name="ctl00$RateArticle$VoteRBL" value="2" style="display: none;"><input id="ctl00_RateArticle_VoteRBL_2" type="radio" name="ctl00$RateArticle$VoteRBL" value="3" style="display: none;"><input id="ctl00_RateArticle_VoteRBL_3" type="radio" name="ctl00$RateArticle$VoteRBL" value="4" style="display: none;"><input id="ctl00_RateArticle_VoteRBL_4" type="radio" name="ctl00$RateArticle$VoteRBL" value="5" style="display: none;"></span> 
+
+						
+					<div class="rating-star-block"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" rating="1" class="star outline" title="vote 1">vote 1</a><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" rating="2" class="star outline" title="vote 2">vote 2</a><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" rating="3" class="star outline" title="vote 3">vote 3</a><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" rating="4" class="star outline" title="vote 4">vote 4</a><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" rating="5" class="star outline" title="vote 5">vote 5</a></div></span>
+
+				</td>
+
+				
+				<td style="padding-left:5px">	
+					<input type="submit" name="ctl00$RateArticle$SubmitRateBtn" value="Vote!" id="ctl00_RateArticle_SubmitRateBtn" class="button" style="display: none;">
+				</td>
+			</tr>
+			</tbody></table>
+			
+		</td>
+	</tr>
+	</tbody></table>
+	<div class="hover-container">
+		<div id="ctl00_RateArticle_RCD" class="rating-comment align-left float-right" style="display: none;">
+			Add a reason or comment to your vote:
+            <a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" id="clear-rate_ctl00_RateArticle_RCD" title="close" class="rating-close">x</a>
+            <br>
+			<textarea class="RateComment" rows="5" cols="60" style="width:98%;"></textarea>
+			<span id="ctl00_RateArticle_CommentReq" class="subdue">Adding a comment to your rating is optional</span>
+		</div>
+        
+	</div>
+</div>
+						    </div>
+						    	
+                        </div>
+
+   					    
+                        <div id="ctl00_description" class="summary" itemprop="headline">Previewing Image in ASP.NET Image Control using C#</div><span id="ctl00_thumbnailUrl" class="date" itemprop="image" content="http://www.codeproject.com/KB/web-image/430320/Thumb-430320.jpg"></span>			
+
+                    </div>
+                    
+					
+					
+
+					
+
+					
+					
+					
+
+						
+					
+
+					
+
+						
+						<div id="contentdiv" class="text" itemprop="articleBody">
+						
+
+
+
+<ul class="download"><li><a href="http://www.codeproject.com/KB/web-image/430320/PhotoPreview.zip">Download source code - 134 KB</a></li></ul>
+<h2>Introduction</h2>
+<p>Recently there are so many people asking in forums how to preview an uploaded image before saving it to 
+the database. In this article, let us see how to preview an uploaded image in ASP.NET before saving it to database. 
+Also this we will see how to feed a byte array into an image control. We are going to achieve this using an <code>IhttpHandler</code>.</p>
+<h2>Using the code</h2>
+<ol>
+<li>Create a new website. Add a <code>FileUpload</code> control, a button, and an image control.</li>
+<p>ASPX code:</p>
+<div class="pre-action-link" id="premain871486" style="width:100%;display:block;"><span id="prehide871486" onclick="processCodeBlocks.togglePre(871486);">Hide</span>  &nbsp; <span onclick="return processCodeBlocks.copyCode(871486);">Copy Code</span></div><pre lang="xml" id="pre871486" style="margin-top: 0px;"><span class="code-keyword">&lt;</span><span class="code-leadattribute">table</span><span class="code-keyword">&gt;</span>
+    <span class="code-keyword">&lt;</span><span class="code-leadattribute">tr</span><span class="code-keyword">&gt;</span>
+        <span class="code-keyword">&lt;</span><span class="code-leadattribute">td</span> <span class="code-attribute">class</span><span class="code-keyword">="</span><span class="code-keyword">style3"</span><span class="code-keyword">&gt;</span>
+            <span class="code-keyword">&lt;</span><span class="code-leadattribute">asp:Label</span> <span class="code-attribute">ID</span><span class="code-keyword">="</span><span class="code-keyword">Label1"</span> <span class="code-attribute">runat</span><span class="code-keyword">="</span><span class="code-keyword">server"</span> <span class="code-attribute">Text</span><span class="code-keyword">="</span><span class="code-keyword">Photo upload"</span> <span class="code-keyword">/</span><span class="code-keyword">&gt;</span>
+        <span class="code-keyword">&lt;</span><span class="code-keyword">/</span><span class="code-leadattribute">td</span><span class="code-keyword">&gt;</span>
+        <span class="code-keyword">&lt;</span><span class="code-leadattribute">td</span> <span class="code-attribute">class</span><span class="code-keyword">="</span><span class="code-keyword">style4"</span><span class="code-keyword">&gt;</span>
+            <span class="code-keyword">&lt;</span><span class="code-leadattribute">asp:FileUpload</span> <span class="code-attribute">runat</span><span class="code-keyword">="</span><span class="code-keyword">server"</span> <span class="code-attribute">ID</span><span class="code-keyword">="</span><span class="code-keyword">PhotoUpload"</span> <span class="code-keyword">/</span><span class="code-keyword">&gt;</span>
+        <span class="code-keyword">&lt;</span><span class="code-keyword">/</span><span class="code-leadattribute">td</span><span class="code-keyword">&gt;</span>
+        <span class="code-keyword">&lt;</span><span class="code-leadattribute">td</span> <span class="code-attribute">class</span><span class="code-keyword">="</span><span class="code-keyword">style4"</span><span class="code-keyword">&gt;</span>
+            <span class="code-keyword">&lt;</span><span class="code-leadattribute">asp:Button</span> <span class="code-attribute">runat</span><span class="code-keyword">="</span><span class="code-keyword">server"</span> <span class="code-attribute">ID</span><span class="code-keyword">="</span><span class="code-keyword">btnPhotoPreview"</span> <span class="code-attribute">Text</span><span class="code-keyword">="</span><span class="code-keyword">Preview"</span> <span class="code-keyword">/</span><span class="code-keyword">&gt;</span>
+        <span class="code-keyword">&lt;</span><span class="code-keyword">/</span><span class="code-leadattribute">td</span><span class="code-keyword">&gt;</span>
+        <span class="code-keyword">&lt;</span><span class="code-leadattribute">td</span> <span class="code-attribute">class</span><span class="code-keyword">="</span><span class="code-keyword">style1"</span><span class="code-keyword">&gt;</span>
+            <span class="code-keyword">&lt;</span><span class="code-leadattribute">asp:Image</span> <span class="code-attribute">runat</span><span class="code-keyword">="</span><span class="code-keyword">server"</span> <span class="code-attribute">ID</span><span class="code-keyword">="</span><span class="code-keyword">ImagePreview"</span> <span class="code-attribute">Height</span><span class="code-keyword">="</span><span class="code-keyword">164px"</span> <span class="code-attribute">Width</span><span class="code-keyword">="</span><span class="code-keyword">125px"</span> <span class="code-keyword">/</span><span class="code-keyword">&gt;</span>
+        <span class="code-keyword">&lt;</span><span class="code-keyword">/</span><span class="code-leadattribute">td</span><span class="code-keyword">&gt;</span>
+    <span class="code-keyword">&lt;</span><span class="code-keyword">/</span><span class="code-leadattribute">tr</span><span class="code-keyword">&gt;</span>
+<span class="code-keyword">&lt;</span><span class="code-keyword">/</span><span class="code-leadattribute">table</span><span class="code-keyword">&gt;</span></pre>
+<li>Now add a button click event for “<code>btnPhotopreview</code>”.</li>
+<div class="pre-action-link" id="premain748267" style="width:100%;display:block;"><span id="prehide748267" onclick="processCodeBlocks.togglePre(748267);">Hide</span>  &nbsp; <span onclick="return processCodeBlocks.copyCode(748267);">Copy Code</span></div><pre lang="aspnet" id="pre748267" style="margin-top: 0px;"><span class="code-keyword">&lt;</span><span class="code-leadattribute">asp:Button</span> <span class="code-attribute">runat</span><span class="code-keyword">="</span><span class="code-keyword">server"</span> <span class="code-attribute">OnClick</span><span class="code-keyword">="</span><span class="code-keyword">btnPreview_Click"</span> <span class="code-attribute">ID</span><span class="code-keyword">="</span><span class="code-keyword">btnPhotoPreview"</span> <span class="code-attribute">Text</span><span class="code-keyword">="</span><span class="code-keyword">Preview"</span> <span class="code-keyword">/</span><span class="code-keyword">&gt;</span></pre>
+<li>We have to add a handler class in order to show the image. We are going to pass 
+the session variable for <code>FileBytes</code> for the upload control. In the new&nbsp;handler class, get the session 
+variable and generate the image.</li>
+<p><img height="412" width="623" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/image001.jpg" id="Picture 1"></p>
+<p>When we add the <em>.ashx</em> file, it will have some code inside it.</p>
+<div class="pre-action-link" id="premain376537" style="width:100%;display:block;"><span id="prehide376537" onclick="processCodeBlocks.togglePre(376537);">Hide</span>  &nbsp; <span onclick="return processCodeBlocks.copyCode(376537);">Copy Code</span></div><pre lang="cs" id="pre376537" style="margin-top: 0px;"><span class="code-pagedirective">&lt;%@</span><span class="code-leadattribute"> WebHandler Language</span><span class="code-keyword">="</span><span class="code-keyword">C#"</span><span class="code-attribute"> Class</span><span class="code-keyword">="</span><span class="code-keyword">ImageHandler"</span><span class="code-attribute"> </span><span class="code-pagedirective">%&gt;</span>
+
+using System;
+using System.Web;
+
+public class ImageHandler : IHttpHandler {
+    
+    public void ProcessRequest (HttpContext context) {
+        context.Response.ContentType = "text/plain";
+        context.Response.Write("Hello World");
+    }
+ 
+    public bool IsReusable {
+        get {
+            return false;
+        }
+    }
+}</pre>
+<p>Just rewrite the code inside <code>processrequest</code> to get the session variable and generate 
+the image.</p>
+<p>In order to use the session variable in the HTTPHandler class we also implement our class from <code>IRequiresSessionState</code>.</p>
+<div class="pre-action-link" id="premain967458" style="width:100%;display:block;"><span id="prehide967458" onclick="processCodeBlocks.togglePre(967458);">Hide</span>  &nbsp; <span onclick="return processCodeBlocks.copyCode(967458);">Copy Code</span></div><pre lang="cs" id="pre967458" style="margin-top: 0px;"><span class="code-pagedirective">&lt;%@</span><span class="code-leadattribute"> WebHandler Language</span><span class="code-keyword">="</span><span class="code-keyword">C#"</span><span class="code-attribute"> Class</span><span class="code-keyword">="</span><span class="code-keyword">ImageHandler"</span><span class="code-attribute"> </span><span class="code-pagedirective">%&gt;</span>
+
+using System;
+using System.Web;
+
+public class ImageHandler : IHttpHandler, System.Web.SessionState.IRequiresSessionState
+{
+    
+    public void ProcessRequest (HttpContext context) {
+       //Checking whether the imagebytes session variable have anything else not doing anything
+
+        if ((context.Session["ImageBytes"]) != null)
+        {
+            byte[] image = (byte[])(context.Session["ImageBytes"]);
+            context.Response.ContentType = "image/JPEG";
+            context.Response.BinaryWrite(image);
+        }
+    }
+ 
+    public bool IsReusable {
+        get {
+            return false;
+        }
+    }
+}</pre>
+<li>Now inside the button click in our page, get the file bytes from the <code>FileUpload</code> control and save it in 
+the session variable.</li>
+<div class="pre-action-link" id="premain281228" style="width:100%;display:block;"><span id="prehide281228" onclick="processCodeBlocks.togglePre(281228);">Hide</span>  &nbsp; <span onclick="return processCodeBlocks.copyCode(281228);">Copy Code</span></div><pre lang="cs" id="pre281228" style="margin-top: 0px;"><span class="code-keyword">protected</span> <span class="code-keyword">void</span> btnPreview_Click(<span class="code-keyword">object</span> sender, EventArgs e)
+{
+    Session[<span class="code-string">"</span><span class="code-string">ImageBytes"</span>] = PhotoUpload.FileBytes;
+    ImagePreview.ImageUrl = <span class="code-string">"</span><span class="code-string">~/ImageHandler.ashx"</span>;
+}</pre>
+</ol>
+<p>Now run the application and browse the image and preview it.</p>
+<p><img height="351" width="624" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/image002.jpg" id="Picture 2"></p>
+<p>I have attached the complete source code also.</p>
+
+
+						</div>
+						
+
+						<div class="float-right" style="margin:20px 0 0 10px;border:1px solid #ccc">
+						<div class="msg-300x250" data-format="300x250" data-type="ad" data-publisher="lqm.codeproject.site" data-zone="Web-Development/Charts-Graphs-and-Images/Images-and-multimedia" data-country="HU" data-loadonview="true" data-tags="C#, ASP.NET, Dev, Intermediate,rating4.5"><noscript>&lt;a href="http://ad.doubleclick.net/N6839/jump/lqm.codeproject.site/Web-Development/Charts-Graphs-and-Images/Images-and-multimedia;sz=300x250;ord=635747888817000980?"&gt;&lt;img src="http://ad.doubleclick.net/N6839/ad/lqm.codeproject.site/Web-Development/Charts-Graphs-and-Images/Images-and-multimedia;sz=300x250;ord=635747888817000980?"  width="300px" height="250px" /&gt;&lt;/a&gt;</noscript></div>
+						</div>
+                        
+                        
+						
+						<h2>License</h2>
+						<div id="LicenseTerms"><p>This article, along with any associated source code and files, is licensed under <a href="http://www.codeproject.com/info/cpol10.aspx" rel="license">The Code Project Open License (CPOL)</a></p></div>
+						
+
+                        
+						<h2>Share</h2>
+				        <div class="share-list">
+					        
+
+
+
+<!-- Buttons start here. Copy this ul to your document. -->
+<ul class="rrssb-buttons clearfix rrssb-1">
+    <li class="email" data-initwidth="16.666666666666668" style="width: calc(50% - 84px);" data-size="34">
+
+        <a href="mailto:?subject=Previewing%20Image%20in%20ASP.NET%20Image%20Control%20using%20C%23%20-%20CodeProject&body=Here%27s%20an%20interesting%20article%20on%20for%20you%20on%20codeproject.com%0a%0ahttp%3a%2f%2fwww.codeproject.com%2fTips%2f430320%2fPreviewing-Image-in-ASP-NET-Image-Control-using-Cs%0a">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve"><g>
+                        <path d="M20.111 26.147c-2.336 1.051-4.361 1.401-7.125 1.401c-6.462 0-12.146-4.633-12.146-12.265 
+                            c0-7.94 5.762-14.833 14.561-14.833c6.853 0 11.8 4.7 11.8 11.252c0 5.684-3.194 9.265-7.399 
+                            9.3 c-1.829 0-3.153-0.934-3.347-2.997h-0.077c-1.208 1.986-2.96 2.997-5.023 2.997c-2.532 
+                            0-4.361-1.868-4.361-5.062 c0-4.749 3.504-9.071 9.111-9.071c1.713 0 3.7 0.4 4.6 0.973l-1.169 
+                            7.203c-0.388 2.298-0.116 3.3 1 3.4 c1.673 0 3.773-2.102 3.773-6.58c0-5.061-3.27-8.994-9.303-8.994c-5.957 
+                            0-11.175 4.673-11.175 12.1 c0 6.5 4.2 10.2 10 10.201c1.986 0 4.089-0.43 5.646-1.245L20.111 
+                            26.147z M16.646 10.1 c-0.311-0.078-0.701-0.155-1.207-0.155c-2.571 0-4.595 2.53-4.595 5.529c0 
+                            1.5 0.7 2.4 1.9 2.4 c1.441 0 2.959-1.828 3.311-4.087L16.646 10.068z"></path></g>
+                </svg>
+            </span>
+            <span class="text">email</span>
+        </a>
+    </li>
+    <li class="twitter" data-initwidth="16.666666666666668" style="width: calc(50% - 84px);" data-size="47">
+        <!-- Replace href with your Meta and URL information  -->
+        <a href="http://twitter.com/home?status=Previewing+Image+in+ASP.NET+Image+Control+using+C%23+-+CodeProject+-+http%3a%2f%2fwww.codeproject.com%2fTips%2f430320%2fPreviewing-Image-in-ASP-NET-Image-Control-using-Cs" class="popup">
+            <span class="icon">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+                <path d="M24.253,8.756C24.689,17.08,18.297,24.182,9.97,24.62c-3.122,0.162-6.219-0.646-8.861-2.32
+                    c2.703,0.179,5.376-0.648,7.508-2.321c-2.072-0.247-3.818-1.661-4.489-3.638c0.801,0.128,1.62,0.076,2.399-0.155
+                    C4.045,15.72,2.215,13.6,2.115,11.077c0.688,0.275,1.426,0.407,2.168,0.386c-2.135-1.65-2.729-4.621-1.394-6.965
+                    C5.575,7.816,9.54,9.84,13.803,10.071c-0.842-2.739,0.694-5.64,3.434-6.482c2.018-0.623,4.212,0.044,5.546,1.683
+                    c1.186-0.213,2.318-0.662,3.329-1.317c-0.385,1.256-1.247,2.312-2.399,2.942c1.048-0.106,2.069-0.394,3.019-0.851
+                    C26.275,7.229,25.39,8.196,24.253,8.756z"></path>
+                </svg>
+            </span>
+            <span class="text">twitter</span>
+        </a>
+    </li>
+
+    <li class="facebook small" data-initwidth="16.666666666666668" style="width: 42px;" data-size="58">
+        <!-- Replace with your URL. For best results, make sure you page has the proper FB Open Graph tags in header: 
+        https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/ -->
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fwww.codeproject.com%2fTips%2f430320%2fPreviewing-Image-in-ASP-NET-Image-Control-using-Cs" class="popup">
+            <span class="icon">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+                    <path d="M27.825,4.783c0-2.427-2.182-4.608-4.608-4.608H4.783c-2.422,0-4.608,2.182-4.608,4.608v18.434
+                        c0,2.427,2.181,4.608,4.608,4.608H14V17.379h-3.379v-4.608H14v-1.795c0-3.089,2.335-5.885,5.192-5.885h3.718v4.608h-3.726
+                        c-0.408,0-0.884,0.492-0.884,1.236v1.836h4.609v4.608h-4.609v10.446h4.916c2.422,0,4.608-2.188,4.608-4.608V4.783z"></path>
+                </svg>
+            </span>
+            <span class="text">facebook</span>
+        </a>
+    </li>
+    
+    <li class="linkedin small" data-initwidth="16.666666666666668" style="width: 42px;" data-size="52">
+        <!-- Replace href with your meta and URL information -->
+        <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fwww.codeproject.com%2fTips%2f430320%2fPreviewing-Image-in-ASP-NET-Image-Control-using-Cs&title=Previewing+Image+in+ASP.NET+Image+Control+using+C%23+-+CodeProject&summary=&source=codeproject.com" class="popup">
+            <span class="icon">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+                    <path d="M25.424,15.887v8.447h-4.896v-7.882c0-1.979-0.709-3.331-2.48-3.331c-1.354,0-2.158,0.911-2.514,1.803
+                        c-0.129,0.315-0.162,0.753-0.162,1.194v8.216h-4.899c0,0,0.066-13.349,0-14.731h4.899v2.088c-0.01,0.016-0.023,0.032-0.033,0.048
+                        h0.033V11.69c0.65-1.002,1.812-2.435,4.414-2.435C23.008,9.254,25.424,11.361,25.424,15.887z M5.348,2.501
+                        c-1.676,0-2.772,1.092-2.772,2.539c0,1.421,1.066,2.538,2.717,2.546h0.032c1.709,0,2.771-1.132,2.771-2.546
+                        C8.054,3.593,7.019,2.501,5.343,2.501H5.348z M2.867,24.334h4.897V9.603H2.867V24.334z"></path>
+                </svg>
+            </span>
+            <span class="text">linkedin</span>
+        </a>
+    </li>
+    <li class="reddit small" data-initwidth="16.666666666666668" style="width: 42px;" data-size="40">
+        <a href="http://www.reddit.com/submit?url=http%3a%2f%2fwww.codeproject.com%2fTips%2f430320%2fPreviewing-Image-in-ASP-NET-Image-Control-using-Cs&title=Previewing+Image+in+ASP.NET+Image+Control+using+C%23+-+CodeProject">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve"><g>
+                <path d="M11.794 15.316c0-1.029-0.835-1.895-1.866-1.895c-1.03 0-1.893 0.865-1.893 1.895s0.863 1.9 1.9 1.9 C10.958 17.2 11.8 16.3 11.8 15.316z"></path>
+                <path d="M18.1 13.422c-1.029 0-1.895 0.864-1.895 1.895c0 1 0.9 1.9 1.9 1.865c1.031 0 1.869-0.836 1.869-1.865 C19.969 14.3 19.1 13.4 18.1 13.422z"></path>
+                <path d="M17.527 19.791c-0.678 0.678-1.826 1.006-3.514 1.006c-0.004 0-0.009 0-0.014 0c-0.004 0-0.01 0-0.015 0 
+                c-1.686 0-2.834-0.328-3.51-1.005c-0.264-0.265-0.693-0.265-0.958 0c-0.264 0.265-0.264 0.7 0 1 c0.943 0.9 2.4 1.4 
+                4.5 1.402c0.005 0 0 0 0 0c0.005 0 0 0 0 0c2.066 0 3.527-0.459 4.47-1.402 c0.265-0.264 0.265-0.693 0.002-0.958C18.221 
+                19.5 17.8 19.5 17.5 19.791z"></path><path d="M27.707 13.267c0-1.785-1.453-3.237-3.236-3.237c-0.793 0-1.518 0.287-2.082 
+                0.761c-2.039-1.295-4.646-2.069-7.438-2.219 l1.483-4.691l4.062 0.956c0.071 1.4 1.3 2.6 2.7 2.555c1.488 0 2.695-1.208 
+                2.695-2.695C25.881 3.2 24.7 2 23.2 2 c-1.059 0-1.979 0.616-2.42 1.508l-4.633-1.091c-0.344-0.081-0.693 0.118-0.803 
+                0.455l-1.793 5.7 C10.548 8.6 7.7 9.4 5.6 10.75C5.006 10.3 4.3 10 3.5 10.029c-1.785 0-3.237 1.452-3.237 3.2 c0 1.1 0.6 
+                2.1 1.4 2.69c-0.04 0.272-0.061 0.551-0.061 0.831c0 2.3 1.3 4.4 3.7 5.9 c2.299 1.5 5.3 2.3 8.6 2.325c3.228 0 6.271-0.825 
+                8.571-2.325c2.387-1.56 3.7-3.66 3.7-5.917 c0-0.26-0.016-0.514-0.051-0.768C27.088 15.5 27.7 14.4 27.7 13.267z M23.186 
+                3.355c0.74 0 1.3 0.6 1.3 1.3 c0 0.738-0.6 1.34-1.34 1.34s-1.342-0.602-1.342-1.34C21.844 4 22.4 3.4 23.2 3.355z M1.648 
+                13.3 c0-1.038 0.844-1.882 1.882-1.882c0.31 0 0.6 0.1 0.9 0.209c-1.049 0.868-1.813 1.861-2.26 2.9 C1.832 14.2 1.6 13.8 1.6 
+                13.267z M21.773 21.57c-2.082 1.357-4.863 2.105-7.831 2.105c-2.967 0-5.747-0.748-7.828-2.105 
+                c-1.991-1.301-3.088-3-3.088-4.782c0-1.784 1.097-3.484 3.088-4.784c2.081-1.358 4.861-2.106 7.828-2.106 c2.967 0 5.7 
+                0.7 7.8 2.106c1.99 1.3 3.1 3 3.1 4.784C24.859 18.6 23.8 20.3 21.8 21.57z M25.787 14.6 
+                c-0.432-1.084-1.191-2.095-2.244-2.977c0.273-0.156 0.59-0.245 0.928-0.245c1.035 0 1.9 0.8 1.9 1.9 
+                C26.354 13.8 26.1 14.3 25.8 14.605z"></path></g></svg>
+            </span>
+            <span class="text">reddit</span>
+        </a>
+    </li>
+    <li class="googleplus small" data-initwidth="16.666666666666668" style="width: 42px;" data-size="52">
+        <!-- Replace href with your meta and URL information.  -->
+        <a href="https://plus.google.com/share?url=http%3a%2f%2fwww.codeproject.com%2fTips%2f430320%2fPreviewing-Image-in-ASP-NET-Image-Control-using-Cs" class="popup">
+            <span class="icon">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+                    <g>
+                        <g>
+                            <path d="M14.703,15.854l-1.219-0.948c-0.372-0.308-0.88-0.715-0.88-1.459c0-0.748,0.508-1.223,0.95-1.663
+                                c1.42-1.119,2.839-2.309,2.839-4.817c0-2.58-1.621-3.937-2.399-4.581h2.097l2.202-1.383h-6.67c-1.83,0-4.467,0.433-6.398,2.027
+                                C3.768,4.287,3.059,6.018,3.059,7.576c0,2.634,2.022,5.328,5.604,5.328c0.339,0,0.71-0.033,1.083-0.068
+                                c-0.167,0.408-0.336,0.748-0.336,1.324c0,1.04,0.551,1.685,1.011,2.297c-1.524,0.104-4.37,0.273-6.467,1.562
+                                c-1.998,1.188-2.605,2.916-2.605,4.137c0,2.512,2.358,4.84,7.289,4.84c5.822,0,8.904-3.223,8.904-6.41
+                                c0.008-2.327-1.359-3.489-2.829-4.731H14.703z M10.269,11.951c-2.912,0-4.231-3.765-4.231-6.037c0-0.884,0.168-1.797,0.744-2.511
+                                c0.543-0.679,1.489-1.12,2.372-1.12c2.807,0,4.256,3.798,4.256,6.242c0,0.612-0.067,1.694-0.845,2.478
+                                c-0.537,0.55-1.438,0.948-2.295,0.951V11.951z M10.302,25.609c-3.621,0-5.957-1.732-5.957-4.142c0-2.408,2.165-3.223,2.911-3.492
+                                c1.421-0.479,3.25-0.545,3.555-0.545c0.338,0,0.52,0,0.766,0.034c2.574,1.838,3.706,2.757,3.706,4.479
+                                c-0.002,2.073-1.736,3.665-4.982,3.649L10.302,25.609z"></path>
+                            <polygon points="23.254,11.89 23.254,8.521 21.569,8.521 21.569,11.89 18.202,11.89 18.202,13.604 21.569,13.604 21.569,17.004
+                                23.254,17.004 23.254,13.604 26.653,13.604 26.653,11.89      "></polygon>
+                        </g>
+                    </g>
+                </svg>
+            </span>
+            <span class="text">google+</span>
+        </a>
+    </li>
+    
+</ul>
+<!-- Buttons end here -->
+
+				        </div> 
+    			        
+
+
+						
+						<h2 id="ctl00_AboutHeading">About the Author</h2>
+						    
+
+
+<div class="author-wrapper">
+
+    <div class="pic-wrapper"> 
+        <img id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberPhoto" class="profile-pic" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/{626f9e5c-78b4-433b-9ded-69f9a1d8c552}.JPG" style="border-width:0px;transform:rotate(-3deg);">
+
+    </div>
+
+    <div class="container-member">  
+        <b><a id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberProfileLink" class="author" href="http://www.codeproject.com/Members/san-pblr-gct">Santhosh Kumar Jayaraman</a></b>
+
+        <table class="extended">
+        <tbody><tr>
+            <td rowspan="2" nowrap="" valign="middle">
+            <div id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_FollowOn" class="follow">
+	            <a href="http://www.twitter.com/sanpblrgct"><img style="vertical-align:middle;border:0;height:24px;width:24px" alt="Twitter" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/twitter32.png"></a> 
+	            
+	            <a href="http://www.linkedin.com/profile/view?id=santhoshjayaraman"><img style="vertical-align:middle;border:0;height:24px;width:24px" alt="LinkedIn" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/linkedin-32.png"></a> 
+            </div>
+            </td>
+            <td width="100%">
+                <div class="company">
+                    <span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberJobTitle">Software Developer</span>
+	                <span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberCompany">Radiometer</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberLocation">India <img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/IN.gif" alt="India" width="16px" height="11px"></span>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+    <div class="description">
+        Currently i am trying to learn all about javascripts . I have experience in Microsoft technologies like WPF, WCF, ASPNET, WinForms,Silverlight, VB.NET, C-Sharp, Entity framework,SSRS, LINQ, Extension methods and SQL server. I started with my career in Infosys in the year 2009 and i worked with Trigent, Education First (EF) in the recent years before joining my current company Radiometer.
+
+        
+    </div>
+
+</div><br>
+						
+						
+
+						<div class="clearfix"></div>
+
+						<div style="padding-top:8px">
+							
+						</div>
+
+					
+
+				    
+					</form>
+
+				</div>
+
+				
+				<div class="bottom-promo"> 
+				    <div class="msg-728x90" data-format="728x90" data-type="ad" data-publisher="lqm.codeproject.site" data-zone="Web-Development/Charts-Graphs-and-Images/Images-and-multimedia" data-country="HU" data-loadonview="true" data-tags="C#, ASP.NET, Dev, Intermediate,rating4.5,pos_bottom"><noscript>&lt;a href="http://ad.doubleclick.net/N6839/jump/lqm.codeproject.site/Web-Development/Charts-Graphs-and-Images/Images-and-multimedia;sz=728x90;ord=635747888817000980?"&gt;&lt;img src="http://ad.doubleclick.net/N6839/ad/lqm.codeproject.site/Web-Development/Charts-Graphs-and-Images/Images-and-multimedia;sz=728x90;ord=635747888817000980?"  width="728px" height="90px" /&gt;&lt;/a&gt;</noscript></div>
+				</div>
+				
+
+                
+        <h2 id="ctl00_AlsoRead_RelatedResults_ctl00_Header" class="also-read">You may also be interested in...</h2>
+        <table class="spaced content-list also-read">
+    
+	    <tbody><tr>
+        <td class="content-list-item" width="50%" valign="top">
+            <div class="thumbnail"><a id="ctl00_AlsoRead_RelatedResults_ctl01_Thumbnail" href="http://www.codeproject.com/Articles/6354/A-simple-image-preview-class-using-GDI"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/article100x80.png" alt="" style="border-width:0px;"></a></div>
+            <div class="text">
+                <div class="title"><a id="ctl00_AlsoRead_RelatedResults_ctl01_Link" href="http://www.codeproject.com/Articles/6354/A-simple-image-preview-class-using-GDI">A simple image preview class using GDI+</a></div>
+                
+            </div>
+        </td>
+	
+        <td class="content-list-item" width="50%" valign="top">
+            <div class="thumbnail"><a id="ctl00_AlsoRead_RelatedResults_ctl02_Thumbnail" href="http://www.codeproject.com/ResearchLibrary/56/Enterprise-Imaging-on-the-Web-A-How-To-Guide-for-D"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/LibraryItemThumbnail_56_100x130.gif" alt="" style="border-width:0px;"></a></div>
+            <div class="text">
+                <div class="title"><a id="ctl00_AlsoRead_RelatedResults_ctl02_Link" href="http://www.codeproject.com/ResearchLibrary/56/Enterprise-Imaging-on-the-Web-A-How-To-Guide-for-D">Enterprise Imaging on the Web: A How To Guide for Developers</a></div>
+                
+            </div>
+        </td>
+	    </tr>
+	
+	    <tr>
+        <td class="content-list-item" width="50%" valign="top">
+            <div class="thumbnail"><a id="ctl00_AlsoRead_RelatedResults_ctl03_Thumbnail" href="http://www.codeproject.com/Articles/29383/Image-Thumbnail-Preview-in-DataGridView"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/Thumb-29383.png" alt="" style="border-width:0px;"></a></div>
+            <div class="text">
+                <div class="title"><a id="ctl00_AlsoRead_RelatedResults_ctl03_Link" href="http://www.codeproject.com/Articles/29383/Image-Thumbnail-Preview-in-DataGridView">Image Thumbnail Preview in DataGridView</a></div>
+                
+            </div>
+        </td>
+	
+        <td class="content-list-item" width="50%" valign="top">
+            <div class="thumbnail"><a id="ctl00_AlsoRead_RelatedResults_ctl04_Thumbnail" href="http://www.codeproject.com/ResearchLibrary/105/Open-Source-Software-Security-Risks-and-Best-Pract"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/LibraryItemThumbnail_105_100x130.png" alt="" style="border-width:0px;"></a></div>
+            <div class="text">
+                <div class="title"><a id="ctl00_AlsoRead_RelatedResults_ctl04_Link" href="http://www.codeproject.com/ResearchLibrary/105/Open-Source-Software-Security-Risks-and-Best-Pract">Open Source Software: Security Risks and Best Practices</a></div>
+                
+            </div>
+        </td>
+	    </tr>
+	
+	    <tr>
+        <td class="content-list-item" width="50%" valign="top">
+            <div class="thumbnail"><a id="ctl00_AlsoRead_RelatedResults_ctl05_Thumbnail" href="http://www.codeproject.com/Tips/436268/Previewing-Image-in-ASP-NET-Image-Control-using-VB"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/tip100x80.png" alt="" style="border-width:0px;"></a></div>
+            <div class="text">
+                <div class="title"><a id="ctl00_AlsoRead_RelatedResults_ctl05_Link" href="http://www.codeproject.com/Tips/436268/Previewing-Image-in-ASP-NET-Image-Control-using-VB">Previewing Image in ASP.NET Image Control using VB.NET</a></div>
+                
+            </div>
+        </td>
+	
+        <td class="content-list-item" width="50%" valign="top">
+            <div class="thumbnail"><a id="ctl00_AlsoRead_RelatedResults_ctl06_Thumbnail" href="http://www.codeproject.com/ResearchLibrary/106/Reduce-Your-Open-Source-Security-Risk-Strategies-T"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/LibraryItemThumbnail_106_100x130.png" alt="" style="border-width:0px;"></a></div>
+            <div class="text">
+                <div class="title"><a id="ctl00_AlsoRead_RelatedResults_ctl06_Link" href="http://www.codeproject.com/ResearchLibrary/106/Reduce-Your-Open-Source-Security-Risk-Strategies-T">Reduce Your Open Source Security Risk: Strategies, Tactics, and Tools</a></div>
+                
+            </div>
+        </td>
+	    </tr>
+	
+		</tbody></table>
+	
+
+
+
+				
+				
+
+					<h2>Comments and Discussions</h2>
+					<a class="float-left" name="_comments" id="_comments">&nbsp;</a><div id="_MessageBoardctl00_MessageBoard" onclick="return SwitchMessage(event, null)">
+<table id="ForumTable" class="forum relaxed" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><table width="100%" border="0" cellpadding="3px" cellspacing="0">
+<tbody><tr class="header1">
+<td colspan="2" style="white-space:nowrap;"><div class="container">
+<div class="button new-message compose float-left" onclick="FireNew(this)">
+<a rel="nofollow" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs" name="Frm_HoverNL" target="_top">Add a Comment or Question&nbsp;</a>
+</div><div class="admin-links float-left align-middle" style="width:60px;line-height:24px;margin-top:4px;">
+&nbsp;<a href="http://www.codeproject.com/KB/FAQs/MessageBoardsFAQ.aspx"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/help_sm.png" title="FAQ" alt="FAQ" style="border-width:0;width:16px;height:16px;vertical-align:middle;"></a>
+</div><div class="float-right">
+<form action="http://www.codeproject.com/Search.aspx?sbo=fm" method="get" class="searchbar">
+<input type="hidden" name="fid" value="1755459"><input type="hidden" name="sbo" value="fm"><b>Search Comments </b><input type="search" class="search" name="qf">&nbsp;<input type="submit" value="Go" class="button">
+</form>
+</div>
+</div></td>
+</tr><tr class="header2">
+<td></td><td style="width:100%;"><div style="text-align:right;">
+<form action="http://www.codeproject.com/script/Forums/SetOptions.aspx?floc=%2fTips%2f430320%2fPreviewing-Image-in-ASP-NET-Image-Control-using-Cs&fid=1755459" method="get" style="margin:0;padding:0;">
+<input type="hidden" name="fid" value="1755459"><input type="hidden" name="currentQS" value="?floc=%2fTips%2f430320%2fPreviewing-Image-in-ASP-NET-Image-Control-using-Cs&amp;fid=1755459"><input type="hidden" name="floc" value="/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs"><input type="checkbox" name="prof" id="prof" style="vertical-align:middle;"><label for="prof">Profile popups</label>&nbsp;&nbsp;&nbsp;&nbsp;Spacing<select size="1" class="dropdown" name="spc">
+<option selected="" value="Relaxed">Relaxed</option><option value="Compact">Compact</option><option value="Tight">Tight</option>
+</select>&nbsp;&nbsp;Noise<select size="1" class="dropdown" name="noise">
+<option value="1">Very High</option><option value="2">High</option><option selected="" value="3">Medium</option><option value="4">Low</option><option value="5">Very Low</option>
+</select>&nbsp;&nbsp;Layout<select size="1" class="dropdown" name="view">
+<option selected="" value="Normal">Normal</option><option value="Topic">Open Topics</option><option value="Expanded">Open All</option><option value="Thread">Thread View</option>
+</select>&nbsp;&nbsp;Per page<select size="1" class="dropdown" name="mpp">
+<option value="10">10</option><option selected="" value="25">25</option><option value="50">50</option>
+</select>&nbsp;&nbsp;&nbsp;<input type="submit" value="Update" name="SetOpt" class="button">
+</form>
+</div></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><a name="xx0xx"></a><table border="0" cellpadding="2px" cellspacing="0" width="100%">
+<tbody><tr class="navbar">
+<td></td><td style="text-align:right;width:50%;"></td><td style="text-align:right;white-space:nowrap;"><span class="nav-link disabled">First</span> <span class="nav-link disabled">Prev</span> <span class="nav-link disabled">Next</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%" class="fixed-layout blank-background">
+<tbody><tr>
+<td><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" border="0" width="1px" height="5px" alt=""></td>
+</tr><tr id="F5026306_h0" class="header hover-row root">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx5026306xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_question.gif" alt="Question"></td><td class="subject hover-container"><a class="message-link" name="5026306" parent="0" thread="5026306" href="http://www.codeproject.com/Messages/5026306/Multple-Images.aspx">Multple Images</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Member 10503514</span><span class="date">23-Mar-15  14:55</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=10503514">Member 10503514</a></span></td><td class="date"><span>23-Mar-15  14:55&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F5026306_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="10503514" msgid="5026306" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx5026306xx" onclick="RateMsg(10503514,5026306,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx5026306xx" onclick="RateMsg(10503514,5026306,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">I need this to work for multple images but its only ever showing one image from db even though if using different sessions like previous user. How can i adapt it to support more than one images being returned i tried is reusable as you see but that did not work<br>
+<br>
+<div class="pre-action-link" id="premain498203" style="width:100%;display:block;"><span id="prehide498203" onclick="processCodeBlocks.togglePre(498203);">Hide</span>  &nbsp; <span id="preShrink498203" onclick="processCodeBlocks.shrinkExpand(498203);">Shrink</span> <img id="preimg498203" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/arrow-up-16.png" style="height:16px;width:16px" onclick="processCodeBlocks.shrinkExpand(498203);">  &nbsp; <span onclick="return processCodeBlocks.copyCode(498203);">Copy Code</span></div><pre lang="c#" style="margin-top: 0px;" id="pre498203"><span class="code-keyword">public</span> <span class="code-keyword">class</span> ImageHandler : IHttpHandler, System.Web.SessionState.IRequiresSessionState
+        {
+&nbsp;
+            <span class="code-keyword">public</span> <span class="code-keyword">void</span> ProcessRequest(HttpContext context)
+            {
+&nbsp;
+                 
+                <span class="code-comment">//</span><span class="code-comment">Checking whether the imagebytes session variable have anything else not doing anything
+</span>
+                <span class="code-keyword">if</span> ((context.Session[<span class="code-string">"</span><span class="code-string">ImageBytes"</span>]) != <span class="code-keyword">null</span>)
+                {
+                    <span class="code-keyword">byte</span>[] image = (<span class="code-keyword">byte</span>[])(context.Session[<span class="code-string">"</span><span class="code-string">ImageBytes"</span>]);
+                    context.Response.ContentType = <span class="code-string">"</span><span class="code-string">image/JPEG"</span>;
+                    context.Response.BinaryWrite(image);
+                }
+&nbsp;
+
+                <span class="code-keyword">if</span> ((context.Session[<span class="code-string">"</span><span class="code-string">brithCertbyes"</span>]) != <span class="code-keyword">null</span>)
+                {
+                    <span class="code-keyword">byte</span>[] image2 = (<span class="code-keyword">byte</span>[])(context.Session[<span class="code-string">"</span><span class="code-string">brithCertbyes"</span>]);
+                    context.Response.ContentType = <span class="code-string">"</span><span class="code-string">image/JPEG"</span>;
+                    context.Response.BinaryWrite(image2);
+        
+                }
+        
+            }
+&nbsp;
+            <span class="code-keyword">public</span> <span class="code-keyword">bool</span> IsReusable
+            {
+                <span class="code-keyword">get</span>
+                {
+                    <span class="code-keyword">return</span> <span class="code-keyword">true</span>;
+                }
+            }
+        }</pre><br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=5026306&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=5026306&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=5026306" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/5026306/Multple-Images.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=5026306&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=5026306&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF5026306" data-ref="3_5026306" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="10503514" msgid="5026306"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4989316_h0" class="header hover-row root">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx4989316xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_general.gif" alt="General"></td><td class="subject hover-container"><a class="message-link" name="4989316" parent="0" thread="4989316" href="http://www.codeproject.com/Messages/4989316/My-vote-of.aspx">My vote of 3</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Mohammad Alghanem</span><span class="date">27-Jan-15  13:44</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-pro-16.png" title="professional" alt="professional" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=8632196">Mohammad Alghanem</a></span></td><td class="date"><span>27-Jan-15  13:44&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4989316_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="8632196" msgid="4989316" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4989316xx" onclick="RateMsg(8632196,4989316,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4989316xx" onclick="RateMsg(8632196,4989316,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Why yo upload image then show thumb , you can show thumb without upload the image using browser data.<br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4989316&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4989316&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4989316" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4989316/My-vote-of.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4989316&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4989316&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4989316" data-ref="3_4989316" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="8632196" msgid="4989316"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4532679_h0" class="header hover-row root">
+<td class="subject-line normal  vote-lo" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx4532679xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_question.gif" alt="Question"></td><td class="subject hover-container"><a class="message-link" name="4532679" parent="0" thread="4532679" href="http://www.codeproject.com/Messages/4532679/Multiple-images-in-the-same-page.aspx">Multiple images in the same page</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Member 2160987</span><span class="date">4-Apr-13  11:09</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=2160987">Member 2160987</a></span></td><td class="date"><span>4-Apr-13  11:09&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4532679_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="2160987" msgid="4532679" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4532679xx" onclick="RateMsg(2160987,4532679,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4532679xx" onclick="RateMsg(2160987,4532679,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Hi,<br>
+thanks for sample, is very good. <br>
+I've implemented it and works very well.<br>
+<br>
+But now I have another issue, in the same page I have 9 image controls and I'm trying to load them as described, but... all controls show the same image even if I've saved in different session variables:<br>
+Session("Image1"), Session("Image2")....<br>
+and I've modified the ProcessRequest:<br>
+<br>
+Public Sub ProcessRequest(ByVal context As HttpContext) Implements IHttpHandler.ProcessRequest<br>
+<br>
+        Try<br>
+<br>
+            For i As Integer = 1 To 9<br>
+                If (context.Session("Image" &amp; i)) IsNot Nothing Then<br>
+                    Dim image As Byte() = DirectCast(context.Session("Image" &amp; i), Byte())<br>
+                    context.Response.ContentType = "image/JPEG"<br>
+                    context.Response.BinaryWrite(image)<br>
+                End If<br>
+<br>
+            Next<br>
+<br>
+        Catch ex As Exception<br>
+<br>
+        End Try<br>
+<br>
+<br>
+    End Sub<br>
+<br>
+What do I have to do to load more Imgage controls with different images?<br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4532679&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4532679&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4532679" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4532679/Multiple-images-in-the-same-page.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4532679&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4532679&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4532679" data-ref="3_4532679" class="rating-label" style="white-space:nowrap;"><span>1.00/5 (1 vote)</span><span class="reportform" ownerid="2160987" msgid="4532679"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4517836_h0" class="header hover-row root">
+<td class="subject-line normal  vote-lo" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx4517836xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_general.gif" alt="General"></td><td class="subject hover-container"><a class="message-link" name="4517836" parent="0" thread="4517836" href="http://www.codeproject.com/Messages/4517836/My-vote-of.aspx">My vote of 5</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">abhi993</span><span class="date">14-Mar-13  19:41</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=9887333">abhi993</a></span></td><td class="date"><span>14-Mar-13  19:41&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4517836_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="9887333" msgid="4517836" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4517836xx" onclick="RateMsg(9887333,4517836,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4517836xx" onclick="RateMsg(9887333,4517836,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">this is what i wanted<br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4517836&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4517836&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4517836" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4517836/My-vote-of.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4517836&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4517836&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4517836" data-ref="3_4517836" class="rating-label" style="white-space:nowrap;"><span>1.00/5 (1 vote)</span><span class="reportform" ownerid="9887333" msgid="4517836"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4458618_h0" class="header hover-row root">
+<td class="subject-line normal  vote-hi" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx4458618xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_general.gif" alt="General"></td><td class="subject hover-container"><a class="message-link" name="4458618" parent="0" thread="4458618" href="http://www.codeproject.com/Messages/4458618/My-vote-of.aspx">My vote of 4</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Zan Zan Koe</span><span class="date">23-Dec-12  17:00</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=8622531">Zan Zan Koe</a></span></td><td class="date"><span>23-Dec-12  17:00&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4458618_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="8622531" msgid="4458618" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4458618xx" onclick="RateMsg(8622531,4458618,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4458618xx" onclick="RateMsg(8622531,4458618,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">This article is useful for me. Thanks xo much... <img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/smiley_smile.gif" align="top" alt="Smile | :)"> <br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4458618&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4458618&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4458618" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4458618/My-vote-of.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4458618&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4458618&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4458618" data-ref="3_4458618" class="rating-label" style="white-space:nowrap;"><span>5.00/5 (1 vote)</span><span class="reportform" ownerid="8622531" msgid="4458618"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4410429_h0" class="header hover-row root">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx4410429xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_general.gif" alt="General"></td><td class="subject hover-container"><a class="message-link" name="4410429" parent="0" thread="4410429" href="http://www.codeproject.com/Messages/4410429/Thanks.aspx">Thanks</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Member 9543298</span><span class="date">25-Oct-12  20:59</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=9543298">Member 9543298</a></span></td><td class="date"><span>25-Oct-12  20:59&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4410429_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="9543298" msgid="4410429" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4410429xx" onclick="RateMsg(9543298,4410429,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4410429xx" onclick="RateMsg(9543298,4410429,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Thanks, really helped.  <img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/smiley_biggrin.gif" align="top" alt="Big Grin | :-D"> <br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4410429&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4410429" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4410429/Thanks.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4410429&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4410429&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4410429" data-ref="3_4410429" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="9543298" msgid="4410429"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4396133_h0" class="header hover-row root">
+<td class="subject-line normal  vote-lo" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx4396133xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_question.gif" alt="Question"></td><td class="subject hover-container"><a class="message-link" name="4396133" parent="0" thread="4396133" href="http://www.codeproject.com/Messages/4396133/if-Session-ImageBytes-returns-null.aspx">if Session["ImageBytes"] returns null</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Pritesh Aryan</span><span class="date">12-Oct-12  16:08</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=7189516">Pritesh Aryan</a></span></td><td class="date"><span>12-Oct-12  16:08&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4396133_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="7189516" msgid="4396133" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4396133xx" onclick="RateMsg(7189516,4396133,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4396133xx" onclick="RateMsg(7189516,4396133,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">what to do if <br>
+Session["ImageBytes"] <br>
+return null?<br>
+or how to check if session of image byte is ?<br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4396133&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4396133" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4396133/if-Session-ImageBytes-returns-null.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4396133&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4396133&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4396133" data-ref="3_4396133" class="rating-label" style="white-space:nowrap;"><span>1.00/5 (1 vote)</span><span class="reportform" ownerid="7189516" msgid="4396133"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4396226_h0" class="header hover-row">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="38px" class="indent"><a name="xx4396226xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_answer.gif" alt="Answer"></td><td class="subject hover-container"><a class="message-link" name="4396226" parent="4396133" thread="4396133" href="http://www.codeproject.com/Messages/4396226/Re-if-Session-ImageBytes-returns-null.aspx">Re: if Session["ImageBytes"] returns null</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Santhosh Kumar J</span><span class="date">12-Oct-12  17:13</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=7467767">Santhosh Kumar J</a></span></td><td class="date"><span>12-Oct-12  17:13&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4396226_h1" class="content selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:38px;"><div class="voteform vertical" ownerid="7467767" msgid="4396226" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4396226xx" onclick="RateMsg(7467767,4396226,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4396226xx" onclick="RateMsg(7467767,4396226,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="38px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2"><div class="parent"><a rel="nofollow" onclick="return SwitchMessage(null,4396133);" href="http://www.codeproject.com/Messages/4396133/if-Session-ImageBytes-returns-null.aspx"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/arrow-up24.png" title="Go to Parent" style="width:16px;height:16px;border:0"></a></div>we are loading only session is not null.if it is null, nothing will be displayed. see this condition<br>
+in ImageHandler class<br>
+<div class="pre-action-link" id="premain707346" style="width:100%;display:block;"><span id="prehide707346" onclick="processCodeBlocks.togglePre(707346);">Hide</span>  &nbsp; <span id="preShrink707346" onclick="processCodeBlocks.shrinkExpand(707346);">Shrink</span> <img id="preimg707346" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/arrow-up-16.png" style="height:16px;width:16px" onclick="processCodeBlocks.shrinkExpand(707346);">  &nbsp; <span onclick="return processCodeBlocks.copyCode(707346);">Copy Code</span></div><pre lang="cs" style="margin-top: 0px;" id="pre707346"><span class="code-keyword">if</span> ((context.Session[<span class="code-string">"</span><span class="code-string">ImageBytes"</span>]) != <span class="code-keyword">null</span>)
+        {
+            <span class="code-keyword">byte</span>[] image = (<span class="code-keyword">byte</span>[])(context.Session[<span class="code-string">"</span><span class="code-string">ImageBytes"</span>]);
+            context.Response.ContentType = <span class="code-string">"</span><span class="code-string">image/JPEG"</span>;
+            context.Response.BinaryWrite(image);
+        }</pre><br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4396226&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4396226&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4396133" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4396226/Re-if-Session-ImageBytes-returns-null.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4396226&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4396226&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4396226" data-ref="3_4396226" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="7467767" msgid="4396226"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4395519_h0" class="header hover-row root">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx4395519xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_question.gif" alt="Question"></td><td class="subject hover-container"><a class="message-link" name="4395519" parent="0" thread="4395519" href="http://www.codeproject.com/Messages/4395519/Thank.aspx">Thank!</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">goomingi</span><span class="date">12-Oct-12  5:58</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=8960403">goomingi</a></span></td><td class="date"><span>12-Oct-12  5:58&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4395519_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="8960403" msgid="4395519" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4395519xx" onclick="RateMsg(8960403,4395519,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4395519xx" onclick="RateMsg(8960403,4395519,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">^^ Thank you so much! That's a useful post! <img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/smiley_biggrin.gif" align="top" alt="Big Grin | :-D">  <br>
+Cám ơn tác giả rất nhiều ạ! ^^<br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4395519&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4395519&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4395519" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4395519/Thank.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4395519&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4395519&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4395519" data-ref="3_4395519" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="8960403" msgid="4395519"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4395521_h0" class="header hover-row">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="38px" class="indent"><a name="xx4395521xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_answer.gif" alt="Answer"></td><td class="subject hover-container"><a class="message-link" name="4395521" parent="4395519" thread="4395519" href="http://www.codeproject.com/Messages/4395521/Re-Thank.aspx">Re: Thank!</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Santhosh Kumar J</span><span class="date">12-Oct-12  5:59</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=7467767">Santhosh Kumar J</a></span></td><td class="date"><span>12-Oct-12  5:59&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4395521_h1" class="content selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:38px;"><div class="voteform vertical" ownerid="7467767" msgid="4395521" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4395521xx" onclick="RateMsg(7467767,4395521,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4395521xx" onclick="RateMsg(7467767,4395521,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="38px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2"><div class="parent"><a rel="nofollow" onclick="return SwitchMessage(null,4395519);" href="http://www.codeproject.com/Messages/4395519/Thank.aspx"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/arrow-up24.png" title="Go to Parent" style="width:16px;height:16px;border:0"></a></div>welcome<br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4395521&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4395521&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4395519" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4395521/Re-Thank.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4395521&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4395521&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4395521" data-ref="3_4395521" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="7467767" msgid="4395521"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4395518_h0" class="header hover-row root">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx4395518xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_general.gif" alt="General"></td><td class="subject hover-container"><a class="message-link" name="4395518" parent="0" thread="4395518" href="http://www.codeproject.com/Messages/4395518/My-vote-of.aspx">My vote of 4</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">goomingi</span><span class="date">12-Oct-12  5:56</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=8960403">goomingi</a></span></td><td class="date"><span>12-Oct-12  5:56&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4395518_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="8960403" msgid="4395518" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4395518xx" onclick="RateMsg(8960403,4395518,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4395518xx" onclick="RateMsg(8960403,4395518,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Thank you very much! <img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/smiley_biggrin.gif" align="top" alt="Big Grin | :-D"> <br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4395518&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4395518&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4395518" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4395518/My-vote-of.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4395518&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4395518&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4395518" data-ref="3_4395518" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="8960403" msgid="4395518"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4371391_h0" class="header hover-row root">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx4371391xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_question.gif" alt="Question"></td><td class="subject hover-container"><a class="message-link" name="4371391" parent="0" thread="4371391" href="http://www.codeproject.com/Messages/4371391/preview-after-choosing-file.aspx">preview after choosing file</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Member 9441049</span><span class="date">19-Sep-12  10:50</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=9441049">Member 9441049</a></span></td><td class="date"><span>19-Sep-12  10:50&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4371391_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="9441049" msgid="4371391" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4371391xx" onclick="RateMsg(9441049,4371391,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4371391xx" onclick="RateMsg(9441049,4371391,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Can we see the image without hitting the button Preview?<br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4371391&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4371391&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4371391" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4371391/preview-after-choosing-file.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4371391&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4371391&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4371391" data-ref="3_4371391" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="9441049" msgid="4371391"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4371532_h0" class="header hover-row">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="38px" class="indent"><a name="xx4371532xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_answer.gif" alt="Answer"></td><td class="subject hover-container"><a class="message-link" name="4371532" parent="4371391" thread="4371391" href="http://www.codeproject.com/Messages/4371532/Re-preview-after-choosing-file.aspx">Re: preview after choosing file</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Santhosh Kumar J</span><span class="date">19-Sep-12  13:05</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=7467767">Santhosh Kumar J</a></span></td><td class="date"><span>19-Sep-12  13:05&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4371532_h1" class="content selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:38px;"><div class="voteform vertical" ownerid="7467767" msgid="4371532" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4371532xx" onclick="RateMsg(7467767,4371532,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4371532xx" onclick="RateMsg(7467767,4371532,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="38px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2"><div class="parent"><a rel="nofollow" onclick="return SwitchMessage(null,4371391);" href="http://www.codeproject.com/Messages/4371391/preview-after-choosing-file.aspx"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/arrow-up24.png" title="Go to Parent" style="width:16px;height:16px;border:0"></a></div>Yes, But that need to be done differently. Here i just made to display preview only if user clicks on button<br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4371532&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4371532&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4371391" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4371532/Re-preview-after-choosing-file.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4371532&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4371532&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4371532" data-ref="3_4371532" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="7467767" msgid="4371532"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4413431_h0" class="header hover-row">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="56px" class="indent"><a name="xx4413431xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_general.gif" alt="General"></td><td class="subject hover-container"><a class="message-link" name="4413431" parent="4371532" thread="4371391" href="http://www.codeproject.com/Messages/4413431/Re-preview-after-choosing-file.aspx">Re: preview after choosing file</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Member 4459484</span><span class="date">29-Oct-12  19:43</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=4459484">Member 4459484</a></span></td><td class="date"><span>29-Oct-12  19:43&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4413431_h1" class="content selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:56px;"><div class="voteform vertical" ownerid="4459484" msgid="4413431" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4413431xx" onclick="RateMsg(4459484,4413431,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4413431xx" onclick="RateMsg(4459484,4413431,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="56px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2"><div class="parent"><a rel="nofollow" onclick="return SwitchMessage(null,4371532);" href="http://www.codeproject.com/Messages/4371532/Re-preview-after-choosing-file.aspx"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/arrow-up24.png" title="Go to Parent" style="width:16px;height:16px;border:0"></a></div>can you please help me with showing image without clicking preview?<br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4413431&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4413431&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4371391" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4413431/Re-preview-after-choosing-file.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4413431&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4413431&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4413431" data-ref="3_4413431" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="4459484" msgid="4413431"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4416373_h0" class="header hover-row">
+<td class="subject-line normal  vote-lo" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="74px" class="indent"><a name="xx4416373xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_answer.gif" alt="Answer"></td><td class="subject hover-container"><a class="message-link" name="4416373" parent="4413431" thread="4371391" href="http://www.codeproject.com/Messages/4416373/Re-preview-after-choosing-file.aspx">Re: preview after choosing file</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Sridhar Ch</span><span class="date">1-Nov-12  10:32</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1728641">Sridhar Ch</a></span></td><td class="date"><span>1-Nov-12  10:32&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4416373_h1" class="content selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:74px;"><div class="voteform vertical" ownerid="1728641" msgid="4416373" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4416373xx" onclick="RateMsg(1728641,4416373,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4416373xx" onclick="RateMsg(1728641,4416373,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="74px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2"><div class="parent"><a rel="nofollow" onclick="return SwitchMessage(null,4413431);" href="http://www.codeproject.com/Messages/4413431/Re-preview-after-choosing-file.aspx"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/arrow-up24.png" title="Go to Parent" style="width:16px;height:16px;border:0"></a></div>add this JS method<br>
+<div class="pre-action-link" id="premain412818" style="width:100%;display:block;"><span id="prehide412818" onclick="processCodeBlocks.togglePre(412818);">Hide</span>  &nbsp; <span id="preShrink412818" onclick="processCodeBlocks.shrinkExpand(412818);">Shrink</span> <img id="preimg412818" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/arrow-up-16.png" style="height:16px;width:16px" onclick="processCodeBlocks.shrinkExpand(412818);">  &nbsp; <span onclick="return processCodeBlocks.copyCode(412818);">Copy Code</span></div><pre lang="cs" style="margin-top: 0px;" id="pre412818">function ShowPreview() {
+            <span class="code-keyword">var</span> btn = document.getElementById(<span class="code-string">"</span><span class="code-string">btnPreview"</span>);
+            btn.click();
+        }</pre>
+<br>
+Place preview button in a div with style display none.<br>
+<div class="pre-action-link" id="premain181976" style="width:100%;display:block;"><span id="prehide181976" onclick="processCodeBlocks.togglePre(181976);">Hide</span>  &nbsp; <span id="preShrink181976" onclick="processCodeBlocks.shrinkExpand(181976);">Shrink</span> <img id="preimg181976" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/arrow-up-16.png" style="height:16px;width:16px" onclick="processCodeBlocks.shrinkExpand(181976);">  &nbsp; <span onclick="return processCodeBlocks.copyCode(181976);">Copy Code</span></div><pre lang="xml" style="margin-top: 0px;" id="pre181976"><span class="code-keyword">&lt;</span><span class="code-leadattribute">asp:FileUpload</span> <span class="code-attribute">ID</span><span class="code-keyword">="</span><span class="code-keyword">FileUpload1"</span> <span class="code-attribute">runat</span><span class="code-keyword">="</span><span class="code-keyword">server"</span> <span class="code-attribute">onchange</span><span class="code-keyword">="</span><span class="code-keyword">ShowPreview()"</span>  <span class="code-keyword">/</span><span class="code-keyword">&gt;</span>
+        <span class="code-keyword">&lt;</span><span class="code-leadattribute">div</span> <span class="code-attribute">style</span><span class="code-keyword">="</span><span class="code-keyword">display: none"</span><span class="code-keyword">&gt;</span>
+            <span class="code-keyword">&lt;</span><span class="code-leadattribute">asp:Button</span> <span class="code-attribute">ID</span><span class="code-keyword">="</span><span class="code-keyword">btnPreview"</span> <span class="code-attribute">runat</span><span class="code-keyword">="</span><span class="code-keyword">server"</span> <span class="code-attribute">OnClick</span><span class="code-keyword">="</span><span class="code-keyword">btnPreview_Click"</span> <span class="code-keyword">/</span><span class="code-keyword">&gt;</span>
+        <span class="code-keyword">&lt;</span><span class="code-keyword">/</span><span class="code-leadattribute">div</span><span class="code-keyword">&gt;</span></pre><br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4416373&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4416373&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4371391" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4416373/Re-preview-after-choosing-file.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4416373&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4416373&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4416373" data-ref="3_4416373" class="rating-label" style="white-space:nowrap;"><span>1.00/5 (1 vote)</span><span class="reportform" ownerid="1728641" msgid="4416373"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4505702_h0" class="header hover-row">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="92px" class="indent"><a name="xx4505702xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_general.gif" alt="General"></td><td class="subject hover-container"><a class="message-link" name="4505702" parent="4416373" thread="4371391" href="http://www.codeproject.com/Messages/4505702/Re-preview-after-choosing-file.aspx">Re: preview after choosing file</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">yugandhar11</span><span class="date">27-Feb-13  10:13</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=8474295">yugandhar11</a></span></td><td class="date"><span>27-Feb-13  10:13&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4505702_h1" class="content selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:92px;"><div class="voteform vertical" ownerid="8474295" msgid="4505702" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4505702xx" onclick="RateMsg(8474295,4505702,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4505702xx" onclick="RateMsg(8474295,4505702,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="92px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2"><div class="parent"><a rel="nofollow" onclick="return SwitchMessage(null,4416373);" href="http://www.codeproject.com/Messages/4416373/Re-preview-after-choosing-file.aspx"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/arrow-up24.png" title="Go to Parent" style="width:16px;height:16px;border:0"></a></div>Thank u so much, i got the solution....<br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4505702&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4371391" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4505702/Re-preview-after-choosing-file.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4505702&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4505702&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4505702" data-ref="3_4505702" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="8474295" msgid="4505702"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4332621_h0" class="header hover-row root">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx4332621xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_general.gif" alt="General"></td><td class="subject hover-container"><a class="message-link" name="4332621" parent="0" thread="4332621" href="http://www.codeproject.com/Messages/4332621/My-vote-of.aspx">My vote of 4</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Tathagat Verma</span><span class="date">8-Aug-12  6:00</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=7592285">Tathagat Verma</a></span></td><td class="date"><span>8-Aug-12  6:00&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4332621_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="7592285" msgid="4332621" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4332621xx" onclick="RateMsg(7592285,4332621,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4332621xx" onclick="RateMsg(7592285,4332621,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">The solution is good. Though a little more explanation would've been better.<br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4332621&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4332621&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4332621" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4332621/My-vote-of.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4332621&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4332621&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4332621" data-ref="3_4332621" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="7592285" msgid="4332621"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4328664_h0" class="header hover-row root">
+<td class="subject-line normal  vote-lo" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx4328664xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_general.gif" alt="General"></td><td class="subject hover-container"><a class="message-link" name="4328664" parent="0" thread="4328664" href="http://www.codeproject.com/Messages/4328664/Image-upload.aspx">Image upload</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">shanid360</span><span class="date">3-Aug-12  7:37</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=8670304">shanid360</a></span></td><td class="date"><span>3-Aug-12  7:37&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4328664_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="8670304" msgid="4328664" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4328664xx" onclick="RateMsg(8670304,4328664,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4328664xx" onclick="RateMsg(8670304,4328664,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Hai friends  <img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/smiley_smile.gif" align="top" alt="Smile | :)">  <br>
+The uploading of the image file is performed by ASP.NET 4.0 Client Callbacks. If you are not familiar with client callbacks  then I suggest that you take a look at ASP.Net AJAX Control Toolkit AsyncFileUpload Control without page refresh or PostBack in ASP.Net Web Page or ASP.Net AJAX Update Panel. The callback is fired as soon as the file is selected by the user using the file field control. <br>
+Thanks % Regards<br>
+Shanith Thekkayil <br>
+<a href="http://rockingshani.blogspot.in/search/label/Asp.net%20File%20Upload">Image Upload</a> <img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/thumbs_up.gif" align="top" alt="Thumbs Up | :thumbsup:"> <br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4328664&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4328664&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4328664" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4328664/Image-upload.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4328664&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4328664&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4328664" data-ref="3_4328664" class="rating-label" style="white-space:nowrap;"><span>1.00/5 (1 vote)</span><span class="reportform" ownerid="8670304" msgid="4328664"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4323560_h0" class="header hover-row root">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="20px" class="indent"><a name="xx4323560xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_general.gif" alt="General"></td><td class="subject hover-container"><a class="message-link" name="4323560" parent="0" thread="4323560" href="http://www.codeproject.com/Messages/4323560/My-vote-of.aspx">My vote of 5</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Carsten V2.0</span><span class="date">29-Jul-12  16:02</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=8134136">Carsten V2.0</a></span></td><td class="date"><span>29-Jul-12  16:02&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4323560_h1" class="content root selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:20px;"><div class="voteform vertical" ownerid="8134136" msgid="4323560" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4323560xx" onclick="RateMsg(8134136,4323560,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4323560xx" onclick="RateMsg(8134136,4323560,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="20px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Superb! <img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/smiley_smile.gif" align="top" alt="Smile | :)"> <br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4323560&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4323560&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4323560" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4323560/My-vote-of.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4323560&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4323560&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4323560" data-ref="3_4323560" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="8134136" msgid="4323560"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4330883_h0" class="header hover-row">
+<td class="subject-line normal " width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td width="38px" class="indent"><a name="xx4330883xx"></a><img height="16px" width="16px" align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_general.gif" alt="General"></td><td class="subject hover-container"><a class="message-link" name="4330883" parent="4323560" thread="4323560" href="http://www.codeproject.com/Messages/4330883/Re-My-vote-of.aspx">Re: My vote of 5</a> <a onclick="return Pin(this);" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#" title="Click to pin message"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/pin.png" border="0" align="top" alt="Pin" width="13px" height="13px"></a><div class="mobile-only">
+	<span class="author">Santhosh Kumar J</span><span class="date">6-Aug-12  13:50</span>
+</div></td><td class="icon"><img border="0" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/icn-member-16.gif" title="member" alt="member" height="16px"></td><td class="author"><span><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=7467767">Santhosh Kumar J</a></span></td><td class="date"><span>6-Aug-12  13:50&nbsp;</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr id="F4330883_h1" class="content selected" style="display:none;">
+<td class="normal" width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="indent align-right" style="width:38px;"><div class="voteform vertical" ownerid="7467767" msgid="4330883" votingtype="GoodOrBad" done="true"><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4330883xx" onclick="RateMsg(7467767,4330883,5,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/upvote16.png" alt="upvote" title="upvote" border="0" align="absmiddle"></a>
+<br><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#xx4330883xx" onclick="RateMsg(7467767,4330883,1,0);"><img height="16px" width="16px" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/downvote16.png" alt="downvote" title="downvote" border="0" align="absmiddle"></a>
+</div><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" height="1px" width="38px" alt=""></td><td class="text"><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2"><div class="parent"><a rel="nofollow" onclick="return SwitchMessage(null,4323560);" href="http://www.codeproject.com/Messages/4323560/My-vote-of.aspx"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/arrow-up24.png" title="Go to Parent" style="width:16px;height:16px;border:0"></a></div>Thanks.<br></td>
+</tr><tr class="footer" style="vertical-align:top;">
+<td><a class="new-message" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4330883&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=r" title="Reply">Reply</a>·<wbr><a class="nav-link" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1755459&select=4330883&floc=/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs&action=e" title="Email">Email</a>·<wbr><a href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&tid=4323560" title="View Thread">View&nbsp;Thread</a>·<wbr><a href="http://www.codeproject.com/Messages/4330883/Re-My-vote-of.aspx" title="Get permanent link">Permalink</a>·<wbr><a href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=4330883&obtid=3&action=AddBookmark&bio=false&bis=small" title="Bookmark this post" onclick="return bookmarkMe(0,0,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=4330883&amp;obtid=3&amp;action=AddBookmark&amp;bio=false&amp;bis=small&#39;,false, this, this);">Bookmark</a></td><td style="text-align:right;"><span id="MVF4330883" data-ref="3_4330883" class="rating-label" style="white-space:nowrap;"><span class="reportform" ownerid="7467767" msgid="4330883"></span></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/t(1).gif" border="0" width="1px" height="5px" alt=""></td>
+</tr><tr>
+<td><table width="100%" cellpadding="2px" cellspacing="0">
+<tbody><tr class="footer">
+<td><span class="last-visit desktop-only tablet-only">Last Visit: 9-Jun-15  20:42 &nbsp; &nbsp; Last Update: 10-Aug-15  8:34</span></td><td><a rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459">Refresh</a></td><td style="text-align:right;white-space:nowrap;"><input id="_mbnUrl" type="hidden" value="/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?fid=1755459&amp;fr=21"><span class="nav-link selected">1</span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table>
+</div><p class="small-text"><img align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_general.gif" width="16px" height="16px" alt="General"> General &nbsp;&nbsp; <img align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_news.gif" width="16px" height="16px" alt="News"> News &nbsp;&nbsp; <img align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_idea.gif" width="16px" height="16px" alt="Suggestion"> Suggestion &nbsp;&nbsp; <img align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_question.gif" width="16px" height="16px" alt="Question"> Question &nbsp;&nbsp; <img align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_bug.gif" width="16px" height="16px" alt="Bug"> Bug &nbsp;&nbsp; <img align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_answer.gif" width="16px" height="16px" alt="Answer"> Answer &nbsp;&nbsp; <img align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_joke.gif" width="16px" height="16px" alt="Joke"> Joke &nbsp;&nbsp; <img align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_rant.gif" width="16px" height="16px" alt="Rant"> Rant &nbsp;&nbsp; <img align="top" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/msg_admin.gif" width="16px" height="16px" alt="Admin"> Admin &nbsp;&nbsp; </p><p class="small-text">Use Ctrl+Left/Right to switch messages, Ctrl+Up/Down to switch threads, Ctrl+Shift+Left/Right to switch pages.</p>
+				
+
+			</div>
+			
+		</td>
+		<td width="170px" class="article-wing-right">
+			<div id="ctl00_RightSideBar" class="container-article-info">
+
+                <div id="RHSticky" class="container-article-info-sticky" style="position: static; top: 235px; left: 1023.5px;">
+        			
+
+<div class="header">Info</div>
+<div class="article-summary">
+
+<a id="ctl00_InfoBox_ParentLink"></a>
+
+<table cellpadding="0" cellspacing="0" class="article-info">
+
+    
+
+    
+	
+
+	
+
+    
+
+	<tbody><tr><td nowrap="">First Posted&nbsp;</td><td nowrap="nowrap" class="value"><span itemprop="datePublished" content="2012-07-28">28 Jul 2012</span></td></tr>
+    
+
+	<tr><td colspan="2"></td></tr>
+	
+	
+</tbody></table>
+</div>
+
+				    
+
+				    <div style="width:160px;margin: 10px auto;">
+					    <div class="msg-160x600" data-format="160x600" data-type="ad" data-publisher="lqm.codeproject.site" data-zone="Web-Development/Charts-Graphs-and-Images/Images-and-multimedia" data-country="HU" data-tags="C#, ASP.NET, Dev, Intermediate,rating4.5"><noscript>&lt;a href="http://ad.doubleclick.net/N6839/jump/lqm.codeproject.site/Web-Development/Charts-Graphs-and-Images/Images-and-multimedia;sz=160x600;ord=635747888818876139?"&gt;&lt;img src="http://ad.doubleclick.net/N6839/ad/lqm.codeproject.site/Web-Development/Charts-Graphs-and-Images/Images-and-multimedia;sz=160x600;ord=635747888818876139?"  width="160px" height="600px" /&gt;&lt;/a&gt;</noscript></div>
+				    </div>
+
+                    
+
+				    
+
+				    
+
+				    
+
+                    <div class="anchorLink gototop" id="gototop">
+                        <a id="ctl00_GoToTop" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs#_articleTop">Go to top</a>
+                    </div>
+
+				</div>
+
+			</div>
+		</td>
+		</tr></tbody></table>
+
+		
+		<div class="theme1-background" style="height:2px" id="stickyStop"></div>
+
+		<div class="extended tiny-text">
+			<div class="row">
+				<div class="float-left">
+					<a id="ctl00_PermaLink" itemprop="url" href="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/Previewing Image in ASP.NET Image Control using C# - CodeProject.html">Permalink</a> | 
+					<a id="ctl00_AdvertiseLink" href="http://developermedia.com/">Advertise </a> |
+					<a id="ctl00_PrivacyLink" href="http://www.codeproject.com/info/privacy.aspx">Privacy</a> |
+                    <a id="ctl00_TermsOfUseLink" href="http://www.codeproject.com/info/TermsOfUse.aspx">Terms of Use</a> |
+					<a id="ctl00_Mobile" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?display=Mobile">Mobile</a>
+					<br>
+								
+					
+					Web03 |
+					2.8.150804.7 |
+					Last Updated 7 Aug 2012								
+				</div>
+
+                <div id="ctl00_GoogleTranslate" class="translate float-left"><div class="skiptranslate goog-te-gadget" dir="ltr"><div id=":0.targetLanguage" class="goog-te-gadget-simple" style="white-space: nowrap;"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/cleardot.gif" class="goog-te-gadget-icon" style="background-image: url(https://translate.googleapis.com/translate_static/img/te_ctrl3.gif); background-position: -65px 0px;"><span style="vertical-align: middle;"><a class="goog-te-menu-value" href="javascript:void(0)"><span>Nyelv kiválasztása</span><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/cleardot.gif" width="1" height="1"><span style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(187, 187, 187);">​</span><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/cleardot.gif" width="1" height="1"><span style="color: rgb(155, 155, 155);">▼</span></a></span></div></div></div>      
+
+				<div class="float-right align-right">
+					Article Copyright 2012 by Santhosh Kumar Jayaraman<br>Everything else
+					Copyright © <a href="mailto:webmaster@codeproject.com">CodeProject</a>, 1999-2015 <br>
+				</div>
+
+				
+
+
+<div class="page-width">
+Layout: <a id="ctl00_PageWidth_FixedT" title="Fixed width layout" rel="nofollow" class=" active" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?PageFlow=FixedWidth">fixed</a>
+|
+<a id="ctl00_PageWidth_FluidT" title="Fluid layout" rel="nofollow" href="http://www.codeproject.com/Tips/430320/Previewing-Image-in-ASP-NET-Image-Control-using-Cs?PageFlow=Fluid">fluid</a>
+</div>
+
+
+
+			</div>
+		</div>
+		
+
+		<br clear="all">
+		
+			
+
+	</div> 
+	</div>
+</div>
+
+
+<div style="display:none;" id="dm_AdTable">
+	
+</div>
+<img id="ctl00_Audience" src="http://pubads.g.doubleclick.net/activity;dc_iu=/6839/DFPAudiencePixel;ord='635747888817000980';dc_seg=33704410?" style="border-width:0px;height:1px;width:1px;">
+
+
+
+<script type="text/javascript" language="Javascript" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/jquery.min.js"></script><script type="text/javascript">//<![CDATA[
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='/script/JS/jquery-1.6.2.min.js' type='text/javascript' %3E%3C/script%3E"));
+}//]]></script>
+<script type="text/javascript" language="Javascript" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/article.min.js"></script>
+<script type="text/javascript" language="Javascript" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/element.js"></script>
+<script type="text/javascript" language="Javascript" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/navbar.min.js"></script>
+<script type="text/javascript" language="Javascript" src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/Notifications.min.js"></script>
+<script type="text/javascript" language="Javascript">//<![CDATA[
+$(document).ready(function () { processCodeBlocks.Initialise('#contentdiv'); });
+function googleTranslateElementInit() {  new google.translate.TranslateElement({   pageLanguage: 'en',   layout: google.translate.TranslateElement.InlineLayout.SIMPLE,   autoDisplay: false,   gaTrack: true,   gaId: 'UA-1735123-1'},  'ctl00_GoogleTranslate');}
+$(document).ready(function() { anchorAnimate();
+$('#RHSticky').sticky($('#stickyStop'));
+$('#ctl00_Nav').sticky($('#stickyStop'));
+});
+$(document).ready(function() {   $('.alert-bar').fadeIn('slow');   $('.alert-bar a.close-notify').click(function() {      $('.alert-bar').fadeOut('fast');        return false;    });});
+var oSrchFlt = false, oSrchBox=false,srchBoxFoc=false;
+$(document).ready(function() {
+ if(InitWatermark)InitWatermark('sb_tb', 'Search for articles, questions, tips');
+ var sbar = $('#sb_tb'); 
+ var sfilter = $('#SearchFilter');
+ if (sbar && sfilter) {
+  sfilter.removeClass('popup'); sfilter.hide(); sfilter.removeClass('open');
+  sbar.blur(function() {
+ if (!oSrchFlt) {sfilter.hide(); sfilter.removeClass('open');}
+ srchBoxFoc=false;
+ });
+  sbar.focus(function() {
+ oSrchFlt=false; srchBoxFoc=true;
+ sfilter.show(); sfilter.addClass('open');
+ });
+  sbar.mouseleave(function() { oSrchBox=false; });
+  sbar.mouseover(function() { oSrchBox=true; });
+  sfilter.mouseleave(function() { oSrchFlt=false; if (!srchBoxFoc&&!oSrchBox) { sfilter.hide(); sfilter.removeClass('open'); }});
+  sfilter.mouseover(function() { oSrchFlt=true; });
+ }
+});
+$('#clear-rate_ctl00_RateArticle_RCD').click(function () {    $('#ctl00_RateArticle_RCD').hide(); return false;});$("#ctl00_RateArticle_RateItemWrapper")   .removeClass("container-rating")   .hover( function() { $('#ctl00_RateArticle_RCD').fadeIn('fast'); },            function() { $('#ctl00_RateArticle_RCD').fadeOut('fast'); } );
+function PostBack_ctl00_RateArticle_RateItemWrapper() {
+  return rateItem(430320,2,6,true,true,0,'LargeStars');
+}
+
+                        function getVotesHistogram(objectId, objectTypeId, containerId, loadingId) {
+                            if (!$('#' + containerId).attr('alreadyRequested')){
+                                $.ajax({
+                                    url: '/script/Ratings/Ajax/Histogram.aspx?obid=' + objectId + '&obtid='+objectTypeId,
+                                    success: function (data) {
+                                        $('#' + containerId).html(data);
+                                        $('#' + loadingId).hide();
+                                    }
+                                });
+                                $('#' + containerId).attr('alreadyRequested', 'true');
+                            }
+                        }
+$(document).ready(function() {   new starRating('#ctl00_RateArticle_VoteFormDiv', PostBack_ctl00_RateArticle_RateItemWrapper,'ctl00_RateArticle');
+  $('#ctl00_RateArticle_RB').mouseenter(function() {     getVotesHistogram(430320,2   ,'ctl00_RateArticle_Histogram','ctl00_RateArticle_Loading');  })})
+$(document).ready(function() { $('#ctl00_RateArticle_SubmitRateBtn').hide(); });
+$(document).ready(function() { $('#ctl00_RateArticle_SubmitRateBtn').hide(); });function ChkRtctl00_RateArticle(val) {}
+
+forumDir = '/script/Forums/';
+allowReporting = false;
+allowRating = true;
+allowRatingDisplay = true;
+var smoothScroll = true;
+Selected        = -1;
+oldTitle        = document.title;
+minMessageScore = 1;
+minMessageScore = 5;
+abuseScore      = -2;
+spamScore       = -1;
+getRatingUrl    = '/script/Ratings/Ajax/GetRatings.aspx';
+noiseThreshold  = 3;
+getRatingRefKey = 'obrs';
+
+
+//]]>
+</script>
+
+
+
+<canvas id="cv1" width="1px" height="1px" style="position:absolute;left:0;top:0;pointer-events:none"></canvas><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./Previewing Image in ASP.NET Image Control using C# - CodeProject_files/translate-32.png" width="20" height="20"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Eredeti nyelvű szöveg</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Küldjön be egy jobb fordítást</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><canvas id="cv2" width="1px" height="1px" style="position:absolute;left:0;top:0;pointer-events:none"></canvas><iframe frameborder="0" class="goog-te-menu-frame skiptranslate" style="visibility: visible; box-sizing: content-box; width: 766px; height: 263px; display: none;"></iframe></body></html>

@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<!-- saved from url=(0103)https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx -->
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="WT.seg_1" content="en-us"><link rel="canonical" href="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/Calendar.SelectedDate Property (System.Web.UI.WebControls).html">
+        <title>Calendar.SelectedDate Property  (System.Web.UI.WebControls)</title>
+
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/738549yt(d=default,l=en-us,v=vs.110).aspx">
+
+<meta name="NormalizedUrl" content="https://msdn.microsoft.com/en-us/library/738549yt(d=default,l=en-us,v=vs.110).aspx">
+
+<meta name="ms.normalizedurl" content="https://msdn.microsoft.com/en-us/library/738549yt(d=default,l=en-us,v=vs.110).aspx">
+
+<meta name="DCSext.ProductFamily" content="LIB_DG">
+
+<meta name="DCSext.Product" content="NDP_ASPNET">
+
+<meta name="DCSext.Title" content="SelectedDate Property ">
+
+<meta name="VotingContextUrl" content="https://msdn.microsoft.com/en-us/library/738549yt(d=default,l=en-us,v=vs.110).aspx">
+
+<meta name="MN" content="EE4293C3-4:50:45 AM">
+
+<meta name="Search.ShortId" content="738549yt">
+
+<meta name="ms.shortidmsdn" content="738549yt">
+
+<meta name="Ms.Locale" content="en-us">
+
+<meta name="ms.prodver" content="VS.110">
+
+<meta name="ms.contentlang" content="EN">
+
+<meta name="ms.lang" content="EN">
+
+<meta name="ms.loc" content="US">
+
+<meta name="ms.sitever" content="2015.07.28.2">
+
+<meta name="ms.assetid" content="P:System.Web.UI.WebControls.Calendar.SelectedDate">
+
+<meta name="ms.auth" content="0">
+
+
+
+
+
+
+
+
+        
+    <link rel="stylesheet" type="text/css" href="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/Combined.css"><script type="text/javascript" src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/ai.0.js" async=""></script><script class="mtps-injected">try {
+/**/
+(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { 
+	"image": "https://i-msdn.sec.s-msft.com", 
+	"js": "https://i2-msdn.sec.s-msft.com", 
+	"css": "https://i-msdn.sec.s-msft.com", 
+	"xap": "https://msdn.microsoft.com"
+});
+/**/
+} finally { MTPS._injectNextScript_0 && MTPS._injectNextScript_0(); }</script><script class="mtps-injected" src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/jquery-1.8.2.min.js"></script><script class="mtps-injected">try {
+//
+  var literalNormalizedUrl = '/en-us/library/738549yt(l=en-us,v=vs.110).aspx';
+  var wt_nvr_ru = 'WT_NVR_RU';
+  var wt_fpcdom = '.microsoft.com';
+  var wt_domlist = 'msdn.microsoft.com';
+  var wt_pathlist = '';
+  var wt_paramlist = 'DCSext.mtps_devcenter';
+  var wt_siteid = 'MSDN';
+  var gDomain = 'm.webtrends.com';
+  var gDcsId = 'dcsmgru7m99k7mqmgrhudo0k8_8c6m';
+  var gFpc = 'WT_FPC';
+
+
+
+  if (document.cookie.indexOf(gFpc + "=") == -1) {
+    var wtidJs = document.createElement("script");
+    wtidJs.src = "//" + gDomain + "/" + gDcsId + "/wtid.js";
+    document.getElementsByTagName("head")[0].appendChild(wtidJs);
+  }
+
+
+
+  var detectedLocale = 'en-us';
+  var wtsp = 'msdnlib_dotnet';
+  var gTrackEvents = '0';
+/**/
+} finally { MTPS._injectNextScript_2 && MTPS._injectNextScript_2(); }</script><script class="mtps-injected">try {
+//
+
+            window.appInsightsId = '60854590-027a-4ae4-98be-2741a40f355f';
+            //
+} finally { MTPS._injectNextScript_3 && MTPS._injectNextScript_3(); }</script><script class="mtps-injected" src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/Combined.js"></script><script class="mtps-injected" src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/SearchBox.jss"></script><script class="mtps-injected" src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/Combined(1).js"></script><script class="mtps-injected">try {
+MTPS = window.MTPS || {}; MTPS.LocalizedStrings = window.MTPS.LocalizedStrings || {}; MTPS.LocalizedStrings.ExpandButtonTooltip = 'Expand'; MTPS.LocalizedStrings.CollapseButtonTooltip = 'Collapse'; MTPS.LocalizedStrings.EnhancedExpandTooltip = 'Click to expand. Double-click to expand all.'; MTPS.LocalizedStrings.EnhancedCollapseTooltip = 'Click to collapse. Double-click to collapse all.'; MTPS.LocalizedStrings.ExpandAllButtonTooltip = 'Expand All'; MTPS.LocalizedStrings.CollapseAllButtonTooltip = 'Collapse All';
+} finally { MTPS._injectNextScript_7 && MTPS._injectNextScript_7(); }</script><script class="mtps-injected" src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/Combined(2).js"></script><script src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/broker.js"></script><script class="mtps-injected">try {
+$(document).ready(function() {
+        try {
+            var token = $("#globalRequestVerification input[name='__RequestVerificationToken']").clone();
+            $("#siteFeedbackForm").append(token);
+        } catch(err) {
+            
+        }
+    });
+} finally { MTPS._injectNextScript_9 && MTPS._injectNextScript_9(); }</script><link href="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/PrintView.css" rel="stylesheet" type="text/css" media="print"><script type="text/javascript" src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/ms.js"></script></head>
+    <body class="library Chrome">
+        <div id="page">
+            
+
+            
+            
+            
+    
+
+    
+    <link type="text/css" rel="stylesheet">
+    
+    <input type="hidden" id="isHeaderBleeding" value="true">
+    <div id="ux-header" dir="ltr" class="ltr msdn" data-device-type="desktop">
+        
+
+      <header>
+        <span id="singleCol"></span>
+        <span id="doubleCol"></span>
+        <span id="isMobile"></span>
+        <div>
+          <div class="row topRow">
+            <div class="top">
+              <div class="left">
+                <a class="msdnLogoImg" href="https://msdn.microsoft.com/en-us">
+                  <div id="msft-logo" class="msft-logo"></div>
+                </a>
+                <div class="GrayPipe"></div>
+                  <a class="DevCenterFullNameNonMegaBlade" href="https://msdn.microsoft.com/en-us">Developer Network</a>
+                <a class="DevCenterFullName" href="https://msdn.microsoft.com/en-us">Developer Network</a>
+                <a class="DevCenterShortName" href="https://msdn.microsoft.com/en-us">Developer</a>
+              </div>
+              <div class="right">
+                <div id="signIn">
+
+  <img class="profileImage" src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/profile.jpg">
+
+
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=12&ct=1439207445&rver=6.0.5276.0&wp=MCMBI&wlcxt=MSDN%24MSDN%24MSDN&wreply=https%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fsystem.web.ui.webcontrols.calendar.selecteddate%2528v%3dvs.110%2529.aspx&lc=1033&id=254354&mkt=en-US" title="Sign in">Sign in</a></div>
+
+
+
+
+                <div class="auxNav">
+                  <div>
+                    <div data-fragmentname="Subscriptions" id="Fragment_Subscriptions" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="https://msdn.microsoft.com/subscriptions/manage/hh442900" id="Subscriptions_2153_1" xmlns="http://www.w3.org/1999/xhtml">MSDN subscriptions</a>
+</div>
+                    <div data-fragmentname="GetTools" id="Fragment_GetTools" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="http://go.microsoft.com/fwlink/?LinkId=309297&clcid=0x409&slcid=0x409&campaign=o~msft~msdn~gettools-header~dn308572" id="GetTools_2153_3" xmlns="http://www.w3.org/1999/xhtml">Get tools</a>
+</div>
+                  </div>
+                  <div>
+                    <div data-fragmentname="SocialLinks" id="Fragment_SocialLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="http://www.facebook.com/microsoftdeveloper" target="_blank" id="SocialLinks_2152_4" class="facebook" xmlns="http://www.w3.org/1999/xhtml">http://www.facebook.com/microsoftdeveloper</a>
+      </li>
+      <li>
+        <a href="https://twitter.com/msdev" target="_blank" id="SocialLinks_2152_5" class="twitter" xmlns="http://www.w3.org/1999/xhtml">https://twitter.com/msdev</a>
+      </li>
+      <li>
+        <a href="http://plus.google.com/111221966647232053570/" target="_blank" id="SocialLinks_2152_6" class="googlePlus" xmlns="http://www.w3.org/1999/xhtml">http://plus.google.com/111221966647232053570/</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row middleRow">
+            <div class="expandTop" style="display: none;">
+              <div class="left"></div>
+              <div class="right"></div>
+            </div>
+          </div>
+        </div>
+        <div id="buttomRowWrapper" class="bg_default">
+          <div class="row buttomRow bg_default">
+            <div class="bottom">
+              <div class="left">
+                <a id="grip" class="menu-icon" href="javascript:void(0)"></a>
+                
+                <div id="drawer">
+                  <div class="toc">
+                    
+        <nav>
+            <ul class="navL1">
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)" title="Technologies">Technologies</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/cloud-app-development-msdn" title="Cloud">Cloud</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/app-development-msdn" title="App Development">App Development</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/web-app-development-msdn" title="Web">Web</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/big-data-development-msdn" title="Data">Data</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/games-development-msdn" title="Gaming">Gaming</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)" title="Downloads">Downloads</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+                                            <a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="Visual Studio">Visual Studio</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/subscriptions" title="MSDN subscription access">MSDN subscription access</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/microsoft-sdks-msdn" title="SDKs">SDKs</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="Trial software">Trial software</a>
+
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/evalcenter" title="Free downloads">Free downloads</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/officeevaluationresources" title="Office resources">Office resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/sharepoint2013resources" title="SharePoint Server 2013 resources">SharePoint Server 2013 resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/sqlserver2014expressresources" title="SQL Server 2014 Express resources">SQL Server 2014 Express resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/windowsserver2012r2resources" title="Windows Server 2012 resources">Windows Server 2012 resources</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)" title="Programs">Programs</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+                                            <a href="https://rewards.msdn.microsoft.com/" title="Rewards">Rewards</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://www.microsoft.com/bizspark" title="Startups">Startups</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="Students">Students</a>
+
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/imagine/imagine-home" title="Microsoft Imagine">Microsoft Imagine</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/microsoftstudentpartners" title="Microsoft Student Partners">Microsoft Student Partners</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="Architects">Architects</a>
+
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/architects-overview-msdn" title="Overview">Overview</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/architects-case-studies-msdn" title="Case studies">Case studies</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/architects-blueprints-msdn" title="Blueprints">Blueprints</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="http://blogs.msdn.com/b/msarchitecture/" title="Blog">Blog</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="http://social.msdn.microsoft.com/forums/en-us/home?brandignore=true&sort=relevancedesc&searchterm=architecture+or+architect" title="Forums">Forums</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://events.msdn.microsoft.com/" title="Events">Events</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive toggle">
+                                            <a href="javascript:void(0)" title="MSDN Subscriptions">MSDN Subscriptions</a>
+
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/msdn-subscriptions-overview" title="Overview">Overview</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/benefits-overview" title="Benefits">Benefits</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/msdn-subscriptions-administration" title="Administrators">Administrators</a>
+                                                        </li>
+                                                </ul>
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                            <a href="javascript:void(0)" title="Community">Community</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/magazine/dd767791" title="Magazine">Magazine</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://social.msdn.microsoft.com/forums/" title="Forums">Forums</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://blogs.msdn.com/b/developer-tools/" title="Blogs">Blogs</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://tech-advisors.msdn.microsoft.com/en-us" title="Tech Advisors">Tech Advisors</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="http://channel9.msdn.com/" title="Channel 9">Channel 9</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive current toggle">
+                            <a href="javascript:void(0)" title="Documentation">Documentation</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive current">
+                                            <a href="https://msdn.microsoft.com/library" title="APIs and reference">APIs and reference</a>
+
+                                                   
+                                        </li>
+                                        <li class="inactive">
+                                            <a href="https://msdn.microsoft.com/developer-centers-msdn" title="Dev centers">Dev centers</a>
+
+                                                   
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive">
+                            <a href="https://code.msdn.microsoft.com/" title="Samples">Samples</a>
+                        </li>
+            </ul>
+        </nav>
+
+                  </div>
+                </div>
+              </div>
+              <div class="right">
+                <div data-fragmentname="SearchBox" id="Fragment_SearchBox" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="SearchBox">
+    <form id="HeaderSearchForm" name="HeaderSearchForm" method="get">
+      <button id="FakeHeaderSearchButton" value="Search" type="submit" class="header-search-button">
+        <div id="search-finder" class="search-finder"></div>
+      </button>
+      <button id="HeaderSearchButton" style="display:none" title="Search MSDN"></button>
+      <div id="searchSplitter"></div>
+      <div id="searchCloseIcon" class="search-clear-x"></div>
+      <div id="searchTextContainer" style="width: 0px; display: none;">
+        <input id="HeaderSearchTextBox" name="query" type="text" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" autocomplete="off">
+      <div id="SearchFlyoutContainer" style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; color: rgb(255, 255, 255); font-family: Arial; font-size: 16px; background-color: rgb(255, 255, 255);"><div id="SuggestionContainer"><ul style="list-style: none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;"></ul></div></div></div>
+    </form>
+    
+    
+  </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+    <div id="overlayMaskHeader"></div></div>
+    
+    
+
+
+
+<div id="skinnyRating">
+    <div class="rating">
+        <div id="s_ratingSection1">
+            <div class="title">
+                Was this page helpful?
+            </div>
+            <div class="description">
+                Your feedback about this content is important. Let us know what you think.
+            </div>
+            <div class="buttons">
+                <button class="button" id="s_ratingYes">Yes</button>
+                <button class="button" id="s_ratingNo">No</button>
+            </div>
+            <input id="s_ratingValue" type="hidden" value="">
+        </div>
+        <div id="s_ratingSection2">
+            <div id="s_skinnyRatingForm">
+                <div class="title">
+                    Additional feedback?
+                </div>
+                <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+                <div class="counter right">
+                    <span id="feedbackTextCounter">1500</span> characters remaining
+                </div>
+            </div>
+            <div class="buttons left">
+                <button class="button" id="s_ratingSubmit">Submit</button>
+                <button class="button" id="s_ratingSkipThis">Skip this</button>
+            </div>
+        </div>
+        <div id="s_ratingSection3" style="display: none">
+            <div class="title">
+                Thank you!
+            </div>
+            <div class="description">
+                We appreciate your feedback.
+            </div>
+        </div>
+
+        
+        <div id="contentFeedbackQAContainer" style="display: none;"></div>
+    </div>
+</div>
+
+        
+    <div class="printExportMenus ltr">
+        <a id="isd_printABook" href="https://msdn.microsoft.com/en-us/library/export/help/?returnUrl=%2fen-us%2flibrary%2fsystem.web.ui.webcontrols.calendar.selecteddate(v%3dvs.110).aspx" style="display: inline;">
+            Export (<span class="count">0</span>)
+        </a>
+        <a id="isd_print" href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(d=printer,v=vs.110).aspx" rel="nofollow">
+            Print 
+        </a>
+        <a id="isd_archiveControl" style="display:none;" data-include-archive="Include Previous Version" data-exclude-archive="Exclude Previous Version">
+        </a>
+    </div>
+    
+
+        <div class="printExportMenus ltr">
+        <a id="expandCollapseAll" accesskey="e" href="javascript:void(0)" title="Expand/Collapse all sections by pressing Ctrl + Shift + e">Collapse All</a>
+    </div>
+
+    
+
+
+            <div id="body">
+                
+
+
+
+
+
+
+
+
+
+    <div id="leftNav" style="width: 280px; max-width: 480px; min-height: 2349px; height: 995px;">
+
+
+
+
+<div id="tocnav" class="hide-archive" style="width: 280px; position: fixed; top: -396px;">
+
+
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ms123401.aspx" id="ms310241_MSDN.10_en-us" mtpsaliasid="" mtpsassetid="5DDC0A78-6B2C-43E3-9C56-55F45C0DFFA5_MSDN.10_en-us" mtpsshortid="ms123401_MSDN.10_en-us" title="MSDN Library">MSDN Library</a>            </div>
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ff361664(v=vs.110).aspx" id="aa139615_MSDN.10_en-us" mtpsaliasid="" mtpsassetid="43e22490-fb00-409c-8301-585a03034ae2_MSDN.10_en-us" mtpsshortid="ff361664_VS.110_en-us" title=".NET Development">.NET Development</a>            </div>
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/w0x726c2(v=vs.110).aspx" id="aa139616_MSDN.10_en-us" mtpsaliasid="" mtpsassetid="f61f02f2-2f20-483d-8f56-a9c8f3a54986_MSDN.10_en-us" mtpsshortid="w0x726c2_VS.110_en-us" title=".NET Framework 4.6 and 4.5">.NET Framework 4.6 and 4.5</a>            </div>
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/gg145045(v=vs.110).aspx" id="hh795167_VS.110_en-us" mtpsaliasid="" mtpsassetid="e18143ab-e34f-496a-9092-14147075f668_VS.110_en-us" mtpsshortid="gg145045_VS.110_en-us" title=".NET Framework Class Library">.NET Framework Class Library</a>            </div>
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/gg145018(v=vs.110).aspx" id="hh800295_VS.110_en-us" mtpsaliasid="" mtpsassetid="4d73651d-9690-9fc6-5d38-6dc15fa993d4_VS.110_en-us" mtpsshortid="gg145018_VS.110_en-us" title="System.Web Namespaces">System.Web Namespaces</a>            </div>
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/System.Web.UI.WebControls(v=vs.110).aspx" id="hh612794_VS.110_en-us" mtpsaliasid="" mtpsassetid="N:System.Web.UI.WebControls_VS.110_en-us" mtpsshortid="8bhzsw6t_VS.110_en-us" title="System.Web.UI.WebControls">System.Web.UI.WebControls</a>            </div>
+            <div class="toclevel0 " data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/System.Web.UI.WebControls.Calendar(v=vs.110).aspx" id="hh589588_VS.110_en-us" mtpsaliasid="" mtpsassetid="T:System.Web.UI.WebControls.Calendar_VS.110_en-us" mtpsshortid="15a20f24_VS.110_en-us" title="Calendar Class">Calendar Class</a>            </div>
+            <div class="toclevel1 " data-toclevel="1" data-childrenloaded="true" style="padding-left: 17px;">
+<a class="toc_expanded" href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx#"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/System.Web.UI.WebControls.Calendar_properties(v=vs.110).aspx" id="hh592878_VS.110_en-us" mtpsaliasid="" mtpsassetid="Properties.T:System.Web.UI.WebControls.Calendar_VS.110_en-us" mtpsshortid="6xzwzb40_VS.110_en-us" title="Calendar Properties">Calendar Properties</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.caption(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Caption Property">Caption Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.captionalign(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CaptionAlign Property">CaptionAlign Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.cellpadding(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CellPadding Property">CellPadding Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.cellspacing(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CellSpacing Property">CellSpacing Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.dayheaderstyle(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DayHeaderStyle Property">DayHeaderStyle Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.daynameformat(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DayNameFormat Property">DayNameFormat Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.daystyle(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DayStyle Property">DayStyle Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.firstdayofweek(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="FirstDayOfWeek Property">FirstDayOfWeek Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.nextmonthtext(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="NextMonthText Property">NextMonthText Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.nextprevformat(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="NextPrevFormat Property">NextPrevFormat Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.nextprevstyle(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="NextPrevStyle Property">NextPrevStyle Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.othermonthdaystyle(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="OtherMonthDayStyle Property">OtherMonthDayStyle Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.prevmonthtext(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="PrevMonthText Property">PrevMonthText Property</a>            </div>
+            <div class="toclevel2 current " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/Calendar.SelectedDate Property (System.Web.UI.WebControls).html" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SelectedDate Property">SelectedDate Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddates(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SelectedDates Property">SelectedDates Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddaystyle(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SelectedDayStyle Property">SelectedDayStyle Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selectionmode(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SelectionMode Property">SelectionMode Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selectmonthtext(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SelectMonthText Property">SelectMonthText Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selectorstyle(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SelectorStyle Property">SelectorStyle Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selectweektext(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SelectWeekText Property">SelectWeekText Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.showdayheader(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ShowDayHeader Property">ShowDayHeader Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.showgridlines(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ShowGridLines Property">ShowGridLines Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.shownextprevmonth(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ShowNextPrevMonth Property">ShowNextPrevMonth Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.showtitle(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ShowTitle Property">ShowTitle Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.supportsdisabledattribute(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SupportsDisabledAttribute Property">SupportsDisabledAttribute Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.titleformat(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TitleFormat Property">TitleFormat Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.titlestyle(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TitleStyle Property">TitleStyle Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.todaydaystyle(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TodayDayStyle Property">TodayDayStyle Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.todaysdate(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TodaysDate Property">TodaysDate Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.useaccessibleheader(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UseAccessibleHeader Property">UseAccessibleHeader Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.visibledate(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="VisibleDate Property">VisibleDate Property</a>            </div>
+            <div class="toclevel2 " data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.weekenddaystyle(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WeekendDayStyle Property">WeekendDayStyle Property</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew"></div>
+        
+
+<a id="NavigationResize" href="javascript:void(0)" style="left: 280px; display: inline-block;">
+    <img class="cl_nav_resize_open" src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/ImageSprite.png" title="Expand" alt="Expand">
+    <img class="cl_nav_resize_close" src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/ImageSprite.png" title="Minimize" alt="Minimize" style="display: none;">
+</a>
+
+
+
+    </div>
+<div id="content" class="content" style="margin-left: 280px; width: auto;">
+
+
+
+
+
+
+
+<div xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="topic" xmlns="http://www.w3.org/1999/xhtml" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:cs="http://msdn.microsoft.com/en-us/">
+    <h1 class="title">Calendar<span xmlns="">.</span>SelectedDate Property </h1>
+    
+    <div class="lw_vs">
+      <div id="curversion">
+        <strong>
+            .NET Framework 4.6 and 4.5
+        </strong>
+      </div>
+      <div id="versionclick">
+        <div id="vsseperator" class="cl_lw_vs_seperator"></div>
+        <div>
+          <div>
+            <a id="vsLink" href="javascript:;">
+                        Other Versions
+                    </a>
+          </div>
+          <div class="cl_vs_arrow clip10x10">
+            <img class="cl_lw_vs_arrow" id="vsArrow" alt="" src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/ImageSprite.png">
+          </div>
+        </div>
+        <ul id="vsPanel" style="display: none;">
+          <li>
+            <a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.100).aspx">.NET Framework 4</a>
+          </li>
+          <li>
+            <a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.90).aspx">.NET Framework 3.5</a>
+          </li>
+          <li>
+            <a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.85).aspx">.NET Framework 3.0</a>
+          </li>
+          <li>
+            <a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.80).aspx">.NET Framework 2.0</a>
+          </li>
+          <li>
+            <a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.71).aspx">.NET Framework 1.1</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div style="clear:both;"></div>
+    
+    <div id="mainSection">
+      <div id="mainBody">
+        <p>
+          
+        </p>
+        <div>
+          <div class="summary">
+            <p>Gets or sets the selected date.</p>
+          </div>
+        </div>
+        <p>
+          
+        </p> <strong>Namespace:</strong> 
+  &nbsp;<a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols(v=vs.110).aspx">System.Web.UI.WebControls</a><br> <strong>Assembly:</strong>
+  &nbsp;<span>System.Web</span> (in System.Web.dll)<div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="Click to collapse. Double-click to collapse all." role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Syntax</span></a><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><a id="syntaxToggle"></a>
+<div id="code-snippet-1" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabActive" dir="ltr"><a>C#</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx?cs-save-lang=1&cs-lang=cpp#code-snippet-1">C++</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx?cs-save-lang=1&cs-lang=fsharp#code-snippet-1">F#</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx?cs-save-lang=1&cs-lang=jscript#code-snippet-1">JScript</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx?cs-save-lang=1&cs-lang=vb#code-snippet-1">VB</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_23eac425-84cc-4c14-97cd-1bde0d2f2646');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_23eac425-84cc-4c14-97cd-1bde0d2f2646" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>[BindableAttribute(<span style="color:Blue;">true</span>, BindingDirection.TwoWay)]
+<span style="color:Blue;">public</span>&nbsp;DateTime&nbsp;SelectedDate { <span style="color:Blue;">get</span>; <span style="color:Blue;">set</span>; }
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+<div id="returns"><h4 class="subHeading">Property Value</h4>Type: <a href="https://msdn.microsoft.com/en-us/library/system.datetime(v=vs.110).aspx">System<span xmlns="">.</span>DateTime</a><br><span><span>A <span><a href="https://msdn.microsoft.com/en-us/library/system.datetime(v=vs.110).aspx">System<span xmlns="">.</span>DateTime</a></span> that represents the selected date. The default value is <span><a href="https://msdn.microsoft.com/en-us/library/system.datetime.minvalue(v=vs.110).aspx">DateTime<span xmlns="">.</span>MinValue</a></span>.</span><br></span></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="Click to collapse. Double-click to collapse all." role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Remarks</span></a><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><a id="remarksToggle"></a><p>Use the <span><span class="selflink">SelectedDate</span></span> property to determine the selected date on the <span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar(v=vs.110).aspx">Calendar</a></span> control.</p><p>The <span><span class="selflink">SelectedDate</span></span> property and the <span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddates(v=vs.110).aspx">SelectedDates</a></span> collection are closely related. When the <span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selectionmode(v=vs.110).aspx">SelectionMode</a></span> property is set to <span><span class="input">CalendarSelectionMode.Day</span></span>, a mode that allows only a single date selection, <span><span class="selflink">SelectedDate</span></span> and <span><span class="input">SelectedDates[0]</span></span> have the same value and <span><span class="input">SelectedDates.Count</span></span> equals 1. When the <span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selectionmode(v=vs.110).aspx">SelectionMode</a></span> property is set to <span><span class="input">CalendarSelectionMode.DayWeek</span></span> or <span><span class="input">CalendarSelectionMode.DayWeekMonth</span></span>, modes that allows multiple date selections, <span><span class="selflink">SelectedDate</span></span> and <span><span class="input">SelectedDates[0]</span></span> have the same value.</p><p>The <span><span class="selflink">SelectedDate</span></span> property is set using a <span><a href="https://msdn.microsoft.com/en-us/library/system.datetime(v=vs.110).aspx">System<span xmlns="">.</span>DateTime</a></span> object.</p><p>When the user selects a date on the <span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar(v=vs.110).aspx">Calendar</a></span> control, the <span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selectionchanged(v=vs.110).aspx">SelectionChanged</a></span> event is raised. The <span><span class="selflink">SelectedDate</span></span> property is updated to the selected date. The <span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddates(v=vs.110).aspx">SelectedDates</a></span> collection is also updated to contain just this date.</p><div class="alert"><table><tbody><tr><th align="left"><img id="alert_note" alt="Note" src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/clear.gif" title="Note" xmlns="" class="cl_IC101471"><strong>Note</strong></th></tr><tr><td><p>Both the <span><span class="selflink">SelectedDate</span></span> property and the <span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddates(v=vs.110).aspx">SelectedDates</a></span> collection are updated before the <span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selectionchanged(v=vs.110).aspx">SelectionChanged</a></span> event is raised. You can override the date selection by using the <span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.onselectionchanged(v=vs.110).aspx">OnSelectionChanged</a></span> event handler to manually set the <span><span class="selflink">SelectedDate</span></span> property. The <span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selectionchanged(v=vs.110).aspx">SelectionChanged</a></span> event does not get raised when this property is programmatically set.</p></td></tr></tbody></table></div><div class="HxLinkTable"><table class="HxLinkTable"><thead><tr valign="top"><th>Topic</th><th>Location</th></tr></thead><tbody><tr valign="top"><td><a href="https://msdn.microsoft.com/en-us/library/8k0f6h1h(v=vs.85).aspx">How to: Set Today's Date Programmatically in a Calendar Web Server Control</a></td><td>Building ASP .NET Web Applications</td></tr><tr valign="top"><td><a href="https://msdn.microsoft.com/en-us/library/h4dt2sca(v=vs.85).aspx">How to: Read Selected Dates in the Calendar Web Server Control</a></td><td>Building ASP .NET Web Applications</td></tr><tr valign="top"><td><a href="https://msdn.microsoft.com/en-us/library/8k0f6h1h(v=vs.80).aspx">How to: Set Today's Date Programmatically in a Calendar Web Server Control</a></td><td>Building ASP .NET Web Applications</td></tr><tr valign="top"><td><a href="https://msdn.microsoft.com/en-us/library/h4dt2sca(v=vs.80).aspx">How to: Read Selected Dates in the Calendar Web Server Control</a></td><td>Building ASP .NET Web Applications</td></tr><tr valign="top"><td><a href="https://msdn.microsoft.com/en-us/library/k4cbh4dh(v=vs.80).aspx">Walkthrough: Creating a Basic Web Page in Visual Web Developer</a></td><td>Building ASP .NET Web Applications in Visual Studio</td></tr></tbody></table></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="Click to collapse. Double-click to collapse all." role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Examples</span></a><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><a id="exampleToggle"></a><p>The following code example demonstrates how to use the <span><span class="selflink">SelectedDate</span></span> property to determine the selected date on the <span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar(v=vs.110).aspx">Calendar</a></span> control.</p><div>
+<div id="code-snippet-2" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabActive" dir="ltr"><a>C#</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx?cs-save-lang=1&cs-lang=vb#code-snippet-2">VB</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_dfe41568-dd27-4faf-8d0a-56d5d29bb620');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_dfe41568-dd27-4faf-8d0a-56d5d29bb620" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>&lt;%@ Page Language=<span style="color:#A31515;">"C#"</span> AutoEventWireup=<span style="color:#A31515;">"True"</span> %&gt;
+&lt;!DOCTYPE html PUBLIC <span style="color:#A31515;">"-//W3C//DTD XHTML 1.0 Transitional//EN"</span>
+    <span style="color:#A31515;">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"</span>&gt;
+&lt;html xmlns=<span style="color:#A31515;">"http://www.w3.org/1999/xhtml"</span> &gt;
+&lt;head&gt;
+    &lt;title&gt;Calendar Example&lt;/title&gt;
+&lt;script language=<span style="color:#A31515;">"C#"</span> runat=<span style="color:#A31515;">"server"</span>&gt;
+
+      <span style="color:Blue;">void</span> Selection_Change(Object sender, EventArgs e) 
+      {
+         Label1.Text = <span style="color:#A31515;">"The selected date is "</span> + Calendar1.SelectedDate.ToShortDateString();
+      }
+
+   &lt;/script&gt;
+
+&lt;/head&gt;     
+&lt;body&gt;
+
+   &lt;form id=<span style="color:#A31515;">"form1"</span> runat=<span style="color:#A31515;">"server"</span>&gt;
+
+      &lt;h3&gt;Calendar Example&lt;/h3&gt;
+
+      Select a date <span style="color:Blue;">on</span> the Calendar control.&lt;br /&gt;&lt;br /&gt;
+
+      &lt;asp:Calendar ID=<span style="color:#A31515;">"Calendar1"</span> runat=<span style="color:#A31515;">"server"</span>  
+           SelectionMode=<span style="color:#A31515;">"Day"</span> 
+           ShowGridLines=<span style="color:#A31515;">"True"</span>
+           OnSelectionChanged=<span style="color:#A31515;">"Selection_Change"</span>&gt;
+
+         &lt;SelectedDayStyle BackColor=<span style="color:#A31515;">"Yellow"</span>
+                           ForeColor=<span style="color:#A31515;">"Red"</span>&gt;
+         &lt;/SelectedDayStyle&gt;
+
+      &lt;/asp:Calendar&gt;     
+
+      &lt;hr /&gt;&lt;br /&gt;
+
+      &lt;asp:Label id=<span style="color:#A31515;">"Label1"</span> runat=<span style="color:#A31515;">"server"</span> /&gt;
+
+   &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+</div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="Click to collapse. Double-click to collapse all." role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Version Information</span></a><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><a id="versionsTitleToggle"></a><h4 class="subHeading">.NET Framework</h4>Supported in: 4.6, 4.5, 4, 3.5, 3.0, 2.0, 1.1<br></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="Click to collapse. Double-click to collapse all." role="button"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">See Also</span></a><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><a id="seeAlsoToggle"></a><h4 class="subHeading">Reference</h4><div class="seeAlsoStyle"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar(v=vs.110).aspx">Calendar Class</a></div><div class="seeAlsoStyle"><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols(v=vs.110).aspx">System.Web.UI.WebControls Namespace</a></div><div class="seeAlsoStyle"><span><a href="https://msdn.microsoft.com/en-us/library/system.datetime(v=vs.110).aspx">System<span xmlns="">.</span>DateTime</a></span></div><div class="seeAlsoStyle"><span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddates(v=vs.110).aspx">SelectedDates</a></span></div><div class="seeAlsoStyle"><span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selectionmode(v=vs.110).aspx">SelectionMode</a></span></div><div class="seeAlsoStyle"><span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendarselectionmode(v=vs.110).aspx">CalendarSelectionMode</a></span></div><div class="seeAlsoStyle"><span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selectionchanged(v=vs.110).aspx">SelectionChanged</a></span></div><div class="seeAlsoStyle"><span><a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.onselectionchanged(v=vs.110).aspx">OnSelectionChanged</a></span></div></div></div></div>
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit">Inherited
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected">Protected
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings.">
+
+
+ 
+</div>
+
+
+            </div>
+            <div class="clear"></div>
+
+            
+    
+<input name="__RequestVerificationToken" type="hidden" value="kS_0b7faQmdmKPJ0XMFx2L5Af-gsSNS16EdFbOkNvkY6Ryxo-C27g9rwcjOmOctlD6lAMMDvArB3K1xY5G4p9VN87jE1">
+<input id="ratingSubmitUrl" type="hidden" value="https://msdn.microsoft.com/en-us/library/feedback/add/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx">
+<input id="isTopicRated" type="hidden" value="false">
+
+
+    
+
+    
+    <link type="text/css" rel="stylesheet">
+    
+    <div id="ux-footer" class="" style="" dir="ltr">
+            
+            <div id="footerSock" class="librarySock both">
+                <div id="footerSockInner">
+                        <a name="feedback"></a>
+
+<div class="rating">
+    <div id="ratingSection1">
+        <div class="title">
+            Was this page helpful?
+        </div>
+        <div class="description">
+            Your feedback about this content is important.<br>Let us know what you think.
+        </div>
+        <div class="buttons">
+            <button class="button" id="ratingYes">Yes</button>
+            <button class="button" id="ratingNo">No</button>
+        </div>
+        <input id="ratingValue" type="hidden" value="">
+    </div>
+    <div id="ratingSection2">
+        <div class="title">
+            Additional feedback?
+        </div>
+        <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+        <div class="counter right">
+            <span id="feedbackTextCounter">1500</span> characters remaining
+        </div>
+        <div class="buttons left">
+            <button class="button" id="ratingSubmit">Submit</button>
+            <button class="button" id="ratingSkipThis">Skip this</button>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            Thank you!
+        </div>
+        <div class="description">
+            We appreciate your feedback.
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+    
+                    <div class="userVoice">
+    <div class="title">
+        Have a suggestion to improve MSDN Library?
+    </div>
+        <div class="description">
+            Visit our UserVoice Page to submit and vote on ideas!
+        </div>
+    <div class="buttons">
+        <a class="button" id="userVoiceButton" href="http://feedback.msdn.com/forums/257782-msdn-feature-suggestions/category/83975" target="_blank">Make a suggestion</a>
+    </div>
+</div>  
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        <footer class="top">
+            <div data-fragmentname="LeftLinks" id="Fragment_LeftLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Dev centers</div>
+    <ul class="links">
+      <li>
+        <a href="https://dev.windows.com/" id="LeftLinks_2148_1" class="windowsBlue" xmlns="http://www.w3.org/1999/xhtml">Windows</a>
+      </li>
+      <li>
+        <a href="http://dev.office.com/" id="LeftLinks_2148_3" class="office" xmlns="http://www.w3.org/1999/xhtml">Office</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/vstudio" id="LeftLinks_2148_4" class="visualStudio" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+      </li>
+      <li>
+        <a href="http://azure.microsoft.com/en-us/documentation/" target="_blank" id="LeftLinks_2148_12" xmlns="http://www.w3.org/1999/xhtml">Microsoft Azure</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/aa937802" id="LeftLinks_2148_5" xmlns="http://www.w3.org/1999/xhtml">More...</a>
+      </li>
+    </ul>
+  </div>
+</div>    
+            <div id="rightLinks">
+                <div data-fragmentname="CenterLinks1" id="Fragment_CenterLinks1" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Learning resources</div>
+    <ul class="links">
+      <li>
+        <a href="http://www.microsoftvirtualacademy.com/" id="CenterLinks1_2151_4" xmlns="http://www.w3.org/1999/xhtml">Microsoft Virtual Academy</a>
+      </li>
+      <li>
+        <a href="http://channel9.msdn.com/" id="CenterLinks1_2151_5" xmlns="http://www.w3.org/1999/xhtml">Channel 9</a>
+      </li>
+      <li>
+        <a href="http://www.interoperabilitybridges.com/" id="CenterLinks1_2151_6" xmlns="http://www.w3.org/1999/xhtml">Interoperability Bridges</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/magazine/" id="CenterLinks1_2151_7" xmlns="http://www.w3.org/1999/xhtml">MSDN Magazine</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks2" id="Fragment_CenterLinks2" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Community</div>
+    <ul class="links">
+      <li>
+        <a href="https://social.msdn.microsoft.com/forums/en-us/home" id="CenterLinks2_2151_8" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+      </li>
+      <li>
+        <a href="http://blogs.msdn.com/b/developer-tools/" id="CenterLinks2_2151_9" xmlns="http://www.w3.org/1999/xhtml">Blogs</a>
+      </li>
+      <li>
+        <a href="http://www.codeplex.com/" id="CenterLinks2_2151_10" xmlns="http://www.w3.org/1999/xhtml">Codeplex</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks3" id="Fragment_CenterLinks3" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Support</div>
+    <ul class="links">
+      <li>
+        <a href="https://msdn.microsoft.com/hh361695" id="CenterLinks3_2151_11" xmlns="http://www.w3.org/1999/xhtml">Self support</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks4" id="Fragment_CenterLinks4" xmlns="http://www.w3.org/1999/xhtml" class="nth-child-4n">
+  
+  <div class="linkList">
+    <div class="linkListTitle">Programs</div>
+    <ul class="links">
+      <li>
+        <a href="https://www.microsoft.com/bizspark/" id="CenterLinks4_2151_13" xmlns="http://www.w3.org/1999/xhtml">BizSpark (for startups)</a>
+      </li>
+      <li>
+        <a href="https://www.dreamspark.com/" id="CenterLinks4_2151_14" xmlns="http://www.w3.org/1999/xhtml">DreamSpark</a>
+      </li>
+      <li>
+        <a href="http://www.imaginecup.com/" id="CenterLinks4_2151_17" xmlns="http://www.w3.org/1999/xhtml">Imagine Cup</a>
+      </li>
+    </ul>
+  </div>
+</div>                
+            </div>
+        </footer>
+    
+        <footer class="bottom">
+            <span class="localeContainer">
+                
+    <form class="selectLocale" id="selectLocaleForm" action="https://msdn.microsoft.com/en-us/selectlocale-dmc">
+        <input type="hidden" name="fromPage" value="https%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fsystem.web.ui.webcontrols.calendar.selecteddate(v%3dvs.110).aspx">
+        <a href="https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(v=vs.110).aspx#" onclick="$(&#39;#selectLocaleForm&#39;).submit();return false;" title="Change your language">United States (English)</a>
+    </form>
+
+
+            </span>
+        
+            <div data-fragmentname="BottomLinks" id="Fragment_BottomLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="https://msdn.microsoft.com/newsletter.aspx" id="BottomLinks_2148_7" xmlns="http://www.w3.org/1999/xhtml">Newsletter</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/dn529288" id="BottomLinks_2148_8" xmlns="http://www.w3.org/1999/xhtml">Privacy &amp; cookies</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/cc300389" id="BottomLinks_2148_9" xmlns="http://www.w3.org/1999/xhtml">Terms of use</a>
+      </li>
+      <li>
+        <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" id="BottomLinks_2148_10" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+    </ul>
+  </div>
+</div>    
+            <span class="logoLegal">
+                <span class="logo"></span>
+                <span class="copyright">© 2015 Microsoft</span>
+            </span>
+        </footer>
+    </div>
+    
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">© 2015 Microsoft</div>
+            </div>
+
+            
+            
+    
+    
+    <input id="tocPaddingPerLevel" type="hidden" value="17">
+
+
+
+            <input id="MtpsDevice" type="hidden" value="Default">
+
+
+<!--[CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx. ]]-->
+
+            
+            
+            
+            
+            
+
+
+
+
+
+
+<noscript>&lt;div&gt;&lt;img alt="DCSIMG" id="Img1" width="1" height="1" src="https://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;amp;WT.js=No" /&gt;&lt;/div&gt;</noscript>
+
+
+
+
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="1zDqtSEXYnJ9REyaxTnITzY5r6k0qHiEsO7OciY_W2dDsKDFuJ9tcnPwe2JvTj1kXw-D4Dc4J0nI8sMQcQDtRlu3Ozg1">
+</div>
+
+
+        </div>
+
+        
+        
+        
+        
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"js\": \"https://i2-msdn.sec.s-msft.com\", \r\n\t\"css\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"xap\": \"https://msdn.microsoft.com\"\r\n});\r\n/**/" },
+	{ url: "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/738549yt(l=en-us,v=vs.110).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027msdnlib_dotnet\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "//\n\n            window.appInsightsId = \u002760854590-027a-4ae4-98be-2741a40f355f\u0027;\n            //" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:Utilities,1:Layout,2:Header,3:SkinnyRating,1:Rating,2:Footer,0:Topic,4:webtrendsscript,5:WEDCS,0:AppInsightsPerf,6:Toc,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Centers/Themes/StandardDevCenter/Content:2,/Areas/Library/Themes/Msdn/Content:3,/Areas/Global/Content/Webtrends/resources:4,/Areas/Library/Themes/Base/Content:5,/Areas/Library/Content:6\u0026amp;hashKey=B8008380DCD78AB06124122C695B6E0D\u0026amp;v=CA83E25777B4916E73F692451A5917EA" },
+	{ url: "https://i1.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=Msdn\u0026loc=en-us\u0026focusOnInit=false\u0026emptyWatermark=true\u0026searchButtonTooltip=Search MSDN" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:PrintExportButton,1:NavigationResize;/Areas/Library/Themes/Base/Content:0,/Areas/Library/Content:1\u0026amp;hashKey=86914F35EE0A9731DDD02541EA123CEF\u0026amp;v=CA83E25777B4916E73F692451A5917EA" },
+	{ txt: "MTPS = window.MTPS || {}; MTPS.LocalizedStrings = window.MTPS.LocalizedStrings || {}; MTPS.LocalizedStrings.ExpandButtonTooltip = \u0027Expand\u0027; MTPS.LocalizedStrings.CollapseButtonTooltip = \u0027Collapse\u0027; MTPS.LocalizedStrings.EnhancedExpandTooltip = \u0027Click to expand. Double-click to expand all.\u0027; MTPS.LocalizedStrings.EnhancedCollapseTooltip = \u0027Click to collapse. Double-click to collapse all.\u0027; MTPS.LocalizedStrings.ExpandAllButtonTooltip = \u0027Expand All\u0027; MTPS.LocalizedStrings.CollapseAllButtonTooltip = \u0027Collapse All\u0027;" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:LibraryMemberFilter,1:Toc_Fixed,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1\u0026amp;hashKey=BA0D41FD888DE12A388DAF9CAC70144D\u0026amp;v=CA83E25777B4916E73F692451A5917EA" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script>
+<script src="./Calendar.SelectedDate Property (System.Web.UI.WebControls)_files/broker-config.js"></script><div id="overlayMask"></div></body></html>

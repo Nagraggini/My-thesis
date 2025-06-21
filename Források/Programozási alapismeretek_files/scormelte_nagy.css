@@ -1,0 +1,15 @@
+﻿/*v20110525*/
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 130%;
+	margin: 0px;
+	padding:20px 0px 0px 0px;
+	background-color: #FFEFA3;
+}
+input#keres,input#keres[disabled],input#elozo,input#elozo[disabled],input#kovetkezo,input#kovetkezo[disabled] {
+	font-size:20px;
+}
+
+div.kereses {
+	margin:0px 20px 3px 270px;
+}

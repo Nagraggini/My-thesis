@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="height: 125px">
+      <form id="form1" runat="server">
+         <asp:Button ID="Button1" runat="server" Text="Hun" OnClick="hun_click" meta:resourcekey="Button1Resource1" />
+    <asp:Button ID="Button2" runat="server" Text="Eng" OnClick="eng_click" meta:resourcekey="Button2Resource1" />
+    <div>
+      
+          <asp:Menu ID="Menu1" runat="server" BackColor="White" Orientation="Horizontal"
+                DynamicHorizontalOffset="10" Font-Names="Verdana" Font-Size="1.1em" ForeColor="#284E98" 
+              StaticDisplayLevels="20"
+               StaticSubMenuIndent="110px" meta:resourcekey="Menu1Resource1"  StaticMenuItemStyle-HorizontalPadding="15" >
+       <%-- Font-Names="Verdana" ForeColor="#990000" StaticSubMenuIndent="10px" Orientation="Horizontal">--%>
+             
+        <Items>
+          <asp:MenuItem NavigateUrl="~/Fooldal.aspx" Text="Főoldal" Value="1" meta:resourcekey="MenuItemResource1" />
+          <asp:MenuItem NavigateUrl="~/Esemenyeim.aspx" Text="Eseményeim" Value="2" meta:resourcekey="MenuItemResource2"/> 
+            <asp:MenuItem NavigateUrl="~/Esemeny_letrehozas.aspx" Text="Esemény létrehozás" Value="3" meta:resourcekey="MenuItemResource3" />
+          <asp:MenuItem NavigateUrl="~/Beallitasok.aspx" Text="Beállítások" Value="4" meta:resourcekey="MenuItemResource4"/>      
+           <asp:MenuItem NavigateUrl="~/Logout.aspx" Text="Kijelentkezés" Value="5" meta:resourcekey="MenuItemResource5"/>         
+        </Items>
+        
+      </asp:Menu>
+           <br />   <br />
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            <%--<asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1">
+            </asp:Menu>--%>
+        
+        </asp:ContentPlaceHolder>
+    </div>
+        <%--<asp:Menu ID="Menu2" runat="server" DataSourceID="SiteMapDataSource1">
+        </asp:Menu>
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />--%>
+    </form>
+</body>
+</html>
